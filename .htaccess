@@ -1,0 +1,6 @@
+Header append X-FRAME-OPTIONS "DENY"
+RewriteEngine on
+Options -Indexes
+
+RewriteCond $1 !^(asset|upload|images|js|fonts|css|cache|timthumb\.php|favicon\.ico|index\.php|robots\.txt)
+RewriteRule ^(.*)$ index.php/$1 [L]
