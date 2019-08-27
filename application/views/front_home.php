@@ -108,6 +108,7 @@
                                 <div class="row">
                                     <div class="col-12 vh-center">
                                         <form action="" method="post" class="form-group">
+											<input type="hidden" name="taosach" value="1">
                                             <div class="white-text">
                                                 <div class="row">
                                                     <div class="col-sm-12 col-md-6">
@@ -184,7 +185,7 @@
                                             <div class="col-sm-12 col-md-6">
                                                 <div  class="row" style="margin-top: 5px;">
                                                     <div class="col-2">
-                                                        <h2 class="white-text number-title text-wrap number-title-border text-center">1</h2>
+                                                        <h2 class="white-text number-title text-wrap number-title-border text-center ">1</h2>
                                                     </div>
                                                     <div class="col-10">
                                                         <p class="white-text">Dịch vụ được xây dựng trên nền tảng tích hợp tri thức Đông Tây, cụ thể

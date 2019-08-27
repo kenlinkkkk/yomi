@@ -33,9 +33,9 @@ date_default_timezone_set("Asia/Bangkok");
                     <img id="iconClose" src="<?= base_url('assets/images/icons/close.png')?>" class="close-icon">
                     <h3>ĐĂNG NHẬP</h3>
                     <form method="post" action="">
-						<input type="hidden" name="isPost" id="isPost" value="1">
+						<input type="hidden" name="login" id="login" value="1">
                         <div class="form-group">
-                            <input type="text" name="phone" id="pass" class="form-control" placeholder="Số điện thoại *" value="" />
+                            <input type="text" name="phone" id="phone" class="form-control" placeholder="Số điện thoại *" value="" />
                         </div>
                         <div class="form-group">
                             <input type="password" name="pass" id="pass" class="form-control" placeholder="Mật khẩu *" value="" />
@@ -73,6 +73,11 @@ date_default_timezone_set("Asia/Bangkok");
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
+					<?php
+						if ($this->session->msisdn != 'empty' && !empty($this->session->phone)) {
+							echo '<li class="nav-item non-padding"><a class="nav-link white-text disable" href="#">Xin chào : '. $this->session->phone .'</a></li>';
+						}
+					?>
                     <li class="nav-item non-padding">
                         <a class="nav-link white-text" href="<?= base_url('tu-vi')?>">TỬ VI & PHONG THỦY</a>
                     </li>
@@ -99,7 +104,7 @@ date_default_timezone_set("Asia/Bangkok");
                             </button>
                         </a>
 						<?php
-							if ($this->session->msisdn != 'empty') {
+							if ($this->session->msisdn == 'empty') {
 								echo '<a id="dangnhapbtn" class="btn btn-primary none-radius" style="width: 120px" href="javascript://"><span><img src="'.base_url('assets/images/icons/user.png').'" style="width: 15px; height: 15px; margin-bottom: 2px"></span> ĐĂNG NHẬP</a>';
 							}
 						?>

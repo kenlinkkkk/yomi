@@ -38,14 +38,14 @@
             </div>
 
 			<div class="row">
-				<div class="col-sm-12 col-md-3">
+				<div class="col-xs-10 col-md-3 p-20">
 					<div class="card card-borderless">
-						<div class="card-header text-center" style="background-color: #6e4999;">
+						<div class="card-header text-center" style="background-color: #13a1ff;">
 							<hr>
 							<h4 class="white-text">GÓI CỐ VẤN PHONG THỦY</h4>
-							<div class="blank-80px"></div>
+							<hr>
 						</div>
-						<div class="card-body text-center" style="background-color:#593481;">
+						<div class="card-body text-center" style="background-color: #1390eb;">
 							<img src="<?= base_url('assets/images/stickers/3-star.png')?>" class="icon-star">
 							<h5 class="white-text">Soạn tin <span class="yellow-text">DK CV </span>gửi <span class="yellow-text">5899</span> </h5>
 							<p class="white-text">(Phí thuê bao <span class="yellow-text">5.000đ / 1 ngày</span> )</p>
@@ -56,15 +56,15 @@
 					</div>
 				</div>
 
-				<div class="col-sm-12 col-md-3">
+				<div class="col-xs-10 col-md-3 p-20">
 					<div class="card card-borderless">
-						<div class="card-header text-center" style="background-color:#0f619d;">
+						<div class="card-header text-center" style="background-color: #008fe1;">
 							<hr>
 							<h4 class="white-text">GÓI QUÀ TẶNG</h4>
-							<div class="blank-80px"></div>
+							<hr>
 						</div>
 
-						<div class="card-body text-center" style="background-color:#00497e;">
+						<div class="card-body text-center" style="background-color: #127ccd;">
 							<img src="<?= base_url('assets/images/stickers/one-star.png')?>" class="icon-star">
 							<h5 class="white-text">Soạn tin <span class="yellow-text">DK QT </span>gửi <span class="yellow-text">5899</span> </h5>
 							<p class="white-text">(Phí thuê bao <span class="yellow-text">2.000đ / 1 ngày</span> )</p>
@@ -75,14 +75,14 @@
 					</div>
 				</div>
 
-				<div class="col-sm-12 col-md-3">
+				<div class="col-sm-10 col-md-3 p-20">
 					<div class="card card-borderless">
-						<div class="card-header text-center" style="background-color: #6e4999;">
+						<div class="card-header text-center" style="background-color: #1379c3;">
 							<hr>
 							<h4 class="white-text">GÓI CƠ BẢN</h4>
-							<div class="blank-80px"></div>
+							<hr>
 						</div>
-						<div class="card-body text-center" style="background-color:#593481;">
+						<div class="card-body text-center" style="background-color:#136caf;">
 							<img src="<?= base_url('assets/images/stickers/3-star.png')?>" class="icon-star">
 							<h5 class="white-text">Soạn tin <span class="yellow-text">DK KP </span>gửi <span class="yellow-text">5899</span> </h5>
 							<p class="white-text">(Phí thuê bao <span class="yellow-text">1.000đ / 1 ngày</span> )</p>
@@ -101,15 +101,15 @@
 					</div>
 				</div>
 
-				<div class="col-sm-12 col-md-3">
+				<div class="col-sm-10 col-md-3 p-20">
 					<div class="card card-borderless">
-						<div class="card-header text-center" style="background-color:#0f619d;">
+						<div class="card-header text-center" style="background-color:#0d6ba5;">
 							<hr>
 							<h4 class="white-text">GÓI VIP</h4>
-							<div class="blank-80px"></div>
+							<hr>
 						</div>
 
-						<div class="card-body text-center" style="background-color:#00497e;">
+						<div class="card-body text-center" style="background-color:#0d5891;">
 							<img src="<?= base_url('assets/images/stickers/one-star.png')?>" class="icon-star">
 							<h5 class="white-text">Soạn tin <span class="yellow-text">DK PT </span>gửi <span class="yellow-text">5899</span> </h5>
 							<p class="white-text">(Phí thuê bao <span class="yellow-text">2.000đ / 1 ngày</span> )</p>

@@ -71,6 +71,24 @@ class Home_mode extends MX_Controller
 				break;
 		}
 
+		if ($this->session->msisdn != 'empty') {
+			$phone = $this->session->msisdn;
+
+			$phone_rewrite = rewitePhoneNumb($phone, 1);
+
+			$array = array(
+				'phone' => $phone_rewrite,
+			);
+
+			$this->session->set_userdata($array);
+		} else {
+			$array = array(
+				'phone' => ''
+			);
+
+			$this->session->set_userdata($array);
+		}
+
 		$footer = $this->_footer();
 		$promotion = $this->_promotion();
 

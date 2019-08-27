@@ -123,9 +123,9 @@ hr {
 .card .icon-star {
     position: relative;
     margin: auto;
-    top: -70px;
-    max-width: 100px;
-    max-height: 100px;
+    top: -55px;
+    max-width: 80px;
+    max-height: 80px;
 }
 
 .card-borderless {
@@ -422,5 +422,9 @@ ul {
         float: left;
         padding-left: 10px;
     }
+
+	.p-20 {
+		padding: 20px;
+	}
 }
 
