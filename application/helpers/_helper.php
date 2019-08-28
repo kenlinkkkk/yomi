@@ -11,10 +11,7 @@
  * @return bool|string
  */
 function aes128Encrypt($key, $data) {
-	if(16 !== strlen($key)) $key = hash('MD5', $key, true);
-	$padding = 16 - (strlen($data) % 16);
-	$data .= str_repeat(chr($padding), $padding);
-	return base64_encode(mcrypt_encrypt(MCRYPT_RIJNDAEL_128, $key, $data, MCRYPT_MODE_ECB, str_repeat("\0", 16)));
+	return base64_encode(openssl_encrypt($data, 'aes-128-ecb', $key, OPENSSL_RAW_DATA));
 }
 
 /**
@@ -23,11 +20,7 @@ function aes128Encrypt($key, $data) {
  * @return bool|string
  */
 function aes128Decrypt($key, $data) {
-	$data = base64_decode($data);
-	if(16 !== strlen($key)) $key = hash('MD5', $key, true);
-	$data = mcrypt_decrypt(MCRYPT_RIJNDAEL_128, $key, $data, MCRYPT_MODE_ECB, str_repeat("\0", 16));
-	$padding = ord($data[strlen($data) - 1]);
-	return substr($data, 0, -$padding);
+	return openssl_decrypt(base64_decode($data), 'aes-128-ecb', $key, OPENSSL_RAW_DATA);
 }
 
 /**
@@ -90,7 +83,6 @@ function checkPackageStatusAPI($msisdn) {
 	curl_setopt($ch, CURLOPT_POST, 1);
 	curl_setopt($ch, CURLOPT_POSTFIELDS,$data);
 	curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/x-www-form-urlencoded'));
-
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
 	$server_output = curl_exec ($ch);
@@ -99,21 +91,23 @@ function checkPackageStatusAPI($msisdn) {
 
 	$data = json_decode($server_output);
 	$array = array();
-	$data1= $data->data;
+	if ($data->resultCode == 1) {
+		$data1 = $data->data;
 
-	foreach ($data1 as $item => $value) {
-		if (intval($value->packageId) == 1 && intval($value->status) == 1) {
-			$array["KP"] = 1;
-		} elseif (intval($value->packageId) == 2 && intval($value->status) == 1){
-			$array["KP7"] = 1;
-		} elseif (intval($value->packageId) == 5 && intval($value->status) == 1) {
-			$array["PT"] = 1;
-		} elseif (intval($value->packageId) == 7 && intval($value->status) == 1) {
-			$array["PT7"] = 1;
-		} elseif (intval($value->packageId) == 11 && intval($value->status) == 1) {
-			$array["QT"] = 1;
-		} elseif (intval($value->packageId) == 12 && intval($value->status) == 1) {
-			$array["CV"] = 1;
+		foreach ($data1 as $item => $value) {
+			if (intval($value->packageId) == 1 && intval($value->status) == 1) {
+				$array["KP"] = 1;
+			} elseif (intval($value->packageId) == 2 && intval($value->status) == 1){
+				$array["KP7"] = 1;
+			} elseif (intval($value->packageId) == 5 && intval($value->status) == 1) {
+				$array["PT"] = 1;
+			} elseif (intval($value->packageId) == 7 && intval($value->status) == 1) {
+				$array["PT7"] = 1;
+			} elseif (intval($value->packageId) == 11 && intval($value->status) == 1) {
+				$array["QT"] = 1;
+			} elseif (intval($value->packageId) == 12 && intval($value->status) == 1) {
+				$array["CV"] = 1;
+			}
 		}
 	}
 

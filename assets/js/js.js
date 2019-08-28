@@ -2,10 +2,10 @@ $(document).ready(function () {
 	$("#sachkhampha a").click(function () {
 		var package_code =$(this).attr("rel");
 		var data = {package_code: package_code};
-
 		$.ajax({
 			type: "POST",
-			url: "mobiireg",
+			url: "mobireg",
+			data: data,
 			success: function (response) {
 				window.location.href = response;
 			}

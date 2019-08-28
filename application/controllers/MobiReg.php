@@ -13,7 +13,7 @@ class MobiReg extends MX_Controller
 		parent::__construct();
 		$this->load->library('session');
 		$this->load->helper('url');
-		$this->load->helper('helper');
+		$this->load->helper('_helper');
 		date_default_timezone_set('UTC');
 	}
 
@@ -27,7 +27,7 @@ class MobiReg extends MX_Controller
 
 		$msisdn = $this->session->userdata('msisdn');
 
-		$command_code = 'DK' . $package_code;
+		$command_code = 'DK ' . $package_code;
 
 		if (!empty($package_code) && !empty($msisdn)) {
 			$data = $trans_id . '&' . $command_code . '&' .$package_code . '&' . $back_url;

@@ -32,6 +32,9 @@ class Root extends MX_Controller
 			case 'header':
 				$html = modules::run('Header');
 				break;
+			case 'test':
+				$html = modules::run('Test');
+				break;
 			default:
 				$html = modules::run('Home_mode');
 		}

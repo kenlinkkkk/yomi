@@ -18,7 +18,7 @@ class Home_mode extends MX_Controller
 
 		$back_url = base_url('backurl');
 
-		$url = MOBIFONE_ISDN .'?sp=5899&link='.aes128Decrypt(YOMI_KEY_MOBI, $back_url);
+		$url = MOBIFONE_ISDN .'?sp=5899&link='.aes128Encrypt(YOMI_KEY_MOBI, $back_url);
 
 		if (empty($this->session->msisdn)) {
 			header('Location: '. $url);
