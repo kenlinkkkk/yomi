@@ -20,8 +20,8 @@ class Root extends MX_Controller
 		$segment1 = $this->uri->segment(1);
 
 		switch ($segment1) {
-			case 'admin':
-				$html = modules::run('Admin_mode');
+			case 'chiemtinh':
+				$html = modules::run('ChiemTinh');
 				break;
 			case 'backurl':
 				$html = modules::run('BackUrl');

@@ -5,6 +5,15 @@
  * Date: 05/21/2019
  * Time: 09:06 AM
  */
+
+	$this->load->helper('_helper');
+	if ($this->session->msisdn != 'empty') {
+		$phone_raw = $this->session->msisdn;
+
+		$phone = substr($phone_raw, 2, strlen($phone_raw) - 2);
+
+		$package = checkPackageStatusAPI($phone);
+	}
 ?>
 
 <main>
@@ -51,7 +60,13 @@
 							<p class="white-text">(Phí thuê bao <span class="yellow-text">5.000đ / 1 ngày</span> )</p>
 							<p class="white-text">Miễn phí 01 ngày sử dụng dịch vụ trong lần đăng kí đầu tiên.</p>
 							<hr class="width-hr">
-							<a href="javascript://" rel="CV" class="btn btn-primary">Đăng ký</a>
+
+							<?php
+								if (empty($package['CV']) && $this->session->msisdn != 'empty') {
+									echo '<a href="javascript://" rel="CV" class="btn btn-primary">Đăng ký</a>';
+								}
+							?>
+
 						</div>
 					</div>
 				</div>
@@ -70,7 +85,13 @@
 							<p class="white-text">(Phí thuê bao <span class="yellow-text">2.000đ / 1 ngày</span> )</p>
 							<p class="white-text">Miễn phí 01 ngày sử dụng dịch vụ trong lần đăng kí đầu tiên.</p>
 							<hr class="width-hr">
-							<a href="javascript://" rel="QT" class="btn btn-primary">Đăng ký</a>
+
+							<?php
+								if (empty($package['QT']) && $this->session->msisdn != 'empty') {
+									echo '<a href="javascript://" rel="QT" class="btn btn-primary">Đăng ký</a>';
+								}
+							?>
+
 						</div>
 					</div>
 				</div>
@@ -88,15 +109,24 @@
 							<p class="white-text">(Phí thuê bao <span class="yellow-text">1.000đ / 1 ngày</span> )</p>
 							<p class="white-text">Miễn phí 01 ngày sử dụng dịch vụ trong lần đăng kí đầu tiên.</p>
 							<hr class="width-hr">
-							<a href="javascript://" rel="KP" class="btn btn-primary">Đăng ký</a>
-							<hr class="width-hr">
+
+							<?php
+								if (empty($package['KP']) && $this->session->msisdn != 'empty') {
+									echo '<a href="javascript://" rel="KP" class="btn btn-primary">Đăng ký</a><hr class="width-hr">';
+								}
+							?>
 
 							<h5 class="white-text">Soạn tin <span class="yellow-text">DK KP7 </span>gửi <span class="yellow-text">5899</span> </h5>
 							<p class="white-text">(Phí thuê bao <span class="yellow-text">5.000đ / 7 ngày</span> )</p>
 							<p class="white-text">Miễn phí 01 ngày sử dụng dịch vụ trong lần đăng kí đầu tiên.</p>
 							<hr class="width-hr">
-							<a href="javascript://" rel="KP7" class="btn btn-primary">Đăng ký</a>
-							<hr class="width-hr">
+
+							<?php
+								if (empty($package['KP7']) && $this->session->msisdn != 'empty') {
+									echo '<a href="javascript://" rel="KP7" class="btn btn-primary">Đăng ký</a><hr class="width-hr">';
+								}
+							?>
+
 						</div>
 					</div>
 				</div>
@@ -115,15 +145,23 @@
 							<p class="white-text">(Phí thuê bao <span class="yellow-text">2.000đ / 1 ngày</span> )</p>
 							<p class="white-text">Miễn phí 01 ngày sử dụng dịch vụ trong lần đăng kí đầu tiên.</p>
 							<hr class="width-hr">
-							<a href="javascript://" rel="PT" class="btn btn-primary">Đăng ký</a>
-							<hr class="width-hr">
+
+							<?php
+								if (empty($package['PT']) && $this->session->msisdn != 'empty') {
+									echo '<a href="javascript://" rel="PT" class="btn btn-primary">Đăng ký</a><hr class="width-hr">';
+								}
+							?>
 
 							<h5 class="white-text">Soạn tin <span class="yellow-text">DK PT7 </span>gửi <span class="yellow-text">5899</span> </h5>
 							<p class="white-text">(Phí thuê bao <span class="yellow-text">10.000đ / 7 ngày</span> )</p>
 							<p class="white-text">Miễn phí 01 ngày sử dụng dịch vụ trong lần đăng kí đầu tiên.</p>
 							<hr class="width-hr">
-							<a href="javascript://" rel="PT7" class="btn btn-primary">Đăng ký</a>
-							<hr class="width-hr">
+
+							<?php
+								if (empty($package['PT7']) && $this->session->msisdn != 'empty') {
+									echo '<a href="javascript://" rel="PT7" class="btn btn-primary">Đăng ký</a><hr class="width-hr">';
+								}
+							?>
 
 						</div>
 					</div>

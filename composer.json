@@ -14,7 +14,9 @@
 		"php": ">=5.3.7",
 	  "ext-curl": "*",
 	  "ext-json": "*",
-	  "ext-openssl": "*"
+	  "ext-openssl": "*",
+	  "ext-mbstring": "*",
+	  "ext-mysqli": "*"
 	},
 	"suggest": {
 		"paragonie/random_compat": "Provides better randomness in PHP 5.x"

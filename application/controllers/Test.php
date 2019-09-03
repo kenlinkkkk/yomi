@@ -13,17 +13,50 @@ class Test extends MX_Controller
 		parent::__construct();
 		$this->load->helper('_helper');
 		$this->load->helper('url');
+		$this->load->model('query');
 	}
 
 	public function index()
 	{
-		$str = "hello";
 
-		echo 'Mcrypt: '.aes128Encrypt(YOMI_KEY_MOBI, $str);
-		echo '<br>';
-		echo 'Openssl: '. base64_encode(openssl_encrypt($str, 'aes-128-ecb', YOMI_KEY_MOBI, OPENSSL_RAW_DATA));
-		echo '<br>';
-		echo 'Decrypt: '. openssl_decrypt(base64_decode('DwCD9YrzrM0vIQ0vSLXSzg=='), 'aes-128-ecb', YOMI_KEY_MOBI, OPENSSL_RAW_DATA);
-		echo '<br>';
+		$data = $this->getHanTu('tung');
+
+
+//		var_dump($data);
+
+
+//		echo decbin(ord('tùng')).'<br>';
+//		echo decbin(ord($data[1]['text'])).'- '.$data[1]['text'].'<br>';
+
+		foreach ($data as $item) {
+			if ($item['text'] == 'tùng') {
+				echo $item['text']. ' - 1 <br>';
+			} else {
+				echo $item['text']. ' - 2 <br>';
+			}
+		}
+
+	}
+
+	public function abc()
+	{
+		$data = array(
+			'que' => 'HUNG',
+			'kq' => 'ádjhákjdh',
+			'dien_giai' => 'ákdjhạkdh',
+		);
+
+		return $this->load->view('front_boi', $data, TRUE);
+	}
+
+	public function getHanTu($word) {
+		$results = $this->db->where("text=" , $word)
+			->get('han_tu')
+			->result_array();
+		if (empty($results)) {
+			return 'empty';
+		} else {
+			return $results;
+		}
 	}
 }

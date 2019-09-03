@@ -355,6 +355,15 @@ ul {
     background-color: rgba(255,255,255,0.2);
 }
 
+.btn-custom {
+	width: 80px;
+	background-color: #7600ff;
+}
+
+.btn-custom:hover {
+	background-color: rgba(118, 0, 255, 0.67);
+}
+
 @media (max-width: 991.98px) {
 	/*custom show navbar*/
 	.navbar-collapse {

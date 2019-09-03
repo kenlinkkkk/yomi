@@ -113,4 +113,8 @@ function checkPackageStatusAPI($msisdn) {
 
 	return $array;
 }
+
+function str_name($str) {
+	return mb_convert_case($str, MB_CASE_TITLE, "UTF-8");
+}
 ?>

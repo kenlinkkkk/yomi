@@ -59,10 +59,10 @@
                                 <div class="col-1">
                                     <h2 class="white-text number-title text-wrap">5</h2>
                                 </div>
-                                <div class="col-11">
+                                <div class="col-11 tabble-responsive">
                                     <h5 class="white-text">CƠ CẤU GIẢI THƯỞNG</h5>
 
-                                    <table class="table-responsive table-bordered">
+                                    <table class="table table-bordered">
                                         <thead>
                                         <tr>
                                             <th scope="col">STT</th>
