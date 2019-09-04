@@ -5,7 +5,14 @@
  * Date: 05/21/2019
  * Time: 02:49 PM
  */
+$this->load->helper('_helper');
+if ($this->session->msisdn != 'empty') {
+	$phone_raw = $this->session->msisdn;
 
+	$phone = substr($phone_raw, 2, strlen($phone_raw) - 2);
+
+	$package = checkPackageStatusAPI($phone);
+}
 ?>
 
 <main>
@@ -113,53 +120,56 @@
                                                 <div class="row">
                                                     <div class="col-sm-12 col-md-6">
                                                         <label for="">Họ và tên (Đầy đủ, có đấu)</label>
-                                                        <input type="text" class="form-control custom-input" name="name">
+                                                        <input type="text" class="form-control custom-input" name="name" required="required">
                                                     </div>
                                                     <div class="col-sm-12 col-md-6">
                                                         <label for="">Giờ sinh</label>
-                                                        <input type="text" class="form-control custom-input" name="giosinh">
+                                                        <input type="number" class="form-control custom-input" name="giosinh" required="required" min="00" max="23">
                                                     </div>
                                                 </div>
                                                 <hr>
                                                 <div class="row">
                                                     <div class="col-sm-12 col-md-4">
                                                         <label for="">Ngày sinh</label>
-                                                        <input type="text" class="form-control custom-input" name="ngaysinh">
+                                                        <input type="number" class="form-control custom-input" name="ngaysinh" required="required" min="01" max="31">
                                                     </div>
                                                     <div class="col-sm-12 col-md-4">
                                                         <label for="">Tháng sinh</label>
-                                                        <input type="text" class="form-control custom-input" name="thangsinh">
+                                                        <input type="number" class="form-control custom-input" name="thangsinh" required="required" min="01" max="12">
                                                     </div>
                                                     <div class="col-sm-12 col-md-4">
                                                         <label for="">Năm sinh</label>
-                                                        <input type="text" class="form-control custom-input" name="namsinh">
+                                                        <input type="text" class="form-control custom-input" name="namsinh" required="required">
                                                     </div>
                                                 </div>
                                                 <hr>
                                                 <div class="row">
                                                     <div class="col-sm-12 col-md-6">
                                                         <label for="">Giới tính</label>
-                                                        <input type="text" class="form-control custom-input" name="gioitinh">
+														<select class="form-control custom-input" name="gioitinh" required="required">
+															<option value="m" class="selector" selected="selected">Nam</option>
+															<option value="f" class="selector">Nữ</option>
+														</select>
                                                     </div>
                                                     <div class="col-sm-12 col-md-6">
                                                         <label for="">Email (Kết quả sẽ trả về email này)</label>
-                                                        <input type="email" class="form-control custom-input" name="email">
+                                                        <input type="email" class="form-control custom-input" name="email" required="required">
                                                     </div>
                                                 </div>
                                                 <hr>
                                                 <div class="row">
                                                     <div class="col-6">
                                                         <center>
-                                                            <button class="btn btn-outline-light none-radius" type="submit" name="btnSubmit" style="width: 120px">
-                                                                    <span><img src="<?= base_url('assets/images/icons/book.png')?>" style="width: 20px; height: 20px; margin-bottom: 2px"></span> TẠO SÁCH
-                                                            </button>
+															<?php
+																if ($this->session->msisdn != 'empty' && $package['status'] != 0) {
+																	echo '<a class="btn btn-outline-light none-radius" id="btnSubmit" name="btnSubmit" style="width: 120px" href="javascript://"><span><img src="'.base_url('assets/images/icons/book.png').'" style="width: 20px; height: 20px; margin-bottom: 2px"></span> TẠO SÁCH</a>';
+																}
+															?>
                                                         </center>
                                                     </div>
                                                     <div class="col-6">
                                                         <center>
-                                                            <button class="btn btn-primary none-radius" name="btnTry" style="width: 120px">
-                                                                <span><img src="<?= base_url('assets/images/icons/eye.png')?>" style="width: 20px; height: 20px; margin-bottom: 2px"></span> DÙNG THỬ
-                                                            </button>
+																<a class="btn btn-primary none-radius" name="btnTry" id="btnTry" style="width: 120px" href="javascript://"><span><img src="<?=base_url('assets/images/icons/eye.png')?>" style="width: 20px; height: 20px; margin-bottom: 2px"></span> DÙNG THỬ</a>
                                                         </center>
                                                     </div>
                                                 </div>
@@ -216,7 +226,8 @@
                                                         <h2 class="white-text number-title text-wrap number-title-border text-center">1</h2>
                                                     </div>
                                                     <div class="col-10">
-                                                        <p class="white-text">1234</p>
+                                                        <p class="white-text">Dịch vụ ra đời nhằm giúp bạn trả lời những câu hỏi như: Tôi là ai?, Tôi cần điều gì?, Tôi có những gì?, Năm tới của tôi ra sao?, Sự nghiệp và công danh của tôi?, Tình duyên của tôi?, Cuộc đời của tôi rồi sẽ ra sao?.</p>
+														<p class="white-text">Từ đó đưa ra được những đánh giá và lời khuyên hữu ích từ các nhà tâm lý học và các chuyên gia trong lĩnh vực nhân sự nhằm định hướng quy trình phát triển nội lực cho mỗi cá nhân một cách hoàn thiện nhất.</p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -226,7 +237,8 @@
                                                         <h2 class="white-text number-title text-wrap number-title-border text-center">2</h2>
                                                     </div>
                                                     <div class="col-10">
-                                                        <p class="white-text">567</p>
+                                                        <p class="white-text">Chúng tôi hi vọng bạn sẽ tìm thấy được những điểm mạnh trong cấu trúc bẩm sinh của mình để tiếp tục phát triển sức mạnh nội lực của bản thân, đồng thời phát hiện ra các yếu điểm để khắc phục và hạn chế nó nhằm gặt hái được nhiều thành công hơn trong con đường phát triển tương lai.</p>
+														<p class="white-text">Các bản báo cáo này là một công cụ giá trị để bạn định vị những mặt ưu - khuyết và các năng lực tiềm tàng của bản thân. Nó cũng đưa ra hệ thống lời khuyên nhằm định hướng, khắc phục, bổ khuyết những mặt còn thiết sót giúp bạn hoàn thiện bản thân, đặt nền móng vững chắc nhất cho con đường xây dựng thành công của bạn.</p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -234,24 +246,23 @@
                                     </div>
                                     <div class="tab-pane fade" id="nav-3" role="tabpanel" aria-labelledby="nav-contact-tab">
                                         <div class="row">
-                                            <div class="col-sm-12 col-md-6">
+                                            <div class="col-10 vh-center">
                                                 <div  class="row" style="margin-top: 5px;">
-                                                    <div class="col-2">
-                                                        <h2 class="white-text number-title text-wrap number-title-border text-center">1</h2>
-                                                    </div>
-                                                    <div class="col-10">
-                                                        <p class="white-text">567</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-12 col-md-6 border-show">
-                                                <div  class="row" style="margin-top: 5px;">
-                                                    <div class="col-2">
-                                                        <h2 class="white-text number-title text-wrap number-title-border text-center">2</h2>
-                                                    </div>
-                                                    <div class="col-10">
-                                                        <p class="white-text">123</p>
-                                                    </div>
+                                                    <p class="white-text">Dịch vụ cung cấp các bản báo cáo đánh giá về năng lực con người, nêu bật những đặc điểm cốt yếu về tính cách, khí chất, ham muốn và năng lực của bạn. Các yếu tố này có ảnh sâu sắc đến cách thức bạn tương tác với mọi người xung quanh, phương pháp bạn làm việc và quy định cả mức độ hạnh phúc và thành đạt của bạn trong cuộc sống.</p>
+
+													<ul class="white-text">
+														<p class="white-text">Dịch vụ giúp bạn trả lời những câu hỏi:</p>
+														<li>Bạn không hiểu chính mình?</li>
+														<li>Bạn đang thất vọng với những mối quan hệ xung quanh mình?</li>
+														<li>Bạn có quá nhiều hoặc quá ít ham muốn không thể gọi tên?</li>
+														<li>Bạn không biết năng lực của chính mình?</li>
+														<li>Bạn chưa thể cân bằng được bản thân và cuộc sống</li>
+														<li>Bạn là ai, là cái gì, và là điều gì ?</li>
+														<li>Bạn cần lời khuyên cho những khó khăn trong tính cách của mình ?</li>
+														<li>Bạn cần lời khuyên cho những năng lực chưa thể gọi tên</li>
+														<li>Bạn muốn biết 25 chỉ số của bản thân ?</li>
+														<li>Bạn muốn so sánh mình với người khác ?</li>
+													</ul>
                                                 </div>
                                             </div>
                                         </div>

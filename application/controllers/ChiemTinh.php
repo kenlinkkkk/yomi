@@ -23,32 +23,32 @@ class ChiemTinh extends MX_Controller
 		$segment1 = $this->uri->segment(1);
 		$phone = $this->session->msisdn;
 
-		if ($phone != 'empty') {
-			$phone = substr($phone, 2, strlen($phone) - 2);
-			if ($segment1 == 'chiem-tinh') {
-				switch ($segment2) {
-					case 'boi-sim':
-						$main = $this->boi_sim($phone);
-						break;
-					case 'tong-quan-cung-hoang-dao';
-						$main = $this->tq_cunghoangdao();
-						break;
-				}
+		$phone = substr($phone, 2, strlen($phone) - 2);
+
+		if ($segment1 == 'chiem-tinh') {
+			switch ($segment2) {
+				case 'boi-sim':
+					$main = $this->boi_sim($phone);
+					break;
+				case 'tong-quan-cung-hoang-dao';
+					$main = $this->tq_cunghoangdao();
+					break;
+				case 'tao-sach':
+					$main = $this->sachkhampha();
+					break;
 			}
-
-			$promotion = $this->load->view('front_promotion', '', TRUE);
-			$footer = $this->load->view('front_footer', '', TRUE);
-
-			$data = array(
-				'main' => $main,
-				'promotion' => $promotion,
-				'footer' => $footer,
-			);
-
-			return $this->load->view('front_layout', $data, TRUE);
-		} else {
-			header('Location: '. base_url('sach-kham-pha'));
 		}
+
+		$promotion = $this->load->view('front_promotion', '', TRUE);
+		$footer = $this->load->view('front_footer', '', TRUE);
+
+		$data = array(
+			'main' => $main,
+			'promotion' => $promotion,
+			'footer' => $footer,
+		);
+
+		return $this->load->view('front_layout', $data, TRUE);
 
 	}
 
@@ -127,5 +127,35 @@ class ChiemTinh extends MX_Controller
 		);
 
 		return $data;
+	}
+
+	public function sachkhampha()
+	{
+		if (!empty($_POST['name'])) {
+			$param = array(
+				'email' => $_POST['email'],
+				'birth_hour' => $_POST['giosinh'],
+				'birth_date' => $_POST['ngaysinh'],
+				'birth_month' => $_POST['thangsinh'],
+				'birth_year' => $_POST['namsinh'],
+				'gender' => $_POST['gioitinh'],
+				'fullname' => $_POST['name'],
+				'username' => substr($this->session->msisdn, 1, strlen($this->session->msisdn) - 1),
+			);
+
+			$results = sachkhampha(API_PAY_BOOK, $param);
+
+			echo $results->status;
+			die();
+		} else {
+			$param = array(
+				'email' => $_POST['email'],
+			);
+
+			$results = sachkhampha(API_TRAIL_BOOK, $param);
+
+			echo $results->status;
+			die();
+		}
 	}
 }

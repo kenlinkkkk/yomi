@@ -5,6 +5,14 @@
  * Date: 05/21/2019
  * Time: 01:36 PM
  */
+$this->load->helper('_helper');
+if ($this->session->msisdn != 'empty') {
+	$phone_raw = $this->session->msisdn;
+
+	$phone = substr($phone_raw, 2, strlen($phone_raw) - 2);
+
+	$package = checkPackageStatusAPI($phone);
+}
 ?>
 
 <main>
@@ -28,7 +36,11 @@
 									<hr class="width-hr">
 									<h4 class="yellow-text">XEM DANH TÍNH</h4>
 									<p class="white-text">Tên bạn và những người bạn quan tâm ảnh hưởng như thế nào đến vận mệnh.?</p>
-									<a href="<?= base_url('chiem-tinh/xem-danh-tinh')?>" class="btn btn-primary">XEM THÊM</a>
+									<?php
+										if ($this->session->msisdn != 'empty' && $package['status'] != 0) {
+											echo '<a href="'.base_url('dang-ky').'" class="btn btn-primary">XEM THÊM</a>';
+										}
+									?>
 								</div>
 							</div>
 						</div>
@@ -46,7 +58,11 @@
 									<hr class="width-hr">
 									<h4 class="yellow-text">XEM SỐ ĐIỆN THOẠI</h4>
 									<p class="white-text">Sim số điện thoại có phù hợp với phong thủy của bạn không?</p>
-									<a href="<?= base_url('chiem-tinh/boi-sim')?>" class="btn btn-primary">XEM THÊM</a>
+									<?php
+										if ($this->session->msisdn != 'empty' && $package['status'] != 0) {
+											echo '<a href="'.base_url('chiem-tinh/boi-sim').'" class="btn btn-primary">XEM THÊM</a>';
+										}
+									?>
 								</div>
 							</div>
 						</div>
@@ -66,7 +82,11 @@
 									<hr class="width-hr">
 									<h4 class="yellow-text">XEM NGÀY TỐT XẤU</h4>
 									<p class="white-text">Hôm nay của bạn thế nào? Có gì tốt và điều gì không may mắn có thể đến với bạn?</p>
-									<a href="<?= base_url('sach-kham-pha')?>" class="btn btn-primary">XEM THÊM</a>
+									<?php
+										if ($this->session->msisdn != 'empty' && $package['status'] != 0) {
+											echo '<a href="'.base_url('dang-ky').'" class="btn btn-primary">XEM THÊM</a>';
+										}
+									?>
 								</div>
 							</div>
 						</div>
@@ -84,7 +104,11 @@
 									<hr class="width-hr">
 									<h4 class="yellow-text">LỊCH VẠN SỰ</h4>
 									<p class="white-text">Xem nhanh lịch âm dương, hướng đi, việc nên làm, không nên làm.</p>
-									<a href="<?= base_url('sach-kham-pha')?>" class="btn btn-primary">XEM THÊM</a>
+									<?php
+										if ($this->session->msisdn != 'empty' && $package['status'] != 0) {
+											echo '<a href="'. base_url('dang-ky').'" class="btn btn-primary">XEM THÊM</a>';
+										}
+									?>
 								</div>
 							</div>
 						</div>

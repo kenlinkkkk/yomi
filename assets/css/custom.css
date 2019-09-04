@@ -249,11 +249,21 @@ ul li {
     border-radius: 0px !important;
     border: 1px solid white !important;
     background-color:rgba(0, 0, 0, 0);
+	color: #ffffff;
 }
 
 .custom-input:focus {
     background-color: rgba(0, 0, 0, 0);
     color: white;
+}
+
+.custom-input > text {
+	color: white;
+}
+
+.selector {
+	background-color: rgba(0, 0, 0, 0);
+	color: black;
 }
 
 .pill-width:hover {

@@ -5,6 +5,14 @@
  * Date: 05/21/2019
  * Time: 02:08 PM
  */
+$this->load->helper('_helper');
+if ($this->session->msisdn != 'empty') {
+	$phone_raw = $this->session->msisdn;
+
+	$phone = substr($phone_raw, 2, strlen($phone_raw) - 2);
+
+	$package = checkPackageStatusAPI($phone);
+}
 ?>
 
 <main>
@@ -28,7 +36,11 @@
                                     <hr class="width-hr">
                                     <h4 class="blue-text">TỔNG QUAN CUNG HOÀNG ĐẠO</h4>
                                     <p class="white-text">Tổng hợp những thông tin cơ bản nhất về cung hoàng đạo.</p>
-									<a href="<?= base_url('chiem-tinh/tong-quan-cung-hoang-dao')?>" class="btn btn-primary">XEM THÊM</a>
+									<?php
+										if ($this->session->msisdn != 'empty' && $package['status'] != 0) {
+											echo '<a href="'. base_url('chiem-tinh/tong-quan-cung-hoang-dao').'" class="btn btn-primary">XEM THÊM</a>';
+										}
+									?>
                                 </div>
                             </div>
                         </div>
@@ -46,7 +58,11 @@
                                     <hr class="width-hr">
                                     <h4 class="blue-text">CHI TIẾT CUNG HOÀNG ĐẠO</h4>
                                     <p class="white-text">Tìm hiểu đặc điểm riêng, độc đáo nhất của cung hoàng đạo.</p>
-									<a href="<?= base_url('sach-kham-pha')?>" class="btn btn-primary">XEM THÊM</a>
+									<?php
+										if ($this->session->msisdn != 'empty' && $package['status'] != 0) {
+											echo '<a href="'. base_url('dang-ky').'" class="btn btn-primary">XEM THÊM</a>';
+										}
+									?>
                                 </div>
                             </div>
                         </div>
@@ -66,7 +82,11 @@
                                     <hr class="width-hr">
                                     <h4 class="blue-text">TRA CỨU NGÀY TUẦN THÁNG</h4>
                                     <p class="white-text">Hôm nay cung hoàng đạo của bạn sẽ gặp điều may mắn gì?</p>
-									<a href="<?= base_url('sach-kham-pha')?>" class="btn btn-primary">XEM THÊM</a>
+									<?php
+										if ($this->session->msisdn != 'empty' && $package['status'] != 0) {
+											echo '<a href="'. base_url('dang-ky').'" class="btn btn-primary">XEM THÊM</a>';
+										}
+									?>
 								</div>
                             </div>
                         </div>
@@ -84,7 +104,11 @@
                                     <hr class="width-hr">
                                     <h4 class="blue-text">KẾT HỢP CUNG HOÀNG ĐẠO</h4>
                                     <p class="white-text">Sư tử và Xử nữ, Bảo bình và Ma kết,..? Các cung khi kết hợp với nhau sẽ như thế nào?</p>
-									<a href="<?= base_url('sach-kham-pha')?>" class="btn btn-primary">XEM THÊM</a>
+									<?php
+										if ($this->session->msisdn != 'empty' && $package['status'] != 0) {
+											echo '<a href="'. base_url('dang-ky').'" class="btn btn-primary">XEM THÊM</a>';
+										}
+									?>
 								</div>
                             </div>
                         </div>

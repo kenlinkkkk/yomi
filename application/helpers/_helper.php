@@ -84,6 +84,7 @@ function checkPackageStatusAPI($msisdn) {
 	curl_setopt($ch, CURLOPT_POSTFIELDS,$data);
 	curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/x-www-form-urlencoded'));
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+	curl_setopt($ch, CURLOPT_TIMEOUT, 10);
 
 	$server_output = curl_exec ($ch);
 
@@ -93,7 +94,7 @@ function checkPackageStatusAPI($msisdn) {
 	$array = array();
 	if ($data->resultCode == 1) {
 		$data1 = $data->data;
-
+		$array['status'] = 1;
 		foreach ($data1 as $item => $value) {
 			if (intval($value->packageId) == 1 && intval($value->status) == 1) {
 				$array["KP"] = 1;
@@ -109,9 +110,29 @@ function checkPackageStatusAPI($msisdn) {
 				$array["CV"] = 1;
 			}
 		}
+	} else {
+		$array['status'] = 0;
 	}
 
 	return $array;
+}
+
+function sachkhampha($url, $param) {
+	$ch = curl_init();
+	$post = http_build_query($param);
+
+	curl_setopt($ch, CURLOPT_URL, $url);
+	curl_setopt($ch, CURLOPT_POST, 1);
+	curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+	curl_setopt($ch, CURLOPT_TIMEOUT, 300);
+
+
+	$server_output = curl_exec($ch);
+
+	curl_close($ch);
+
+	return json_decode($server_output);
 }
 
 function str_name($str) {

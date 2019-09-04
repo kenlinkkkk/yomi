@@ -11,6 +11,45 @@ $(document).ready(function () {
 			}
 		});
 	});
+
+	$("#btnSubmit").click(function () {
+		var data = $(":input").serializeArray();
+		// console.log(data);
+		$.ajax({
+			type: "POST",
+			url: "chiem-tinh/tao-sach",
+			data: data,
+			success: function (resp) {
+				if (resp == 1) {
+					alert("Nhận sách khám phá bản thân thành công");
+					location.reload();
+				} else {
+					alert("Có lỗi khi tạo sách! Vui lòng thử lại");
+					location.reload();
+				}
+			}
+		});
+	});
+
+	$("#btnTry").click(function () {
+		var ar = $(":input").serializeArray();
+		var data = {email: ar[10].value};
+		// console.log(data);
+		$.ajax({
+			type: "POST",
+			url: "chiem-tinh/tao-sach",
+			data: data,
+			success: function (resp) {
+				if (resp == 1) {
+					alert("Nhận sách khám phá bản thân thành công");
+					location.reload();
+				} else {
+					alert("Có lỗi khi tạo sách! Vui lòng thử lại");
+					location.reload();
+				}
+			}
+		});
+	});
 });
 
 $(window).scroll(function() {

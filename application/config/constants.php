@@ -92,3 +92,5 @@ defined('EXIT__AUTO_MAX')      OR define('EXIT__AUTO_MAX', 125); // highest auto
 define('YOMI_KEY_MOBI', 'km12tXwuXaJ8Hagh');
 define('MOBIFONE_CONFIRM', 'http://free.mobifone.vn/confirm');
 define('MOBIFONE_ISDN','http://free.mobifone.vn/isdn');
+define('API_TRAIL_BOOK', 'http://127.0.0.1:8081/email/trial_email');
+define('API_PAY_BOOK', 'http://127.0.0.1:8081/email/ctbs_email');
