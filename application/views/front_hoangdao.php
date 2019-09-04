@@ -28,6 +28,7 @@
                                     <hr class="width-hr">
                                     <h4 class="blue-text">TỔNG QUAN CUNG HOÀNG ĐẠO</h4>
                                     <p class="white-text">Tổng hợp những thông tin cơ bản nhất về cung hoàng đạo.</p>
+									<a href="<?= base_url('chiem-tinh/tong-quan-cung-hoang-dao')?>" class="btn btn-primary">XEM THÊM</a>
                                 </div>
                             </div>
                         </div>
@@ -45,6 +46,7 @@
                                     <hr class="width-hr">
                                     <h4 class="blue-text">CHI TIẾT CUNG HOÀNG ĐẠO</h4>
                                     <p class="white-text">Tìm hiểu đặc điểm riêng, độc đáo nhất của cung hoàng đạo.</p>
+									<a href="<?= base_url('sach-kham-pha')?>" class="btn btn-primary">XEM THÊM</a>
                                 </div>
                             </div>
                         </div>
@@ -64,7 +66,8 @@
                                     <hr class="width-hr">
                                     <h4 class="blue-text">TRA CỨU NGÀY TUẦN THÁNG</h4>
                                     <p class="white-text">Hôm nay cung hoàng đạo của bạn sẽ gặp điều may mắn gì?</p>
-                                </div>
+									<a href="<?= base_url('sach-kham-pha')?>" class="btn btn-primary">XEM THÊM</a>
+								</div>
                             </div>
                         </div>
                         <div class="col-sm-12 col-md-2">
@@ -81,7 +84,8 @@
                                     <hr class="width-hr">
                                     <h4 class="blue-text">KẾT HỢP CUNG HOÀNG ĐẠO</h4>
                                     <p class="white-text">Sư tử và Xử nữ, Bảo bình và Ma kết,..? Các cung khi kết hợp với nhau sẽ như thế nào?</p>
-                                </div>
+									<a href="<?= base_url('sach-kham-pha')?>" class="btn btn-primary">XEM THÊM</a>
+								</div>
                             </div>
                         </div>
                     </div>

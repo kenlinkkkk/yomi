@@ -45,6 +45,9 @@ class Home_mode extends MX_Controller
 			case 'sach-kham-pha':
 				$main = $this->_sachkhampha();
 				break;
+			case 'dang-ky':
+				$main = $this->_dangky();
+				break;
 			case 'tu-vi':
 				$main = $this->_tuviphongthuy();
 				break;
@@ -226,6 +229,16 @@ class Home_mode extends MX_Controller
 		$data = array(
 			'view' => $this->load->view('front_dstt', '', TRUE),
 			'title' => 'Danh sách trúng thưởng',
+		);
+
+		return $data;
+	}
+
+	public function _dangky()
+	{
+		$data = array(
+			'view' => $this->load->view('front_dangky', '', TRUE),
+			'title' => 'Đăng ký dịch vụ',
 		);
 
 		return $data;

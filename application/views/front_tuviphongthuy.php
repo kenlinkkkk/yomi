@@ -17,75 +17,78 @@
             <div class="row">
                 <div class="col-10 vh-center">
                     <div class="row">
-                        <div class="col-sm-12 col-md-5">
-                            <div class="card" style="background-color: rgba(0,0,0,0)">
-                                <div class="card-header text-center">
-                                    <hr>
-                                    <img src="<?= base_url('assets/images/stickers/tv1.png')?>" class="vh-center img-fit">
-                                    <hr>
-                                </div>
-                                <div class="card-body text-center">
-                                    <hr class="width-hr">
-                                    <h4 class="yellow-text">XEM DANH TÍNH</h4>
-                                    <p class="white-text">Tên bạn và những người bạn quan tâm ảnh hưởng như thế nào đến vận mệnh.?</p>
-                                </div>
-                            </div>
-                        </div>
+						<div class="col-sm-12 col-md-5">
+							<div class="card" style="background-color: rgba(0,0,0,0)">
+								<div class="card-header text-center">
+									<hr>
+									<img src="<?= base_url('assets/images/stickers/tv1.png')?>" class="vh-center img-fit">
+									<hr>
+								</div>
+								<div class="card-body text-center">
+									<hr class="width-hr">
+									<h4 class="yellow-text">XEM DANH TÍNH</h4>
+									<p class="white-text">Tên bạn và những người bạn quan tâm ảnh hưởng như thế nào đến vận mệnh.?</p>
+									<a href="<?= base_url('chiem-tinh/xem-danh-tinh')?>" class="btn btn-primary">XEM THÊM</a>
+								</div>
+							</div>
+						</div>
                         <div class="col-sm-12 col-md-2">
                             <div class="blank-80px"></div>
                         </div>
-                        <div class="col-sm-12 col-md-5">
-                            <div class="card" style="background-color: rgba(0,0,0,0)">
-                                <div class="card-header text-center">
-                                    <hr>
-                                    <img src="<?= base_url('assets/images/stickers/tv2.png')?>" class="vh-center img-fit">
-                                    <hr>
-                                </div>
-                                <div class="card-body text-center">
-                                    <hr class="width-hr">
-                                    <h4 class="yellow-text">XEM SỐ ĐIỆN THOẠI</h4>
-                                    <p class="white-text">Sim số điện thoại có phù hợp với phong thủy của bạn không?</p>
-                                </div>
-                            </div>
-                        </div>
+						<div class="col-sm-12 col-md-5">
+							<div class="card" style="background-color: rgba(0,0,0,0)">
+								<div class="card-header text-center">
+									<hr>
+									<img src="<?= base_url('assets/images/stickers/tv2.png')?>" class="vh-center img-fit">
+									<hr>
+								</div>
+								<div class="card-body text-center">
+									<hr class="width-hr">
+									<h4 class="yellow-text">XEM SỐ ĐIỆN THOẠI</h4>
+									<p class="white-text">Sim số điện thoại có phù hợp với phong thủy của bạn không?</p>
+									<a href="<?= base_url('chiem-tinh/boi-sim')?>" class="btn btn-primary">XEM THÊM</a>
+								</div>
+							</div>
+						</div>
                     </div>
 
                     <div class="blank-80px"></div>
 
                     <div class="row">
-                        <div class="col-sm-12 col-md-5">
-                            <div class="card" style="background-color: rgba(0,0,0,0)">
-                                <div class="card-header text-center">
-                                    <hr>
-                                    <img src="<?= base_url('assets/images/stickers/tv3.png')?>" class="vh-center img-fit">
-                                    <hr>
-                                </div>
-                                <div class="card-body text-center">
-                                    <hr class="width-hr">
-                                    <h4 class="yellow-text">XEM NGÀY TỐT XẤU</h4>
-                                    <p class="white-text">Hôm nay của bạn thế nào? Có gì tốt và điều gì không may mắn có thể đến với bạn?</p>
-                                </div>
-                            </div>
-                        </div>
+						<div class="col-sm-12 col-md-5">
+							<div class="card" style="background-color: rgba(0,0,0,0)">
+								<div class="card-header text-center">
+									<hr>
+									<img src="<?= base_url('assets/images/stickers/tv3.png')?>" class="vh-center img-fit">
+									<hr>
+								</div>
+								<div class="card-body text-center">
+									<hr class="width-hr">
+									<h4 class="yellow-text">XEM NGÀY TỐT XẤU</h4>
+									<p class="white-text">Hôm nay của bạn thế nào? Có gì tốt và điều gì không may mắn có thể đến với bạn?</p>
+									<a href="<?= base_url('sach-kham-pha')?>" class="btn btn-primary">XEM THÊM</a>
+								</div>
+							</div>
+						</div>
                         <div class="col-sm-12 col-md-2">
                             <div class="blank-80px"></div>
                         </div>
-                        <div class="col-sm-12 col-md-5">
-                            <div class="card" style="background-color: rgba(0,0,0,0)">
-                                <div class="card-header text-center">
-                                    <hr>
-                                    <img src="<?= base_url('assets/images/stickers/tv4.png')?>" class="vh-center img-fit">
-                                    <hr>
-                                </div>
-                                <div class="card-body text-center">
-                                    <hr class="width-hr">
-                                    <h4 class="yellow-text">LỊCH VẠN SỰ</h4>
-                                    <p class="white-text">Xem nhanh lịch âm dương, hướng đi, việc nên làm, không nên làm.</p>
-                                </div>
-                            </div>
-                        </div>
+						<div class="col-sm-12 col-md-5">
+							<div class="card" style="background-color: rgba(0,0,0,0)">
+								<div class="card-header text-center">
+									<hr>
+									<img src="<?= base_url('assets/images/stickers/tv4.png')?>" class="vh-center img-fit">
+									<hr>
+								</div>
+								<div class="card-body text-center">
+									<hr class="width-hr">
+									<h4 class="yellow-text">LỊCH VẠN SỰ</h4>
+									<p class="white-text">Xem nhanh lịch âm dương, hướng đi, việc nên làm, không nên làm.</p>
+									<a href="<?= base_url('sach-kham-pha')?>" class="btn btn-primary">XEM THÊM</a>
+								</div>
+							</div>
+						</div>
                     </div>
-
                 </div>
             </div>
         </div>

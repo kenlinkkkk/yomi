@@ -20,19 +20,20 @@ class ChiemTinh extends MX_Controller
 	public function index()
 	{
 		$segment2 = $this->uri->segment(2);
+		$segment1 = $this->uri->segment(1);
 		$phone = $this->session->msisdn;
 
 		if ($phone != 'empty') {
 			$phone = substr($phone, 2, strlen($phone) - 2);
-
-			switch ($segment2) {
-				case 'boi-sim':
-					$main = $this->boi_sim($phone);
-					break;
-				case '';
-					break;
-				default:
-
+			if ($segment1 == 'chiem-tinh') {
+				switch ($segment2) {
+					case 'boi-sim':
+						$main = $this->boi_sim($phone);
+						break;
+					case 'tong-quan-cung-hoang-dao';
+						$main = $this->tq_cunghoangdao();
+						break;
+				}
 			}
 
 			$promotion = $this->load->view('front_promotion', '', TRUE);
@@ -46,7 +47,7 @@ class ChiemTinh extends MX_Controller
 
 			return $this->load->view('front_layout', $data, TRUE);
 		} else {
-			header('Location: '. base_url('dangky'));
+			header('Location: '. base_url('sach-kham-pha'));
 		}
 
 	}
@@ -117,5 +118,14 @@ class ChiemTinh extends MX_Controller
 
 
 		}
+	}
+
+	public function tq_cunghoangdao() {
+		$data = array(
+			'view' => $this->load->view('front_tqchd', '', TRUE),
+			'title' => 'Tổng quan cung hoàng đạo',
+		);
+
+		return $data;
 	}
 }

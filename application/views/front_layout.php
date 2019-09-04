@@ -80,6 +80,7 @@
 					?>
                     <li class="nav-item non-padding">
                         <a class="nav-link white-text" href="<?= base_url('tu-vi')?>">TỬ VI & PHONG THỦY</a>
+
                     </li>
                     <li class="nav-item non-padding">
                         <a class="nav-link white-text" href="<?= base_url('hoang-dao')?>">CUNG HOÀNG ĐẠO</a>
@@ -92,15 +93,15 @@
                     </li>
                     <li class="dropdown nav-item non-padding">
                         <a class="nav-link white-text dropdown-toggle" href="<?= base_url('chuong-trinh-khuyen-mai')?>" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">KHUYẾN MẠI</a>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink3">
                             <a class="dropdown-item" href="<?=base_url('chuong-trinh-khuyen-mai')?>">CHƯƠNG TRÌNH TRÚNG THƯỞNG</a>
                             <a class="dropdown-item" href="<?= base_url('danh-sach-trung-thuong')?>">DANH SÁCH TRÚNG THƯỞNG</a>
                         </div>
                     </li>
                     <li class="nav-item non-padding">
-                        <a href="<?= base_url('sach-kham-pha')?>">
+                        <a href="<?= base_url('dang-ky')?>">
                             <button id="dangkibtn" class="btn btn-outline-light none-radius" style="width: 120px">
-                                <p style="margin: 0;"><span><img src="<?= base_url('assets/images/icons/Pen-icon.png')?>" style="width: 15px; height: 15px; margin-bottom: 2px"></span> ĐĂNG KÍ</p>
+                                <p style="margin: 0;"><span><img src="<?= base_url('assets/images/icons/Pen-icon.png')?>" style="width: 15px; height: 15px; margin-bottom: 2px"></span> ĐĂNG KÝ</p>
                             </button>
                         </a>
 						<?php

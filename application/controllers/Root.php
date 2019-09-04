@@ -20,7 +20,7 @@ class Root extends MX_Controller
 		$segment1 = $this->uri->segment(1);
 
 		switch ($segment1) {
-			case 'chiemtinh':
+			case 'chiem-tinh':
 				$html = modules::run('ChiemTinh');
 				break;
 			case 'backurl':
