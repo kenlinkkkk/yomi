@@ -59,53 +59,53 @@
                                 <div class="col-1">
                                     <h2 class="white-text number-title text-wrap">5</h2>
                                 </div>
-                                <div class="col-11 tabble-responsive">
+                                <div class="col-11">
                                     <h5 class="white-text">CƠ CẤU GIẢI THƯỞNG</h5>
-
-                                    <table class="table table-bordered">
-                                        <thead>
-                                        <tr>
-                                            <th scope="col">STT</th>
-                                            <th scope="col">CƠ CẤU GIẢI THƯỞNG</th>
-                                            <th scope="col">NỘI DUNG GIẢI THƯỞNG</th>
-                                            <th scope="col">GIÁ TRỊ GIẢI THƯỞNG(VNĐ)</th>
-                                            <th scope="col">SỐ GIẢI</th>
-                                            <th scope="col">THÀNH TIỀN(VNĐ)</th>
-                                        </tr>
-                                        </thead>
-                                        <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>Cộng tiền vào TKC</td>
-                                            <td rowspan="3">Nạp tiền vào tài khoản chính</td>
-                                            <td class="align-right">5.000</td>
-                                            <td class="align-right">6.000</td>
-                                            <td class="align-right">30.000.000</td>
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>Giải tuần <br>(01 giải/tuần)</td>
-                                            <td class="align-right">1.000.000</td>
-                                            <td class="align-right">13</td>
-                                            <td class="align-right">13.000.000</td>
-                                        </tr>
-                                        <tr>
-                                            <td>3</td>
-                                            <td>Giải tháng <br>(01 giải/tháng)</td>
-                                            <td class="align-right">5.000.000</td>
-                                            <td class="align-right">3</td>
-                                            <td class="align-right">15.000.000</td>
-                                        </tr>
-                                        </tbody>
-                                        <tfoot>
-                                        <tr>
-                                            <td colspan="4" class="align-right">Tổng cộng</td>
-                                            <td></td>
-                                            <td class="align-right">58.000.000</td>
-                                        </tr>
-                                        </tfoot>
-                                    </table>
-
+									<div class="table-responsive">
+										<table class="table table-bordered">
+											<thead>
+											<tr>
+												<th scope="col">STT</th>
+												<th scope="col">CƠ CẤU GIẢI THƯỞNG</th>
+												<th scope="col">NỘI DUNG GIẢI THƯỞNG</th>
+												<th scope="col">GIÁ TRỊ GIẢI THƯỞNG(VNĐ)</th>
+												<th scope="col">SỐ GIẢI</th>
+												<th scope="col">THÀNH TIỀN(VNĐ)</th>
+											</tr>
+											</thead>
+											<tbody>
+											<tr>
+												<td>1</td>
+												<td>Cộng tiền vào TKC</td>
+												<td rowspan="3">Nạp tiền vào tài khoản chính</td>
+												<td class="align-right">5.000</td>
+												<td class="align-right">6.000</td>
+												<td class="align-right">30.000.000</td>
+											</tr>
+											<tr>
+												<td>2</td>
+												<td>Giải tuần <br>(01 giải/tuần)</td>
+												<td class="align-right">1.000.000</td>
+												<td class="align-right">13</td>
+												<td class="align-right">13.000.000</td>
+											</tr>
+											<tr>
+												<td>3</td>
+												<td>Giải tháng <br>(01 giải/tháng)</td>
+												<td class="align-right">5.000.000</td>
+												<td class="align-right">3</td>
+												<td class="align-right">15.000.000</td>
+											</tr>
+											</tbody>
+											<tfoot>
+											<tr>
+												<td colspan="4" class="align-right">Tổng cộng</td>
+												<td></td>
+												<td class="align-right">58.000.000</td>
+											</tr>
+											</tfoot>
+										</table>
+									</div>
                                     <br>
                                     <p class="yellow-text span-bolder"><span><i class="fas fa-gift"></i></span> GHI CHÚ:</p>
                                     <p class="white-text">Giải thưởng được nạp trực tiếp vào TKC của khách hàng sau 48h kể từ thời điểm công bố trúng thưởng.</p>

@@ -8,6 +8,8 @@
     <title><?= $main['title'] ?></title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="shortcut icon" type="image/png" href="<?= base_url('assets/images/icons/favicon.png')?>"/>
 	<!--    boostrap 4-->
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
@@ -88,9 +90,9 @@
                     <li class="nav-item non-padding">
                         <a class="nav-link white-text" href="<?= base_url('sach-kham-pha')?>">SÁCH KHÁM PHÁ BẢN THÂN</a>
                     </li>
-                    <li class="nav-item  non-padding">
-                        <a class="nav-link white-text" href="<?= base_url('minigame')?>">MINI GAME</a>
-                    </li>
+<!--                    <li class="nav-item  non-padding">-->
+<!--                        <a class="nav-link white-text" href="--><?//= base_url('minigame')?><!--">MINI GAME</a>-->
+<!--                    </li>-->
                     <li class="dropdown nav-item non-padding">
                         <a class="nav-link white-text dropdown-toggle" href="<?= base_url('chuong-trinh-khuyen-mai')?>" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">KHUYẾN MẠI</a>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink3">

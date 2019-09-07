@@ -37,4 +37,29 @@ class Query extends CI_Model
 		}
 	}
 
+	public function addUser($data) {
+		$results = $this->db->where('phone', $data['phone'])
+							->get('users')
+							->result_array();
+
+		if (empty($results)) {
+			return $this->db->insert('users', $data);
+		} else {
+			return $this->db->where('phone', $data['phone'])
+							->update('users', $data);
+		}
+	}
+
+	public function getUser($data)
+	{
+		$results = $this->db->where('phone', $data)
+							->get('users')
+							->result_array();
+		if (empty($results)) {
+			return 'empty';
+		} else {
+			return $results;
+		}
+	}
+
 }

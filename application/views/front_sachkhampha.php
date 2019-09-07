@@ -27,8 +27,10 @@
                 <div class="col-10 vh-center">
                     <div class="row">
 						<div id="form" class="col-12 vh-center">
+							<img src="<?=base_url('assets/images/backgrounds/bgchome.png')?>" class="img-fit">
 							<hr>
-							<h5 style="color: #0070b8" class="text-center">HÃY ĐIỀN ĐẦY ĐỦ THÔNG TIN ĐỂ NHẬN CUỐN SÁCH NÀY</h5>
+							<h3 class="text-center white-text">HÃY ĐIỀN ĐẦY ĐỦ THÔNG TIN ĐỂ NHẬN CUỐN SÁCH NÀY</h3>
+							<hr>
 							<div class="row">
 								<div class="col-12 vh-center">
 									<form action="" method="post" class="form-group" id="skp-input">

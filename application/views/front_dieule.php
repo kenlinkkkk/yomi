@@ -24,11 +24,11 @@
                             <p class="text-center"><small class="vh-center">www.yomi.vn</small></p>
                             <hr>
                             <h5 class="text-center">GIỚI THIỆU MẠNG XÃ HỘI WWW.YOMI.VN</h5>
-                            <p>Nhằm mục đích mang đến cho người dùng mạng viễn thông MobiFone các nội dung liên quan đến đặc điểm tâm lý,
+                            <p class="text-justify">Nhằm mục đích mang đến cho người dùng mạng viễn thông MobiFone các nội dung liên quan đến đặc điểm tâm lý,
                                 tính cách khác nhau của con người. Công ty Cổ phần Hà Thành Telecom Việt Nam đã hợp tác với nhà mạng MobiFone
                                 để cùng nhau xây dựng và phát triển mạng xã hội www.yomi.vn. Tất cả người dùng thuê bao mạng MobiFone đều có thể
                                 đăng ký sử dụng dịch vụ mạng xã hội tại www.yomi.vn.</p>
-                            <p>Mạng xã hội www.yomi.vn được phát triển để cung cấp cho khách hàng những thông tin về cấu trúc bẩm sinh thông qua những thông số
+                            <p class="text-justify">Mạng xã hội www.yomi.vn được phát triển để cung cấp cho khách hàng những thông tin về cấu trúc bẩm sinh thông qua những thông số
                             về họ tên, ngày sinh, nơi sinh, giới tính khách hàng cung cấp. Tại đây, sau khi đăng ký và được hệ thống cấp tài khoản cá nhân thông
                             qua thuê bao điện thoại di động mạng MobiFone, bạn có thể xem, tải hoặc bình luận, chia sẻ quan điểm cá nhân của mình được đăng tải trên mạng.</p>
                             <hr>
@@ -38,7 +38,7 @@
                                 </div>
                                 <div class="col-10">
                                     <h5>NỘI DUNG CUNG CẤP</h5>
-                                    <p>Nội dung cung cấp trên www.yomi.vn được phân loại ra các chuyên mục nhỏ theo chủ đề rõ ràng để bạn
+                                    <p class="text-justify">Nội dung cung cấp trên www.yomi.vn được phân loại ra các chuyên mục nhỏ theo chủ đề rõ ràng để bạn
                                     có thể dễ dàng tìm xem, tải về cũng như hỗ trợ bạn đăng tải, chia sẻ các thông tin mà mình yêu thích lên
                                     trang theo đúng các chủ đề của chuyên mục đó, cụ thể như sau:</p>
 									<div class="table-responsive">
@@ -78,12 +78,12 @@
                                 </div>
                                 <div class="col-10">
                                     <h5>ĐỐI TƯỢNG ÁP DỤNG VÀ MỤC ĐÍCH CỦA THỎA THUẬN</h5>
-                                    <p>Thỏa thuận này đưa ra những nguyên tắc chung trong hoạt động của người dùng trên mạng xã hội www.yomi.vn
+                                    <p class="text-justify">Thỏa thuận này đưa ra những nguyên tắc chung trong hoạt động của người dùng trên mạng xã hội www.yomi.vn
                                     nhằm định hướng các hoạt động của bạn được phù hợp với các quy định của pháp luật và các quy định chuẩn đạo đức
                                     xã hội. Bằng cách chỉ rõ quyền và nghĩa vụ của bạn khi tham gia mạng xã hội www.yomi.vn -  Công ty Cổ phần Hà Thành
                                     Telecom Việt Nam (Sau đây gọi tắt là "www.yomi.vn"), www.yomi.vn nỗ lực để cung cấp đến bạn một môi trường tương tác
                                     thú vị nhưng cũng không kém phần lành mạnh.</p>
-                                    <p>Các quy định này được đăng tải công khai trên www.yomi.vn và sẽ tạo thành đầy đủ thỏa thuận giữa bạn với www.yomi.vn
+                                    <p class="text-justify">Các quy định này được đăng tải công khai trên www.yomi.vn và sẽ tạo thành đầy đủ thỏa thuận giữa bạn với www.yomi.vn
                                     liên quan tới mọi hoạt động trên trang web: www.yomi.vn. Do đó, bạn phải chắc chắn rằng mình đã đọc, hiểu và đồng ý với tất
                                     cả các điều khoản và điều kiện mà chúng tôi đưa ra dưới dây trước khi tham gia hoạt động trên mạng xã hội www.yomi.vn. Trong trường hợp
                                     có bất cứ sai phạm hoặc tranh chấp nào phát sinh từ việc bạn không thực hiện đúng và đủ các thỏa thuận dưới dây, bạn phải chịu hoàn toàn trách nhiệm trước chúng tôi,
