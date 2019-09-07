@@ -97,17 +97,17 @@ function checkPackageStatusAPI($msisdn) {
 		$array['status'] = 1;
 		foreach ($data1 as $item => $value) {
 			if (intval($value->packageId) == 1 && intval($value->status) == 1) {
-				$array["KP"] = 1;
+				$array["KP"] = 'ACTIVE';
 			} elseif (intval($value->packageId) == 2 && intval($value->status) == 1){
-				$array["KP7"] = 1;
+				$array["KP7"] = 'ACTIVE';
 			} elseif (intval($value->packageId) == 5 && intval($value->status) == 1) {
-				$array["PT"] = 1;
+				$array["PT"] = 'ACTIVE';
 			} elseif (intval($value->packageId) == 7 && intval($value->status) == 1) {
-				$array["PT7"] = 1;
+				$array["PT7"] = 'ACTIVE';
 			} elseif (intval($value->packageId) == 11 && intval($value->status) == 1) {
-				$array["QT"] = 1;
+				$array["QT"] = 'ACTIVE';
 			} elseif (intval($value->packageId) == 12 && intval($value->status) == 1) {
-				$array["CV"] = 1;
+				$array["CV"] = 'ACTIVE';
 			}
 		}
 	} else {

@@ -12,23 +12,27 @@
 	<div id="boitoan">
 		<div class="container vh-center">
 			<div class="row">
-				<div class="col-11 vh-center bg-table">
-					<h1 class="vh-center yellow-text">
-						<?= $que?>
-					</h1>
+				<div class="col-10 vh-center bg-table">
+					<div class="row">
+						<div class="col-11 vh-center">
+							<h1 class="yellow-text text-center">
+								<?= $que?>
+							</h1>
+							<div class="blank-80px"></div>
+
+							<h3 class="text-center white-text">
+								<?= $dien_giai?>
+							</h3>
+
+							<div class="blank-80px"></div>
+
+							<h3 class="text-center white-text">
+								<?= $kq?>
+							</h3>
+							<hr class="width-hr">
+						</div>
+					</div>
 				</div>
-
-				<div class="blank-80px"></div>
-
-				<h3 class="vh-center white-text">
-					<?= $dien_giai?>
-				</h3>
-
-				<div class="blank-80px"></div>
-
-				<h3 class="vh-center white-text">
-					<?= $kq?>
-				</h3>
 			</div>
 		</div>
 	</div>

@@ -46,7 +46,7 @@
                                 </div>
                                 <div class="col-10">
                                     <h5 class="white-text">CÁC KÊNH CUNG CẤP DỊCH VỤ</h5>
-                                    <p class="white-text">SMS, WEBSITE</p>
+                                    <p class="white-text">SMS, WEBSITE, APP</p>
                                 </div>
                             </div>
                             <hr>
@@ -107,44 +107,53 @@
                                             <td>HUY PT7</td>
                                             <td>10.000đ/ ngày</td>
                                         </tr>
+										<tr>
+											<td>3</td>
+											<td>Gói Cố Vấn Phong Thủy</td>
+											<td>CV</td>
+											<td>DK CV</td>
+											<td>Y CV</td>
+											<td>HUY CV</td>
+											<td>5.000đ/ngày</td>
+										</tr>
                                         <tr>
-                                            <td rowspan="3">3</td>
+                                            <td rowspan="3">4</td>
                                             <td>Gói Khám Phá Ẩn Số</td>
                                             <td>QT</td>
-                                            <td colspan="3">DK QT hoặc QT</td>
+                                            <td>DK QT</td>
+                                            <td>Y QT</td>
+                                            <td>HUY QT</td>
                                             <td>2.000đ/ ngày</td>
                                         </tr>
                                         <tr>
                                             <td colspan="2">Đặt số trong ngưỡng xác định(từ 0-50.000)</td>
-                                            <td colspan="2">AS &#60số nguyên dương&#62</td>
-                                            <td>HUY QT</td>
+                                            <td colspan="3">AS &#60số nguyên dương&#62</td>
                                             <td>Thời gian đặt số: từ 08h00:00 đến hết 21h59:59 hằng ngày<br>05 lượt đầu tiên miễn phí, từ lượt thứ 06 giá 1.000đ/lượt</td>
                                         </tr>
                                         <tr>
                                             <td colspan="2">Đặt số bằng số điểm tích lũy</td>
-                                            <td colspan="2">DIEM &#60số nguyên dương&#62</td>
-                                            <td></td>
+                                            <td colspan="3">DIEM &#60số nguyên dương&#62</td>
                                             <td>1.000 điểm = 1 lượt chơi</td>
                                         </tr>
                                         <tr>
-                                            <td>4</td>
+                                            <td>5</td>
                                             <td colspan="4">Kiểm tra gói cước</td>
                                             <td colspan="1">KT</td>
                                             <td>Miễn phí</td>
                                         </tr>
                                         <tr>
-                                            <td>5</td>
+                                            <td>6</td>
                                             <td colspan="4">Hướng dẫn</td>
                                             <td colspan="1">HD</td>
                                             <td>Miễn phí</td>
                                         </tr>
                                         <tr>
-                                            <td>6</td>
+                                            <td>7</td>
                                             <td colspan="5">Cước DATA</td>
                                             <td>Theo quy định của MobiFone</td>
                                         </tr>
                                         <tr>
-                                            <td>7</td>
+                                            <td>8</td>
                                             <td colspan="5">Cước gửi tin nhắn đến đầu số dịch vụ</td>
                                             <td>Miễn phí</td>
                                         </tr>

@@ -114,45 +114,45 @@ if ($this->session->msisdn != 'empty') {
                                 <h5 style="color: #0070b8" class="text-center">HÃY ĐIỀN ĐẦY ĐỦ THÔNG TIN ĐỂ NHẬN CUỐN SÁCH NÀY</h5>
                                 <div class="row">
                                     <div class="col-12 vh-center">
-                                        <form action="" method="post" class="form-group">
+                                        <form action="" method="post" class="form-group" id="skp-input">
 											<input type="hidden" name="taosach" value="1">
                                             <div class="white-text">
                                                 <div class="row">
                                                     <div class="col-sm-12 col-md-6">
-                                                        <label for="">Họ và tên (Đầy đủ, có đấu)</label>
+                                                        <label for="">Họ và tên (Đầy đủ, có đấu) (*)</label>
                                                         <input type="text" class="form-control custom-input" name="name" required="required">
                                                     </div>
                                                     <div class="col-sm-12 col-md-6">
-                                                        <label for="">Giờ sinh</label>
+                                                        <label for="">Giờ sinh (*)</label>
                                                         <input type="number" class="form-control custom-input" name="giosinh" required="required" min="00" max="23">
                                                     </div>
                                                 </div>
                                                 <hr>
                                                 <div class="row">
                                                     <div class="col-sm-12 col-md-4">
-                                                        <label for="">Ngày sinh</label>
+                                                        <label for="">Ngày sinh (*)</label>
                                                         <input type="number" class="form-control custom-input" name="ngaysinh" required="required" min="01" max="31">
                                                     </div>
                                                     <div class="col-sm-12 col-md-4">
-                                                        <label for="">Tháng sinh</label>
+                                                        <label for="">Tháng sinh (*)</label>
                                                         <input type="number" class="form-control custom-input" name="thangsinh" required="required" min="01" max="12">
                                                     </div>
                                                     <div class="col-sm-12 col-md-4">
-                                                        <label for="">Năm sinh</label>
-                                                        <input type="text" class="form-control custom-input" name="namsinh" required="required">
+                                                        <label for="">Năm sinh (*)</label>
+                                                        <input type="number" class="form-control custom-input" name="namsinh" required="required">
                                                     </div>
                                                 </div>
                                                 <hr>
                                                 <div class="row">
                                                     <div class="col-sm-12 col-md-6">
-                                                        <label for="">Giới tính</label>
+                                                        <label for="">Giới tính (*)</label>
 														<select class="form-control custom-input" name="gioitinh" required="required">
 															<option value="m" class="selector" selected="selected">Nam</option>
 															<option value="f" class="selector">Nữ</option>
 														</select>
                                                     </div>
                                                     <div class="col-sm-12 col-md-6">
-                                                        <label for="">Email (Kết quả sẽ trả về email này)</label>
+                                                        <label for="">Email (Kết quả sẽ trả về email này) (*)</label>
                                                         <input type="email" class="form-control custom-input" name="email" required="required">
                                                     </div>
                                                 </div>

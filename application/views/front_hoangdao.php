@@ -60,7 +60,7 @@ if ($this->session->msisdn != 'empty') {
                                     <p class="white-text">Tìm hiểu đặc điểm riêng, độc đáo nhất của cung hoàng đạo.</p>
 									<?php
 										if ($this->session->msisdn != 'empty' && $package['status'] != 0) {
-											echo '<a href="'. base_url('dang-ky').'" class="btn btn-primary">XEM THÊM</a>';
+											echo '<a href="'. base_url('dang-ky').'" class="btn btn-warning disabled">ĐANG CẠP NHẬT</a>';
 										}
 									?>
                                 </div>
@@ -84,7 +84,7 @@ if ($this->session->msisdn != 'empty') {
                                     <p class="white-text">Hôm nay cung hoàng đạo của bạn sẽ gặp điều may mắn gì?</p>
 									<?php
 										if ($this->session->msisdn != 'empty' && $package['status'] != 0) {
-											echo '<a href="'. base_url('dang-ky').'" class="btn btn-primary">XEM THÊM</a>';
+											echo '<a href="'. base_url('dang-ky').'" class="btn btn-warning disabled">ĐANG CẬP NHẬT</a>';
 										}
 									?>
 								</div>
@@ -106,7 +106,7 @@ if ($this->session->msisdn != 'empty') {
                                     <p class="white-text">Sư tử và Xử nữ, Bảo bình và Ma kết,..? Các cung khi kết hợp với nhau sẽ như thế nào?</p>
 									<?php
 										if ($this->session->msisdn != 'empty' && $package['status'] != 0) {
-											echo '<a href="'. base_url('dang-ky').'" class="btn btn-primary">XEM THÊM</a>';
+											echo '<a href="'. base_url('dang-ky').'" class="btn btn-warning disabled">ĐANG CẬP NHẬT</a>';
 										}
 									?>
 								</div>

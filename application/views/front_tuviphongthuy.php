@@ -38,7 +38,7 @@ if ($this->session->msisdn != 'empty') {
 									<p class="white-text">Tên bạn và những người bạn quan tâm ảnh hưởng như thế nào đến vận mệnh.?</p>
 									<?php
 										if ($this->session->msisdn != 'empty' && $package['status'] != 0) {
-											echo '<a href="'.base_url('dang-ky').'" class="btn btn-primary">XEM THÊM</a>';
+											echo '<a href="'.base_url('dang-ky').'" class="btn btn-warning disabled">ĐANG CẬP NHẬT</a>';
 										}
 									?>
 								</div>
@@ -84,7 +84,7 @@ if ($this->session->msisdn != 'empty') {
 									<p class="white-text">Hôm nay của bạn thế nào? Có gì tốt và điều gì không may mắn có thể đến với bạn?</p>
 									<?php
 										if ($this->session->msisdn != 'empty' && $package['status'] != 0) {
-											echo '<a href="'.base_url('dang-ky').'" class="btn btn-primary">XEM THÊM</a>';
+											echo '<a href="'.base_url('dang-ky').'" class="btn btn-warning disabled">ĐANG CẬP NHẬT</a>';
 										}
 									?>
 								</div>
@@ -106,7 +106,7 @@ if ($this->session->msisdn != 'empty') {
 									<p class="white-text">Xem nhanh lịch âm dương, hướng đi, việc nên làm, không nên làm.</p>
 									<?php
 										if ($this->session->msisdn != 'empty' && $package['status'] != 0) {
-											echo '<a href="'. base_url('dang-ky').'" class="btn btn-primary">XEM THÊM</a>';
+											echo '<a href="'. base_url('dang-ky').'" class="btn btn-warning disabled">ĐANG CẬP NHẬT</a>';
 										}
 									?>
 								</div>

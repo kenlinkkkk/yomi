@@ -68,12 +68,12 @@ class ChiemTinh extends MX_Controller
 		if ($dien_giai[0]['hung_cat'] == 'hung' || $dien_giai[0]['hung_cat'] == 'dai_hung') {
 			$que = $hung_cat[$dien_giai[0]['hung_cat']];
 			$kq = 'SIM số này không hợp với bạn, hãy tìm sim khác phù hợp với vận hạn của bạn hơn';
-		} elseif ($dien_giai[0]['hung_cat'] == 'cat' || $dien_giai[0]['hung_cat'] == 'cat') {
-			$que = $hung_cat[$dien_giai[0]['hung_cat']];
-			$kq = 'SIM số này rất hợp với bạn!';
-		} else {
+		} elseif ($dien_giai[0]['hung_cat'] == 'binh') {
 			$que = $hung_cat[$dien_giai[0]['hung_cat']];
 			$kq = 'SIM số này có thể giữ cũng có thể bỏ, quyết định là tùy ở bạn!';
+		} else {
+			$que = $hung_cat[$dien_giai[0]['hung_cat']];
+			$kq = 'SIM số này rất hợp với bạn!';
 		}
 
 		$results = array(

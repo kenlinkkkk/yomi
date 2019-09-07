@@ -54,12 +54,12 @@
 											<tr>
 												<td>1</td>
 												<td>Tử vi phong thủy</td>
-												<td>Xem danh tính<br>Xem số điện thoại<br>Xem ngày tốt xấu<br>Lịch vạn sự</td>
+												<td>- Xem danh tính<br>- Xem số điện thoại<br>- Xem ngày tốt xấu<br>- Lịch vạn sự</td>
 											</tr>
 											<tr>
 												<td>2</td>
 												<td>Cung hoàng đạo</td>
-												<td>Tổng quan cung hoàng đạo<br>Chi tiết cung hoàng đạo<br>Tra cứu ngày tuần tháng<br>Kết hợp cung hoàng đạo</td>
+												<td>- Tổng quan cung hoàng đạo<br>- Chi tiết cung hoàng đạo<br>- Tra cứu ngày tuần tháng<br>- Kết hợp cung hoàng đạo</td>
 											</tr>
 											<tr>
 												<td>3</td>

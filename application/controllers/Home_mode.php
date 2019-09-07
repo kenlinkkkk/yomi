@@ -101,7 +101,7 @@ class Home_mode extends MX_Controller
 			'promotion' => $promotion,
 		);
 
-		return $this->load->view('front_layout', $data, TRUE);
+		return $this->load->view('front_layout', $data, FALSE);
 	}
 
 	public function _hddk()

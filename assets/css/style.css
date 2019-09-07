@@ -8,7 +8,10 @@ canvas{
   vertical-align:bottom;
 }
 
-
+.btn-dk {
+	background-color: #6610f2;
+	color: white;
+}
 /* ---- stats.js ---- */
 
 .count-particles{

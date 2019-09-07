@@ -131,6 +131,8 @@
     <!--    background-->
 
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<!-- jquery validate form -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 

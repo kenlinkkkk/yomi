@@ -16,7 +16,8 @@
 	  "ext-json": "*",
 	  "ext-openssl": "*",
 	  "ext-mbstring": "*",
-	  "ext-mysqli": "*"
+	  "ext-mysqli": "*",
+	  "ext-mcrypt": "*"
 	},
 	"suggest": {
 		"paragonie/random_compat": "Provides better randomness in PHP 5.x"

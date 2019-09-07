@@ -1,0 +1,197 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: TungNT
+ * Date: 08/27/2019
+ * Time: 01:29 PM
+ */
+
+class Test extends MX_Controller
+{
+	public function __construct()
+	{
+		parent::__construct();
+		$this->load->helper('_helper');
+		$this->load->helper('url');
+		$this->load->model('query');
+		$this->load->library('session');
+	}
+
+	public function index()
+	{
+		include("AES.class.php");
+		$z = 'abcdefghijuklmno0123456789012345';
+		$iv = mcrypt_create_iv(mcrypt_get_iv_size(MCRYPT_RIJNDAEL_256, MCRYPT_MODE_ECB), MCRYPT_RAND);
+		$aes = new AES($z, 'CBC', $iv);
+		$encrypted = $aes->encrypt();
+
+		echo('Thanh toán giả lập CP'.'<br/>');
+
+//key do viettel cung cap
+		$pub_key = <<<EOD
+-----BEGIN PUBLIC KEY-----
+MIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEArt4rRG1cU8m6dmOibr6X
+8hsFunWs14M+7Y+vTdo6q5mSCa3mXgga8nrBBQPIJ0aXcw7u9Wk9Wok+uf+6WEgS
+9wLq6K+dvJOx6MyKbwgBYCo4k0uQ2a80RlLuD/2fQOGYuYQN4X8QWgp7CsLt1g9s
+7Vndk4PpzzkXJ+SYtE+l0oGLK8QIGjY1B0Yjw1A3YTC77hTmZrBMC0KRnMXAsFqa
+2KDCESutxaRsOQMCBCnMkMLlvKB4HuWEuKlSGw8dd98Gpj59lK+MnqEIvpVeV8nM
+qcBBJkKAvfSWd1MFtdXy6qpoB/dAojEo6Bkn6VPwesg4e1HeH+Hjs1xc2QSROf83
+L++oXlnlYwuLQIFUDvAR6287llUm1H6poKw+iLMGNgz/k6KNrduZrwZgA0HHXSdu
+lH2+whQaWGIk5fM+154HnyDbb3KmgRpcDv/uM9ULrtdLJaLvq5KUKXRqVXQBjptp
+Ylpl0l3RHXRoaMwrM4IlH+8Mc1ABfmW61QdjjlVf7ccrADCRro3ZR57qUbv5z93g
+N+hVq7YgqNR0GF3ukr+sRp3r5FjuBllGpkmjbpFP1r39DSzBcejZfL7pWEmRPStb
+WdZaLexZ50MAumYiNOGby/cotWaexjGVH33MourVHeih+wjRLT/2iFZ7Q+aDwk8W
+apoAGMKnhCh4xAFjFybxfPsCAwEAAQ==
+-----END PUBLIC KEY-----
+EOD;
+
+		$pri_key = <<<EOD
+EOD;
+//key do viettel cung cap
+		$pub_key_cp = <<<EOD
+-----BEGIN PUBLIC KEY-----
+MIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEA80NlSUSxel7Enj7CeXxK
+AOZdWUS37s0SBCkb9Khc4oadPgGOQYEGG8k01saHhLp0HwmYh3R6jGMPo0XNw7j/
+g3JQYvdmIaTdBEwKtmIMUmiUV73SUFt4vuXCO91mX6bt62gYEHqaqwJTFiyFEuUc
+UGLxbrYnpfkpNihmgsHRhwV80ovKG8pB6ewfNVYlF+6NzeK4ve39eRfYNCo7rzIk
+LnFiO7GDa8+ruDcKQlLiAtQA0POQfMWCBgPoGb4JPd98l46mJ/qe6ZKWk7FMrSfG
+tzhBT6S7DDfar3QvJ2AEKEKxP672xCw7QiH9+MYS/bY9/8akyasgBPzMgb2VBZ00
+l2OqOiJTbZpBSGSGGSAjrxJ+AzIxPQl7iUUbrvkedhl9wi2px+HK5RkDqYeWmqH6
+orOpGznIIXPU8pfmgVN7H0pt1WIQdbEHn3ywNyE8g+Q9jhQBNgF/WNstaGp0uh+9
+OR73s7s2hTjiz8KT0ZRlU6/6iV0J8l6Jrktwpq1p/nEAJlZpn3T7ToyZtN5Phuoz
+MFFmFlqiiDUThSgHfdRiOo58ADXDkdRpJbcWZsYfnu9d55j33M5u1c5f7GdDRq3R
+evR7XL2NAdvCZCxw3161pv2FcFEAsoYJRvprjkq1Sk3LMU4ouvssRTQbpeP1wJOF
+A7TjDkVStnxb+d3h75YBbzECAwEAAQ==
+-----END PUBLIC KEY-----
+EOD;
+//key do viettel cung cap
+		$pri_key_cp = <<<EOD
+-----BEGIN RSA PRIVATE KEY-----
+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
+-----END RSA PRIVATE KEY-----
+EOD;
+
+
+// Load private key
+//$privateKey = openssl_pkey_get_private(array($pri_key_upro, $privateKeyPassphrase));
+
+// Load public key
+//$publicKey = openssl_pkey_get_public(array($pub_key_upro, $privateKeyPassphrase));
+
+//$aeskey = "4288f0b8060ca1b682bf795f2617cfdc";
+//$aeskey = "64cefa9ce21ba7ce7212f0be2ddc92c";
+		$aeskey = bin2hex($encrypted);
+
+//$value        = urldecode($_GET['value']);
+//$signature = urldecode($_GET['signature']);
+
+//CP thuc hienng h
+		$data = 'SUB_SERVICE=MYTALK_LE&COMMAND=DOWNLOAD&CP_REQUEST_ID=ON7tXrhzr4Ns';
+//$data = 'nameItem=dung&categoryItem=game&amount=1000&cpRequestId=130627145238035001';
+		$data = $this->pkcs5_pad($data, 16);
+//B1. Ma hoa du lieu bang AES
+		$value_encrypt_aes = $this->encrypt($data,$aeskey);
+		echo('<p style="word-wrap: break-word;">value Encrypt: ' .$value_encrypt_aes.'</p>');
+
+//B2. Input du lieu co gan key AES
+		$value_with_key = 'value='.$value_encrypt_aes.'&key='.$aeskey;
+		echo('<p style="word-wrap: break-word;">value Encrypt + key aes: ' .$value_with_key.'</p>');
+
+//B3. Ma hoa du lieu bang public key
+		openssl_public_encrypt($value_with_key,$data_encrypted,$pub_key);
+		$data_encrypted = base64_encode($data_encrypted);
+		echo('<p style="word-wrap: break-word;">value Encrypt with public key: ' .$data_encrypted.'</p>');
+
+//B4. Ky ban tin
+		$signature ='';
+		openssl_sign($data_encrypted, $signature, $pri_key_cp, OPENSSL_ALGO_SHA1);
+
+// Base64 Encode
+		$signature = base64_encode($signature);
+// URL Encode
+		$signature = urlencode($signature);
+		echo('<p style="word-wrap: break-word;">signature: '.urlencode($signature).'</p>');
+
+//Viettel thuc hien
+//neu o day la cp thi cap key phai doi nguoc lai cp -> viettel va viettel -> cp
+//B5. Xac thuc chu ky
+
+		$verify = openssl_verify (($data_encrypted) , base64_decode(urldecode($signature)) , $pub_key_cp, OPENSSL_ALGO_SHA1);
+		echo('verify: '.$verify.'<br/>');
+
+//B6. Giai ma du lieu bang private key
+//openssl_private_decrypt(base64_decode($data_encrypted),$data_decrypted,$pri_key);
+		openssl_private_decrypt(($data_encrypted),$data_decrypted,$pri_key_cp);
+		echo('<p style="word-wrap: break-word;">value Decrypt with private key: ' .$data_decrypted.'</p>');
+
+//B7. Giai ma du lieu bang AES
+		$value_decrypt = $this->decrypt($value_encrypt_aes,$aeskey);
+		echo('<p style="word-wrap: break-word;">value Decrypt with AES: ' .$value_decrypt.'</p>');
+
+	}
+
+	function encrypt($encrypt, $key){
+		$iv = mcrypt_create_iv(mcrypt_get_iv_size(MCRYPT_RIJNDAEL_128, MCRYPT_MODE_ECB), MCRYPT_RAND);
+		$encrypted = base64_encode(mcrypt_encrypt(MCRYPT_RIJNDAEL_128, pack("H*", $key), $encrypt, MCRYPT_MODE_ECB, $iv));
+		return $encrypted;
+	}
+
+	function decrypt($decrypt, $key){
+		$iv = mcrypt_create_iv(mcrypt_get_iv_size(MCRYPT_RIJNDAEL_128, MCRYPT_MODE_ECB), MCRYPT_RAND);
+		$decrypted = mcrypt_decrypt(MCRYPT_RIJNDAEL_128,  pack("H*", $key), base64_decode($decrypt), MCRYPT_MODE_ECB, $iv);
+		return $decrypted;
+	}
+
+	function pkcs5_pad ($text, $blocksize) {
+		$pad = $blocksize - (strlen($text) % $blocksize);
+		return $text . str_repeat(chr($pad), $pad);
+	}
+}

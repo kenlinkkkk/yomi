@@ -39,9 +39,9 @@ class MobiReg extends MX_Controller
 			$url = str_replace(' ', '+', $url_encrypt);
 			log_message('ERROR', 'msisdn='. $msisdn .'|link='.$url);
 
-			echo $url;
+			return $url;
 		} else {
-			echo base_url();
+			return base_url();
 		}
 	}
 }
