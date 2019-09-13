@@ -191,6 +191,8 @@ ul li {
     height: 50px;
     border-radius: 5px;
 }
+
+
 .close-icon {
     position: absolute;
     top: 20px;
@@ -372,6 +374,51 @@ ul {
 
 .btn-custom:hover {
 	background-color: rgba(118, 0, 255, 0.67);
+}
+
+/*css cho phong thuy*/
+
+#xemphongthuy .color {
+	width: 100px;
+	height: 100px;
+	position: absolute;
+	top: 40px;
+	border-radius: 50%;
+	box-sizing: border-box;
+}
+
+#xemphongthuy .color-1 {
+	left: 5%;
+}
+
+#xemphongthuy .color-2 {
+	left: 45%;
+}
+
+#horodetail .img-custom, #tuvihangngay .img-custom {
+	position: relative;
+	width: 150px;
+	height: 150px;
+	left: 50%;
+	top: 20px;
+
+	transform: translate(-50%, -20px);
+}
+
+#infosubmit-pr .custom-size-submit {
+	top: 50%;
+	left: 50%;
+	position: fixed;
+	width: 80%;
+	transform: translate(-50%, -50%);
+}
+
+#tuvihangngay .width-bar {
+	width: 70%;
+	min-width: 300px;
+	left: 50%;
+	position: relative;
+	transform: translate(-50%);
 }
 
 @media (max-width: 991.98px) {

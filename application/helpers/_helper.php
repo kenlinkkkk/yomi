@@ -138,4 +138,8 @@ function sachkhampha($url, $param) {
 function str_name($str) {
 	return mb_convert_case($str, MB_CASE_TITLE, "UTF-8");
 }
+
+function check_mac($str) {
+	return md5($str.md5('dinhmenh2015'));
+}
 ?>

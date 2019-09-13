@@ -17,6 +17,9 @@ if ($this->session->msisdn != 'empty') {
 
 <main>
     <div id="tuviphongthuy">
+		<div style="position: absolute; z-index: 999; display: none; width: 100%; height: 100%;" id="infosubmit-pr">
+			<?= $view?>
+		</div>
         <div class="w-100">
             <img src="<?=base_url('assets/images/banners/tuviphongthuy.png')?>" class="img-fit">
         </div>
@@ -60,7 +63,7 @@ if ($this->session->msisdn != 'empty') {
 									<p class="white-text">Sim số điện thoại có phù hợp với phong thủy của bạn không?</p>
 									<?php
 										if ($this->session->msisdn != 'empty' && $package['status'] != 0) {
-											echo '<a href="'.base_url('chiem-tinh/boi-sim').'" class="btn btn-primary">XEM THÊM</a>';
+											echo '<a href="javascript://" class="btn btn-primary" rel="boi-sim">XEM THÊM</a>';
 										}
 									?>
 								</div>
@@ -102,11 +105,11 @@ if ($this->session->msisdn != 'empty') {
 								</div>
 								<div class="card-body text-center">
 									<hr class="width-hr">
-									<h4 class="yellow-text">LỊCH VẠN SỰ</h4>
+									<h4 class="yellow-text">PHONG THỦY</h4>
 									<p class="white-text">Xem nhanh lịch âm dương, hướng đi, việc nên làm, không nên làm.</p>
 									<?php
 										if ($this->session->msisdn != 'empty' && $package['status'] != 0) {
-											echo '<a href="'. base_url('dang-ky').'" class="btn btn-warning disabled">ĐANG CẬP NHẬT</a>';
+											echo '<a href="javascript://" class="btn btn-primary" rel="phong-thuy">XEM THÊM</a>';
 										}
 									?>
 								</div>

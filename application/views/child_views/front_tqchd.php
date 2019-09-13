@@ -8,12 +8,13 @@
 ?>
 
 <main>
-	<div class="container vh-center bg-table">
+	<div class="container vh-center">
 		<div class="row">
-			<div class="col-sm-11 col-md-10 bg-table">
+			<div class="col-sm-11 col-md-10 vh-center">
 				<div class="row">
 					<div class="vh-center">
 						<div class="col-12 white-text text-justify">
+							<div class="blank-80px"></div>
 							<h3>CUNG HOÀNG ĐẠO</h3>
 							<p>
 								Được tạo ra bởi các nhà chiêm tinh học Babylon cổ đại từ những năm 1645 trước Công nguyên.

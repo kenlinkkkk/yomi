@@ -14,13 +14,26 @@ class Test extends MX_Controller
 		$this->load->helper('_helper');
 		$this->load->model('query');
 		$this->load->library('convert');
+		date_default_timezone_set('UTC');
 	}
 
 	public function index()
 	{
-		var_dump($this->phongthuy());
+		header('Access-Control-Allow-Origin: *');
+		$msisdn = $_POST['msisdn'];
+		$message = $_POST['message'];
 
-//		$this->phongthuy();
+		if (!empty($msisdn) && !empty($message)) {
+			$data = array(
+				'data' => 'data',
+			);
+			return json_encode($data);
+		} else {
+			$data = array(
+				'data' => 'no-data',
+			);
+			return json_encode($data);
+		}
 	}
 
 
@@ -120,5 +133,143 @@ class Test extends MX_Controller
 		);
 
 		return $final_rs;
+	}
+
+	public function chitiet_chd() {
+//		$phone = $this->session->msisdn;
+
+		$data = $this->query->getUser('0902178830');
+		$user_info = $data[0];
+
+		$birthDay = $user_info['birth_month'].'/'.$user_info['birth_day'];
+		$cung_hoang_dao = array(
+			'1' => array('name' => 'Bạch Dương', 'fromdate' => '3/21', 'todate' => '4/19', 'image' => 'assets/images/zodiacs/20.png', 'time' => "21/03 - 19/04"),
+			'2' => array('name' => 'Kim Ngưu', 'fromdate' => '4/20', 'todate' => '5/20', 'image' => 'assets/images/zodiacs/21.png', 'time' => "20/04 - 20/05"),
+			'3' => array('name' => 'Song Tử', 'fromdate' => '5/21', 'todate' => '6/21', 'image' => 'assets/images/zodiacs/22.png', 'time' => "21/05 - 21/06"),
+			'4' => array('name' => 'Cự Giải', 'fromdate' => '6/22', 'todate' => '7/22', 'image' => 'assets/images/zodiacs/23.png', 'time' => "22/06 - 22/07"),
+			'5' => array('name' => 'Sư Tử', 'fromdate' => '7/23', 'todate' => '8/22', 'image' => 'assets/images/zodiacs/24.png', 'time' => "23/07 - 22/08"),
+			'6' => array('name' => 'Xử Nữ', 'fromdate' => '8/23', 'todate' => '9/23', 'image' => 'assets/images/zodiacs/25.png', 'time' => "23/08 - 22/09"),
+			'7' => array('name' => 'Thiên Bình', 'fromdate' => '9/24', 'todate' => '10/23', 'image' => 'assets/images/zodiacs/26.png', 'time' => "23/09 - 23/10"),
+			'8' => array('name' => 'Bọ Cạp', 'fromdate' => '10/24', 'todate' => '11/22', 'image' => 'assets/images/zodiacs/27.png', 'time' => "24/10 - 21/11"),
+			'9' => array('name' => 'Nhân Mã', 'fromdate' => '11/23', 'todate' => '12/21', 'image' => 'assets/images/zodiacs/28.png', 'time' => "22/11 - 21/12"),
+			'10' => array('name' => 'Ma Kết', 'fromdate' => '12/22', 'todate' => '1/19', 'image' => 'assets/images/zodiacs/29.png', 'time' => "22/12 - 19/01"),
+			'11' => array('name' => 'Bảo Bình', 'fromdate' => '1/20', 'todate' => '2/18', 'image' => 'assets/images/zodiacs/30.png', 'time' => "20/01 - 18/12"),
+			'12' => array('name' => 'Song Ngư', 'fromdate' => '2/19', 'todate' => '3/20', 'image' => 'assets/images/zodiacs/31.png', 'time' => "19/02 - 20/03")
+		);
+
+		$birth = new DateTime($birthDay);
+//		$birth = $birth->format('d/m');
+
+		$data_horo = null;
+
+		foreach ($cung_hoang_dao as $key => $value) {
+			$startDate = new DateTime($value['fromdate']);
+//			$start = $startDate->format('d/m');
+			$endDate = new DateTime($value['todate']);
+//			$end = $endDate->format('d/m');
+
+//			echo 'Start: '. $start .'- End: '. $end .'-Birth: '. $birth.'<br>';
+
+			if ($birth > $startDate && $birth < $endDate) {
+
+				$data_horo = array(
+					'key' => $key,
+					'value' => $value,
+				);
+			}
+		}
+
+		$dien_giai = $this->query->getHoroDetail($data_horo['key']);
+
+		$data_horo['dien_giai'] = $dien_giai[0];
+
+		return $data_horo;
+	}
+
+	public function tuvihangngay()
+	{
+//		$phone = '0'. substr($this->session->msisdn, 2, strlen($this->session->msisdn) - 2);
+		$phone = '0902178830';
+
+		$data = $this->query->getUser($phone);
+
+		$user_info = $data[0];
+
+		$birthDay = $user_info['birth_month'].'/'.$user_info['birth_day'].'/'.$user_info['birth_year'];
+
+		$cung_hoang_dao = array(
+			'1' => array('name' => 'Bạch Dương', 'fromdate' => '3/21', 'todate' => '4/19', 'image' => 'assets/images/zodiacs/20.png', 'time' => "21/03 - 19/04"),
+			'2' => array('name' => 'Kim Ngưu', 'fromdate' => '4/20', 'todate' => '5/20', 'image' => 'assets/images/zodiacs/21.png', 'time' => "20/04 - 20/05"),
+			'3' => array('name' => 'Song Tử', 'fromdate' => '5/21', 'todate' => '6/21', 'image' => 'assets/images/zodiacs/22.png', 'time' => "21/05 - 21/06"),
+			'4' => array('name' => 'Cự Giải', 'fromdate' => '6/22', 'todate' => '7/22', 'image' => 'assets/images/zodiacs/23.png', 'time' => "22/06 - 22/07"),
+			'5' => array('name' => 'Sư Tử', 'fromdate' => '7/23', 'todate' => '8/22', 'image' => 'assets/images/zodiacs/24.png', 'time' => "23/07 - 22/08"),
+			'6' => array('name' => 'Xử Nữ', 'fromdate' => '8/23', 'todate' => '9/23', 'image' => 'assets/images/zodiacs/25.png', 'time' => "23/08 - 22/09"),
+			'7' => array('name' => 'Thiên Bình', 'fromdate' => '9/24', 'todate' => '10/23', 'image' => 'assets/images/zodiacs/26.png', 'time' => "23/09 - 23/10"),
+			'8' => array('name' => 'Bọ Cạp', 'fromdate' => '10/24', 'todate' => '11/22', 'image' => 'assets/images/zodiacs/27.png', 'time' => "24/10 - 21/11"),
+			'9' => array('name' => 'Nhân Mã', 'fromdate' => '11/23', 'todate' => '12/21', 'image' => 'assets/images/zodiacs/28.png', 'time' => "22/11 - 21/12"),
+			'10' => array('name' => 'Ma Kết', 'fromdate' => '12/22', 'todate' => '1/19', 'image' => 'assets/images/zodiacs/29.png', 'time' => "22/12 - 19/01"),
+			'11' => array('name' => 'Bảo Bình', 'fromdate' => '1/20', 'todate' => '2/18', 'image' => 'assets/images/zodiacs/30.png', 'time' => "20/01 - 18/12"),
+			'12' => array('name' => 'Song Ngư', 'fromdate' => '2/19', 'todate' => '3/20', 'image' => 'assets/images/zodiacs/31.png', 'time' => "19/02 - 20/03")
+		);
+
+		$birth = new DateTime($birthDay);
+
+		$data_horo = null;
+
+		foreach ($cung_hoang_dao as $key => $value) {
+			$startDate = new DateTime($value['fromdate'] .'/'. $user_info['birth_year']);
+
+			$endDate = new DateTime($value['todate'] .'/'. $user_info['birth_year']);
+
+			if ($birth >= $startDate && $birth <= $endDate) {
+				$data_horo = array(
+					'key' => $key,
+					'value' => $value,
+				);
+			} elseif ($birth >= $startDate || $birth <= $endDate) {
+				$data_horo = array(
+					'key' => 10,
+					'value' => $cung_hoang_dao[10],
+				);
+			} else {
+				$data_horo = array(
+					'key' => 5,
+					'value' => $cung_hoang_dao[5],
+				);
+			}
+		}
+
+		$today = date('m/d/Y');
+
+		$number_date = strtotime($today) - strtotime($birthDay);
+		$number_date = (int) $number_date / 86400;
+
+		$suc_khoe = 50 + round(sin(2*pi()*$number_date/23)*50, 2);
+		$tinh_cam = 50 + round(sin(2*pi()*$number_date/28)*50, 2);
+		$tri_tue = 50 + round(sin(2*pi()*$number_date/33)*50, 2);
+		$trung_binh = round(($suc_khoe + $tinh_cam + $tri_tue)/3, 2);
+
+		$data_sk = $this->query->getDaily($data_horo['key'], 1, $suc_khoe);
+		$data_tc = $this->query->getDaily($data_horo['key'], 2, $tinh_cam);
+		$data_tt = $this->query->getDaily($data_horo['key'], 3, $tri_tue);
+
+		$data_tq = array(
+			'suc_khoe' => array(
+				'value' => $suc_khoe,
+				'detail' => $data_sk[0],
+			),
+			'tinh_cam' => array(
+				'value' => $tinh_cam,
+				'detail' => $data_tc[0],
+			),
+			'tri_tue' => array(
+				'value' => $tri_tue,
+				'detail' => $data_tt[0],
+			),
+		);
+
+		$results = array_merge($data_horo, $data_tq);
+
+		return $results;
 	}
 }

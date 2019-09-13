@@ -16,7 +16,10 @@ if ($this->session->msisdn != 'empty') {
 ?>
 
 <main>
-    <div id="tuviphongthuy">
+    <div id="cunghoangdao">
+		<div style="position: absolute; z-index: 999; display: none; width: 100%; height: 100%;" id="infosubmit-pr">
+			<?= $view?>
+		</div>
         <div class="w-100">
             <img src="<?=base_url('assets/images/banners/cunghoangdao.png')?>" class="img-fit">
         </div>
@@ -36,11 +39,7 @@ if ($this->session->msisdn != 'empty') {
                                     <hr class="width-hr">
                                     <h4 class="blue-text">TỔNG QUAN CUNG HOÀNG ĐẠO</h4>
                                     <p class="white-text">Tổng hợp những thông tin cơ bản nhất về cung hoàng đạo.</p>
-									<?php
-										if ($this->session->msisdn != 'empty' && $package['status'] != 0) {
-											echo '<a href="'. base_url('chiem-tinh/tong-quan-cung-hoang-dao').'" class="btn btn-primary">XEM THÊM</a>';
-										}
-									?>
+									<a href="javascript://" class="btn btn-primary" rel="tong-quan-cung-hoang-dao">XEM THÊM</a>
                                 </div>
                             </div>
                         </div>
@@ -59,8 +58,8 @@ if ($this->session->msisdn != 'empty') {
                                     <h4 class="blue-text">CHI TIẾT CUNG HOÀNG ĐẠO</h4>
                                     <p class="white-text">Tìm hiểu đặc điểm riêng, độc đáo nhất của cung hoàng đạo.</p>
 									<?php
-										if ($this->session->msisdn != 'empty' && $package['status'] != 0) {
-											echo '<a href="'. base_url('dang-ky').'" class="btn btn-warning disabled">ĐANG CẠP NHẬT</a>';
+										if ($this->session->msisdn != 'empty' && $package['status'] != 0 && empty($package['KP7']) && empty($package['KP'])) {
+											echo '<a href="javascript://" class="btn btn-primary" rel="horo-detail">XEM THÊM</a>';
 										}
 									?>
                                 </div>
@@ -80,11 +79,11 @@ if ($this->session->msisdn != 'empty') {
                                 </div>
                                 <div class="card-body text-center">
                                     <hr class="width-hr">
-                                    <h4 class="blue-text">TRA CỨU NGÀY TUẦN THÁNG</h4>
+                                    <h4 class="blue-text">TRA CỨU NGÀY</h4>
                                     <p class="white-text">Hôm nay cung hoàng đạo của bạn sẽ gặp điều may mắn gì?</p>
 									<?php
-										if ($this->session->msisdn != 'empty' && $package['status'] != 0) {
-											echo '<a href="'. base_url('dang-ky').'" class="btn btn-warning disabled">ĐANG CẬP NHẬT</a>';
+										if ($this->session->msisdn != 'empty' && $package['status'] != 0 && empty($package['KP7']) && empty($package['KP'])) {
+											echo '<a href="javascript://" class="btn btn-primary" rel="daily">XEM THÊM</a>';
 										}
 									?>
 								</div>
@@ -105,8 +104,8 @@ if ($this->session->msisdn != 'empty') {
                                     <h4 class="blue-text">KẾT HỢP CUNG HOÀNG ĐẠO</h4>
                                     <p class="white-text">Sư tử và Xử nữ, Bảo bình và Ma kết,..? Các cung khi kết hợp với nhau sẽ như thế nào?</p>
 									<?php
-										if ($this->session->msisdn != 'empty' && $package['status'] != 0) {
-											echo '<a href="'. base_url('dang-ky').'" class="btn btn-warning disabled">ĐANG CẬP NHẬT</a>';
+										if ($this->session->msisdn != 'empty' && $package['status'] != 0 && empty($package['KP7']) && empty($package['KP'])) {
+											echo '<a href="javascript://" class="btn btn-warning disabled" rel="ket-hop-cung-hoang-dao">ĐANG CẬP NHẬT</a>';
 										}
 									?>
 								</div>

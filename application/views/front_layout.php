@@ -34,7 +34,7 @@
                 <div id="content-login" class="col-sm-10 col-md-4 login-form-1 vh-center" >
                     <img id="iconClose" src="<?= base_url('assets/images/icons/close.png')?>" class="close-icon">
                     <h3>ĐĂNG NHẬP</h3>
-                    <form method="post" action="">
+                    <form method="post" action="<?= base_url('login')?>">
 						<input type="hidden" name="login" id="login" value="1">
                         <div class="form-group">
                             <input type="text" name="phone" id="phone" class="form-control" placeholder="Số điện thoại *" value="" />

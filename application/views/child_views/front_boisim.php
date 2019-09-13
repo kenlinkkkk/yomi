@@ -12,17 +12,19 @@
 	<div id="boitoan">
 		<div class="container vh-center">
 			<div class="row">
-				<div class="col-10 vh-center bg-table">
+				<div class="col-10 vh-center" style="margin-top: 40px;">
 					<div class="row">
 						<div class="col-11 vh-center">
-							<h1 class="yellow-text text-center">
-								<?= $que?>
-							</h1>
 							<div class="blank-80px"></div>
 
 							<h3 class="text-center white-text">
 								<?= $dien_giai?>
 							</h3>
+							<div class="blank-80px"></div>
+
+							<h1 class="yellow-text text-center">
+								<?= $que?>
+							</h1>
 
 							<div class="blank-80px"></div>
 

@@ -62,4 +62,44 @@ class Query extends CI_Model
 		}
 	}
 
+	public function getHoroDetail($id)
+	{
+		$results = $this->db->where('id', $id)
+							->get('horo_detail')
+							->result_array();
+
+		if (empty($results)) {
+			return 'empty';
+		} else {
+			return $results;
+		}
+	}
+
+	public function getDaily($cung, $type, $level)
+	{
+		$results = $this->db->where('cung_hoang_dao', $cung)
+							->where('type_tuvi', $type)
+							->where('level_tuvi < ', $level)
+							->order_by('level_tuvi', 'DESC')
+							->limit(1)
+							->get('tuvi_hangngay')
+							->result_array();
+		if (empty($results)) {
+			$results = $this->db->where('cung_hoang_dao', $cung)
+								->where('type_tuvi', $type)
+								->where('level_tuvi < ', $level)
+								->order_by('level_tuvi', 'DESC')
+								->limit(1)
+								->get('tuvi_hangngay')
+								->result_array();
+			if (empty($results)) {
+				return 'empty';
+			} else {
+				return $results;
+			}
+		} else {
+			return $results;
+		}
+	}
+
 }

@@ -12,6 +12,38 @@ $(document).ready(function () {
 		});
 	});
 
+	$("#tuviphongthuy a, #cunghoangdao a").click(function () {
+		var tag = $(this).attr("rel");
+		var data = {tag: tag};
+		$.ajax("chiem-tinh/check-info",{
+			type: "POST",
+			data: data,
+			success: function (response) {
+				if (response == 0) {
+					element = document.getElementById("infosubmit-pr");
+					element.style.display = "block";
+					ele2 = document.getElementById("navbarResponsive");
+					ele2.classList.remove("show");
+				} else {
+					location.href = 'chiem-tinh/' + response;
+				}
+			}
+		});
+	});
+
+	$("#infoSubmit").on("click", function () {
+		var data = $(":input").serializeArray();
+		$.ajax("chiem-tinh/add-info", {
+			type: "POST",
+			data: data,
+			success: function (response) {
+				if (response == 1) {
+					location.reload();
+				}
+			}
+		});
+	});
+
 	$("#skp-input").validate({
 		rules: {
 			name: "required",
@@ -73,7 +105,6 @@ $(document).ready(function () {
 	$("#btnTry, #btnSubmit").on("click", function () {
 		if ($("#skp-input").valid()) {
 			var data = $(":input").serializeArray();
-			// console.log(data);
 			$.ajax("chiem-tinh/tao-sach",{
 				type: "POST",
 				data: data,
@@ -115,6 +146,10 @@ $("#content-login").click(function(e){
 
 $("html, body, #iconClose").click(function(e){
 	$("#dangnhap").hide("easing");
+});
+
+$("#iconClose1").click(function (event) {
+	$("#infosubmit-pr").hide("easing");
 });
 
 $(window).on('hashchange', function(e){

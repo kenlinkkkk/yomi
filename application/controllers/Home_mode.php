@@ -69,6 +69,9 @@ class Home_mode extends MX_Controller
 			case 'danh-sach-trung-thuong':
 				$main = $this->_dstt();
 				break;
+			case 'login':
+				$main = $this->login();
+				break;
 			default:
 				$main = $this->_home();
 				break;
@@ -166,8 +169,12 @@ class Home_mode extends MX_Controller
 
 	public function _tuviphongthuy()
 	{
+		$info = array(
+			'view' => $this->load->view('front_infosubmit', '', TRUE),
+		);
+
 		$data = array(
-			'view' => $this->load->view('front_tuviphongthuy', '', TRUE),
+			'view' => $this->load->view('front_tuviphongthuy', $info, TRUE),
 			'title' => 'Tử vi phong thủy',
 		);
 		
@@ -176,8 +183,12 @@ class Home_mode extends MX_Controller
 
 	public function _hoangdao()
 	{
+		$info = array(
+			'view' => $this->load->view('front_infosubmit', '', TRUE),
+		);
+
 		$data = array(
-			'view' => $this->load->view('front_hoangdao', '', TRUE),
+			'view' => $this->load->view('front_hoangdao', $info, TRUE),
 			'title' => 'Cung hoàng đạo',
 		);
 
@@ -254,4 +265,21 @@ class Home_mode extends MX_Controller
 		return $data;
 	}
 
+	public function login()
+	{
+		$phone = substr($_POST['phone'], -9);
+		$pass = $_POST['pass'];
+
+		$results = loginAPI($phone, $pass);
+
+		if ($results->resultCode == 1) {
+			$msisdn = $results->data->msisdn;
+
+			$array = array(
+				'msisdn' => '84'.$msisdn,
+			);
+
+			$this->session->set_userdata($array);
+		}
+	}
 }
