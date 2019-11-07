@@ -14,26 +14,17 @@ class Test extends MX_Controller
 		$this->load->helper('_helper');
 		$this->load->model('query');
 		$this->load->library('convert');
+		$this->load->library('session');
 		date_default_timezone_set('UTC');
 	}
 
 	public function index()
 	{
-		header('Access-Control-Allow-Origin: *');
-		$msisdn = $_POST['msisdn'];
-		$message = $_POST['message'];
+		$phone = substr($this->session->msisdn, -9);
+		$pk = checkPackageStatusAPI($phone);
 
-		if (!empty($msisdn) && !empty($message)) {
-			$data = array(
-				'data' => 'data',
-			);
-			return json_encode($data);
-		} else {
-			$data = array(
-				'data' => 'no-data',
-			);
-			return json_encode($data);
-		}
+
+		var_dump($pk);
 	}
 
 
@@ -189,7 +180,7 @@ class Test extends MX_Controller
 	public function tuvihangngay()
 	{
 //		$phone = '0'. substr($this->session->msisdn, 2, strlen($this->session->msisdn) - 2);
-		$phone = '0902178830';
+		$phone = '0795265287';
 
 		$data = $this->query->getUser($phone);
 
@@ -253,19 +244,46 @@ class Test extends MX_Controller
 		$data_tc = $this->query->getDaily($data_horo['key'], 2, $tinh_cam);
 		$data_tt = $this->query->getDaily($data_horo['key'], 3, $tri_tue);
 
-		$data_tq = array(
-			'suc_khoe' => array(
+		if (!empty($data_sk)) {
+			$sk = array(
 				'value' => $suc_khoe,
 				'detail' => $data_sk[0],
-			),
-			'tinh_cam' => array(
+			);
+		} else {
+			$sk = array(
+				'value' => '',
+				'detail' => '',
+			);
+		}
+
+		if (!empty($data_tc)) {
+			$tc = array(
 				'value' => $tinh_cam,
 				'detail' => $data_tc[0],
-			),
-			'tri_tue' => array(
+			);
+		} else {
+			$tc = array(
+				'value' => '',
+				'detail' => '',
+			);
+		}
+
+		if (!empty($data_tt)) {
+			$tt = array(
 				'value' => $tri_tue,
 				'detail' => $data_tt[0],
-			),
+			);
+		} else {
+			$tt = array(
+				'value' => '',
+				'detail' => '',
+			);
+		}
+
+		$data_tq = array(
+			'suc_khoe' => $sk,
+			'tinh_cam' => $tc,
+			'tri_tue' => $tt
 		);
 
 		$results = array_merge($data_horo, $data_tq);

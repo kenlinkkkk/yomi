@@ -32,7 +32,7 @@ class ChiemTinh extends MX_Controller
 
 		if ($segment1 == 'chiem-tinh') {
 			switch ($segment2) {
-				case 'boi-sim':
+				case 'xem-sim':
 					$main = $this->view_boisim();
 					break;
 				case 'tong-quan-cung-hoang-dao';
@@ -548,6 +548,18 @@ class ChiemTinh extends MX_Controller
 		$data_sk = $this->query->getDaily($data_horo['key'], 1, $suc_khoe);
 		$data_tc = $this->query->getDaily($data_horo['key'], 2, $tinh_cam);
 		$data_tt = $this->query->getDaily($data_horo['key'], 3, $tri_tue);
+
+		if ($data_sk[0]['detail'] == 'e') {
+			$data_sk[0]['detail']['detail'] = '';
+		}
+
+		if ($data_tc[0]['detail'] == 'e') {
+			$data_tc[0]['detail']['detail'] = '';
+		}
+
+		if ($data_tt[0]['detail'] == 'e') {
+			$data_tt[0]['detail']['detail'] = '';
+		}
 
 		$data_tq = array(
 			'suc_khoe' => array(

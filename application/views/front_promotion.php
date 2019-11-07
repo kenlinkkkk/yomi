@@ -9,7 +9,7 @@
 
 <main>
     <div class="container vh-center hidden-div">
-        <div class="row">
+        <div class="row" style="display:none;">
             <div class="col-11 vh-center img-fit">
                 <img src="<?= base_url('assets/images/qc1.png')?>" class="img-fit">
             </div>

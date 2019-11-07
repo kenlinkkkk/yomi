@@ -18,14 +18,14 @@
                             <p class="text-center">CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM</p>
                             <p class="text-center">Độc lập - Tự do - Hạnh phúc</p>
                             <hr>
-                            <p class="text-center">CÔNG TY CỔ PHẦN HÀ THÀNH TELECOM VIỆT NAM</p>
+                            <p class="text-center">CÔNG TY CỔ PHẦN VANO</p>
                             <hr>
                             <h4 class="text-center">THỎA THUẬN CUNG CẤP VÀ SỬ DỤNG DỊCH VỤ MẠNG XÃ HỘI</h4>
                             <p class="text-center"><small class="vh-center">www.yomi.vn</small></p>
                             <hr>
                             <h5 class="text-center">GIỚI THIỆU MẠNG XÃ HỘI WWW.YOMI.VN</h5>
                             <p class="text-justify">Nhằm mục đích mang đến cho người dùng mạng viễn thông MobiFone các nội dung liên quan đến đặc điểm tâm lý,
-                                tính cách khác nhau của con người. Công ty Cổ phần Hà Thành Telecom Việt Nam đã hợp tác với nhà mạng MobiFone
+                                tính cách khác nhau của con người. Công ty Cổ phần VANO đã hợp tác với nhà mạng MobiFone
                                 để cùng nhau xây dựng và phát triển mạng xã hội www.yomi.vn. Tất cả người dùng thuê bao mạng MobiFone đều có thể
                                 đăng ký sử dụng dịch vụ mạng xã hội tại www.yomi.vn.</p>
                             <p class="text-justify">Mạng xã hội www.yomi.vn được phát triển để cung cấp cho khách hàng những thông tin về cấu trúc bẩm sinh thông qua những thông số
@@ -80,8 +80,7 @@
                                     <h5>ĐỐI TƯỢNG ÁP DỤNG VÀ MỤC ĐÍCH CỦA THỎA THUẬN</h5>
                                     <p class="text-justify">Thỏa thuận này đưa ra những nguyên tắc chung trong hoạt động của người dùng trên mạng xã hội www.yomi.vn
                                     nhằm định hướng các hoạt động của bạn được phù hợp với các quy định của pháp luật và các quy định chuẩn đạo đức
-                                    xã hội. Bằng cách chỉ rõ quyền và nghĩa vụ của bạn khi tham gia mạng xã hội www.yomi.vn -  Công ty Cổ phần Hà Thành
-                                    Telecom Việt Nam (Sau đây gọi tắt là "www.yomi.vn"), www.yomi.vn nỗ lực để cung cấp đến bạn một môi trường tương tác
+                                    xã hội. Bằng cách chỉ rõ quyền và nghĩa vụ của bạn khi tham gia mạng xã hội www.yomi.vn -  Công ty Cổ phần VANO (Sau đây gọi tắt là "www.yomi.vn"), www.yomi.vn nỗ lực để cung cấp đến bạn một môi trường tương tác
                                     thú vị nhưng cũng không kém phần lành mạnh.</p>
                                     <p class="text-justify">Các quy định này được đăng tải công khai trên www.yomi.vn và sẽ tạo thành đầy đủ thỏa thuận giữa bạn với www.yomi.vn
                                     liên quan tới mọi hoạt động trên trang web: www.yomi.vn. Do đó, bạn phải chắc chắn rằng mình đã đọc, hiểu và đồng ý với tất
@@ -245,7 +244,7 @@
                                                 Bạn hay bất cứ tổ chức, cá nhân nào đều có thể gủi khiếu nại hoặc thông báo với www.yomi.vn về các hành vi
                                                 của người dùng khác hoặc các nội dung do người dùng khác đưa lên nếu có chứng cứ cho rằng hành vi hoặc nội dung này
                                                 vi phạm điều kiện sử dụng của www.yomi.vn hoặc xâm phạm đến quyền, lợi ích hợp pháp của chính bạn hoặc tổ chức, cá nhân
-                                                khác thông qua email: info@hathanhtelecom.com.vn hoặc số điện thoại 024 71606060.
+                                                khác thông qua email: cskh@vano.vn hoặc số điện thoại 024 7016 0808.
                                             </li>
                                             <li>
                                                 Người thực hiện thông báo phải đưa ra được các căn cứ chứng minh hành vi vi phạm phải chịu trách nhiệm về thông báo này.

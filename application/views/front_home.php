@@ -29,22 +29,22 @@ if ($this->session->msisdn != 'empty') {
                                 <div class="carousel-item active">
                                     <img class="d-block vh-center" src="<?=base_url('assets/images/backgrounds/slide-1.png')?>" alt="First slide">
                                     <div class="carousel-caption text-left bottom-40px">
-                                        <h1>XEM TỬ VI THEO NGÀY CỦA BẠN</h1>
-                                        <a class="btn btn-lg btn-primary" href="<?=base_url('tu-vi')?>" style="border-radius: 0px !important"><strong>XEM CHI TIẾT <span><i class="fas fa-chevron-right"></i></span></span></strong></a>
+                                        <h2>NGÀY HÔM NAY CỦA 12 CUNG HOÀNG ĐẠO</h2>
+                                        <a class="btn btn-lg btn-primary" href="<?=base_url('hoang-dao')?>" style="border-radius: 0px !important"><strong>XEM CHI TIẾT <span><i class="fas fa-chevron-right"></i></span></span></strong></a>
                                     </div>
                                 </div>
                                 <div class="carousel-item">
                                     <img class="d-block vh-center" src="<?=base_url('assets/images/backgrounds/slide-2.jpg')?>" alt="Second slide">
                                     <div class="carousel-caption text-left bottom-40px">
                                         <h1>NGÀY HÔM NAY CỦA BẠN THẾ NÀO???</h1>
-                                        <a class="btn btn-lg btn-primary" href="<?=base_url('tu-vi')?>" style="border-radius: 0px !important"><strong>XEM CHI TIẾT <span><i class="fas fa-chevron-right"></i></span></span></strong></a>
+                                        <a class="btn btn-lg btn-primary" href="<?=base_url('hoang-dao')?>" style="border-radius: 0px !important"><strong>XEM CHI TIẾT <span><i class="fas fa-chevron-right"></i></span></span></strong></a>
                                     </div>
                                 </div>
                                 <div class="carousel-item">
                                     <img class="d-block vh-center" src="<?=base_url('assets/images/backgrounds/slide-3.jpg')?>" alt="Third slide">
                                     <div class="carousel-caption text-left bottom-40px">
                                         <h1>ĐÓN NGÀY MỚI</h1>
-                                        <a class="btn btn-lg btn-primary" href="<?=base_url('tu-vi')?>" style="border-radius: 0px !important"><strong>XEM CHI TIẾT <span><i class="fas fa-chevron-right"></i></span></span></strong></a>
+                                        <a class="btn btn-lg btn-primary" href="<?=base_url('hoang-dao')?>" style="border-radius: 0px !important"><strong>XEM CHI TIẾT <span><i class="fas fa-chevron-right"></i></span></span></strong></a>
                                     </div>
                                 </div>
                             </div>

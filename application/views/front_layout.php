@@ -81,7 +81,7 @@
 						}
 					?>
                     <li class="nav-item non-padding">
-                        <a class="nav-link white-text" href="<?= base_url('tu-vi')?>">TỬ VI & PHONG THỦY</a>
+                        <a class="nav-link white-text" href="<?= base_url('phong-thuy')?>">KHOA HỌC PHONG THỦY</a>
 
                     </li>
                     <li class="nav-item non-padding">

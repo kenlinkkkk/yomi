@@ -11,10 +11,13 @@
 	<div id="infosubmit-child" class="custom-size-submit" style="background-color:#180050;">
 		<div class="container vh-center">
 			<img id="iconClose1" src="<?= base_url('assets/images/icons/close1.png')?>" class="close-icon">
-			<div class="blank-80px"></div>
-			<div class="row">
+			<hr>
+			<hr>
+			<hr>
+			<h4 class="white-text text-center">NHẬP THÔNG TIN CÁ NHÂN CỦA BẠN ĐỂ SỬ DỤNG DỊCH VỤ NÀY</h4>
+
+			<div class="row" style="overflow: scroll; max-height: 60vh;">
 				<div class="col-10 vh-center">
-					<h4 class="white-text text-center">NHẬP THÔNG TIN CÁ NHÂN CỦA BẠN ĐỂ SỬ DỤNG DỊCH VỤ NÀY</h4>
 					<hr>
 					<div class="row">
 						<div id="form" class="col-12 vh-center">
@@ -76,7 +79,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="blank-80px"></div>
+					<hr>
 				</div>
 			</div>
 		</div>

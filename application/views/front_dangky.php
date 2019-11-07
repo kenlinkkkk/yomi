@@ -137,13 +137,13 @@ if ($this->session->msisdn != 'empty') {
 							<hr class="width-hr">
 
 							<?php
-							if ($this->session->msisdn != 'empty') {
-								if (!empty($package['PT'])) {
-									echo '<a href="javascript://" rel="PT" class="btn btn-dk disabled" style="width: 180px;">Đã đăng ký</a><hr class="width-hr">';
-								} else {
-									echo '<a href="javascript://" rel="PT" class="btn btn-warning" style="width: 180px;">Đăng ký</a><hr class="width-hr">';
+								if ($this->session->msisdn != 'empty') {
+									if (!empty($package['PT'])) {
+										echo '<a href="javascript://" rel="PT" class="btn btn-dk disabled" style="width: 180px;">Đã đăng ký</a><hr class="width-hr">';
+									} else {
+										echo '<a href="javascript://" rel="PT" class="btn btn-warning" style="width: 180px;">Đăng ký</a><hr class="width-hr">';
+									}
 								}
-							}
 							?>
 
 							<h5 class="white-text">Soạn tin <span class="yellow-text">DK PT7 </span>gửi <span class="yellow-text">5899</span> </h5>
@@ -152,13 +152,13 @@ if ($this->session->msisdn != 'empty') {
 							<hr class="width-hr">
 
 							<?php
-							if ($this->session->msisdn != 'empty') {
-								if (!empty($package['PT7'])) {
-									echo '<a href="javascript://" rel="PT7" class="btn btn-dk disabled" style="width: 180px;">Đã đăng ký</a><hr class="width-hr">';
-								} else {
-									echo '<a href="javascript://" rel="PT7" class="btn btn-warning" style="width: 180px;">Đăng ký</a><hr class="width-hr">';
+								if ($this->session->msisdn != 'empty') {
+									if (!empty($package['PT7'])) {
+										echo '<a href="javascript://" rel="PT7" class="btn btn-dk disabled" style="width: 180px;">Đã đăng ký</a><hr class="width-hr">';
+									} else {
+										echo '<a href="javascript://" rel="PT7" class="btn btn-warning" style="width: 180px;">Đăng ký</a><hr class="width-hr">';
+									}
 								}
-							}
 							?>
 
 						</div>

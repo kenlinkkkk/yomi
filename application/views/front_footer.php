@@ -20,6 +20,7 @@
                                 <li><a class="nav-link white-text" href="<?=base_url('huong-dan-dang-ky')?>"><strong> Hướng dẫn</strong></a></li>
                                 <li><a class="nav-link white-text" href="<?=base_url('lien-he')?>"><strong> Liên hệ</strong></a></li>
                                 <li><a class="nav-link white-text" href="<?=base_url('dieu-le')?>"><strong> Điều lệ</strong></a></li>
+                                <li><a class="nav-link white-text" href="<?=base_url('chinh-sach')?>"><strong> Chính sách</strong></a></li>
                             </ul>
                         </div>
                     </div>
@@ -36,7 +37,7 @@
                                     <li><strong>CNKD số: </strong> 0103327293 cấp ngày 12/02/2009.</li>
                                     <li><strong>Nơi cấp: </strong> phòng Đăng ký kinh doanh, Sở kế hoạch và đầu tư Thành Phố Hà Nội.</li>
                                     <li><strong>Chịu trách nhiệm nội dung: </strong> Ông Nguyễn Thanh Hương.</li>
-                                    <li><strong>Giấy phép MXH số: </strong> 216/GP-BTTTT do Bộ Thông tin và Truyền thông cấp ngày 24/05/2018.</li>
+                                    <li><strong>Giấy phép MXH số: </strong> 420/GP - BTTTT do Bộ Thông tin và Truyền thông cấp ngày 02/10/2019.</li>
                                 </ul>
                             </div>
                         </div>

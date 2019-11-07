@@ -37,6 +37,7 @@
                                 <div class="col-10">
                                     <h5 class="white-text">ĐỐI TƯỢNG SỬ DỤNG</h5>
                                     <p class="white-text">Tất cả các thuê bao hoạt động 02 chiều trên mạng MobiFone</p>
+                                    <p class="white-text">Người dùng soạn cú pháp đăng ký gói cước, gửi đến đầu số của dịch vụ (5899)</p>
                                 </div>
                             </div>
                             <hr>
@@ -46,7 +47,8 @@
                                 </div>
                                 <div class="col-10">
                                     <h5 class="white-text">CÁC KÊNH CUNG CẤP DỊCH VỤ</h5>
-                                    <p class="white-text">SMS, WEBSITE, APP</p>
+                                    <p class="white-text">Chúng tôi cung cấp dịch vụ trên các kênh: Website, Wapsite, Ứng dụng</p>
+                                    <p class="white-text">Kênh đăng ký sử dụng dịch vụ: SMS, Wapsite</p>
                                 </div>
                             </div>
                             <hr>

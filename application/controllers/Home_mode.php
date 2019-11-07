@@ -48,7 +48,7 @@ class Home_mode extends MX_Controller
 			case 'dang-ky':
 				$main = $this->_dangky();
 				break;
-			case 'tu-vi':
+			case 'phong-thuy':
 				$main = $this->_tuviphongthuy();
 				break;
 			case 'hoang-dao':
@@ -71,6 +71,9 @@ class Home_mode extends MX_Controller
 				break;
 			case 'login':
 				$main = $this->login();
+				break;
+				case 'chinh-sach';
+				$main = $this->_chinh_sach();
 				break;
 			default:
 				$main = $this->_home();
@@ -175,7 +178,7 @@ class Home_mode extends MX_Controller
 
 		$data = array(
 			'view' => $this->load->view('front_tuviphongthuy', $info, TRUE),
-			'title' => 'Tử vi phong thủy',
+			'title' => 'Khoa học phong thủy',
 		);
 		
 		return $data;
@@ -270,7 +273,7 @@ class Home_mode extends MX_Controller
 		$phone = substr($_POST['phone'], -9);
 		$pass = $_POST['pass'];
 
-		$results = loginAPI($phone, $pass);
+ 		$results = loginAPI($phone, $pass);
 
 		if ($results->resultCode == 1) {
 			$msisdn = $results->data->msisdn;
@@ -280,6 +283,17 @@ class Home_mode extends MX_Controller
 			);
 
 			$this->session->set_userdata($array);
+
+			redirect(0);
 		}
+	}
+
+	public function _chinh_sach() {
+		$data = array(
+			'title' => 'Chính sách dịch vụ',
+			'view' => $this->load->view('front_chinhsach', '', TRUE),
+		);
+
+		return $data;
 	}
 }

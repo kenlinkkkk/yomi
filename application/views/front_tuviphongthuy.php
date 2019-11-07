@@ -6,18 +6,15 @@
  * Time: 01:36 PM
  */
 $this->load->helper('_helper');
+
 if ($this->session->msisdn != 'empty') {
-	$phone_raw = $this->session->msisdn;
-
-	$phone = substr($phone_raw, 2, strlen($phone_raw) - 2);
-
-	$package = checkPackageStatusAPI($phone);
+	$package = checkPackageStatusAPI(substr($this->session->msisdn, -9));
 }
 ?>
 
 <main>
     <div id="tuviphongthuy">
-		<div style="position: absolute; z-index: 999; display: none; width: 100%; height: 100%;" id="infosubmit-pr">
+		<div style="position: absolute; z-index: 999; display: none; width: 100%; max-height: 60vh; overflow: scroll" id="infosubmit-pr">
 			<?= $view?>
 		</div>
         <div class="w-100">
@@ -37,10 +34,11 @@ if ($this->session->msisdn != 'empty') {
 								</div>
 								<div class="card-body text-center">
 									<hr class="width-hr">
-									<h4 class="yellow-text">XEM DANH TÍNH</h4>
+									<h4 class="yellow-text">Ý NGHĨA TÊN GỌI</h4>
 									<p class="white-text">Tên bạn và những người bạn quan tâm ảnh hưởng như thế nào đến vận mệnh.?</p>
 									<?php
-										if ($this->session->msisdn != 'empty' && $package['status'] != 0) {
+										if ($this->session->msisdn != 'empty') {
+											if ($package['status'] == 1)
 											echo '<a href="'.base_url('dang-ky').'" class="btn btn-warning disabled">ĐANG CẬP NHẬT</a>';
 										}
 									?>
@@ -60,10 +58,12 @@ if ($this->session->msisdn != 'empty') {
 								<div class="card-body text-center">
 									<hr class="width-hr">
 									<h4 class="yellow-text">XEM SỐ ĐIỆN THOẠI</h4>
-									<p class="white-text">Sim số điện thoại có phù hợp với phong thủy của bạn không?</p>
+									<p class="white-text">Ý nghĩa số điện thoại bạn đang sử dụng</p>
 									<?php
-										if ($this->session->msisdn != 'empty' && $package['status'] != 0) {
-											echo '<a href="javascript://" class="btn btn-primary" rel="boi-sim">XEM THÊM</a>';
+										if ($this->session->msisdn != 'empty') {
+											if ($package['status'] == 1) {
+												echo '<a href="javascript://" class="btn btn-primary" rel="boi-sim">XEM THÊM</a>';
+											}
 										}
 									?>
 								</div>
@@ -83,11 +83,13 @@ if ($this->session->msisdn != 'empty') {
 								</div>
 								<div class="card-body text-center">
 									<hr class="width-hr">
-									<h4 class="yellow-text">XEM NGÀY TỐT XẤU</h4>
-									<p class="white-text">Hôm nay của bạn thế nào? Có gì tốt và điều gì không may mắn có thể đến với bạn?</p>
+									<h4 class="yellow-text">NGÀY HÔM NAY CỦA BẠN</h4>
+									<p class="white-text">Cùng Phong thủy học và Chiêm tinh học phân tích ngày hôm nay của bạn</p>
 									<?php
-										if ($this->session->msisdn != 'empty' && $package['status'] != 0) {
-											echo '<a href="'.base_url('dang-ky').'" class="btn btn-warning disabled">ĐANG CẬP NHẬT</a>';
+										if ($this->session->msisdn != 'empty') {
+											if ($package['status'] == 1) {
+												echo '<a href="'.base_url('dang-ky').'" class="btn btn-warning disabled">ĐANG CẬP NHẬT</a>';
+											}
 										}
 									?>
 								</div>
@@ -105,11 +107,13 @@ if ($this->session->msisdn != 'empty') {
 								</div>
 								<div class="card-body text-center">
 									<hr class="width-hr">
-									<h4 class="yellow-text">PHONG THỦY</h4>
-									<p class="white-text">Xem nhanh lịch âm dương, hướng đi, việc nên làm, không nên làm.</p>
+									<h4 class="yellow-text">KHOA HỌC PHONG THỦY</h4>
+									<p class="white-text">Phong thủy dựa trên yếu tố khoa học phân tích sự ảnh hưởng của tự nhiên đến con người như thế nào</p>
 									<?php
-										if ($this->session->msisdn != 'empty' && $package['status'] != 0) {
-											echo '<a href="javascript://" class="btn btn-primary" rel="phong-thuy">XEM THÊM</a>';
+										if ($this->session->msisdn != 'empty') {
+											if ($package['status'] == 1) {
+												echo '<a href="javascript://" class="btn btn-primary" rel="phong-thuy">XEM THÊM</a>';
+											}
 										}
 									?>
 								</div>

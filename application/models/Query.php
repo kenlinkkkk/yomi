@@ -87,7 +87,7 @@ class Query extends CI_Model
 		if (empty($results)) {
 			$results = $this->db->where('cung_hoang_dao', $cung)
 								->where('type_tuvi', $type)
-								->where('level_tuvi < ', $level)
+								->where('level_tuvi > ', $level)
 								->order_by('level_tuvi', 'DESC')
 								->limit(1)
 								->get('tuvi_hangngay')
