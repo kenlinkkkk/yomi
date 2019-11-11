@@ -35,6 +35,12 @@ class Root extends MX_Controller
 			case 'test':
 				$html = modules::run('Test');
 				break;
+			case 'blog':
+				$html = modules::run('Blog');
+				break;
+			case 'admin':
+				$html = modules::run('Admin');
+				break;
 			default:
 				$html = modules::run('Home_mode');
 		}

@@ -74,7 +74,7 @@ if ($this->session->msisdn != 'empty') {
                                     <img src="<?= base_url('assets/images/stickers/horo1.png')?>" class="img-fit">
                                 </div>
                                 <div class="card-body text-center">
-                                    <h5 class="yellow-text">TỬ VI & PHONG THỦY</h5>
+                                    <h5 class="yellow-text">KHOA HỌC PHONG THỦY</h5>
                                     <p class="white-text">Xem hướng nhà, ngày tốt, ngày xấu, tên cho con, tướng mạo, dáng đi,...</p>
                                 </div>
                                 <div class="card-footer text-center">

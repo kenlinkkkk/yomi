@@ -100,6 +100,9 @@
                             <a class="dropdown-item" href="<?= base_url('danh-sach-trung-thuong')?>">DANH SÁCH TRÚNG THƯỞNG</a>
                         </div>
                     </li>
+					<li class="nav-item non-padding">
+						<a class="nav-link white-text" href="<?= base_url('blog')?>">BLOG</a>
+					</li>
                     <li class="nav-item non-padding">
                         <a href="<?= base_url('dang-ky')?>">
                             <button id="dangkibtn" class="btn btn-outline-light none-radius" style="width: 120px">
