@@ -35,14 +35,28 @@
                                             <th>Id</th>
 											<th>Thumbnail</th>
                                             <th>URL</th>
-                                            <th>Tên</th>
+                                            <th>Title</th>
                                             <th>Ngày đăng</th>
-                                            <th>Trạng thái</th>
                                             <th>Hành động</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-
+									<?php
+									if ($blog != 'empty'):
+									foreach ($blog as $item) : ?>
+										<tr>
+											<td><?= $item->id;?></td>
+											<td><img width="30" src="<?= base_url($item->thumbnail);?>" class=""></td>
+											<td><?= $item->url;?></td>
+											<td><?= $item->title;?></td>
+											<td><?= $item->date;?></td>
+											<td>
+												<a href="<?= base_url('admin/blog/edit/'.$item->id)?>" class="mb-2 mr-2 btn-icon btn btn-sm btn-success text-white"><i class="pe-7s-pen btn-icon-wrapper"></i> Edit</a>
+												<a href="<?= base_url('admin/blog/delete/'.$item->id)?>" class="mb-2 mr-2 btn-icon btn btn-sm btn-danger text-white"><i class="pe-7s-trash btn-icon-wrapper"></i> Delete</a>
+											</td>
+										</tr>
+									<?php endforeach;?>
+									<?php endif;?>
                                     </tbody>
                                 </table>
                             </div>

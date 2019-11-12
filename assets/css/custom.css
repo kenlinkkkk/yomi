@@ -421,6 +421,10 @@ ul {
 	transform: translate(-50%);
 }
 
+#blog .thumbnail {
+	width: 200px;
+}
+
 @media (max-width: 991.98px) {
 	/*custom show navbar*/
 	.navbar-collapse {

@@ -12,3 +12,7 @@
 @import url("../plugins/iconfonts/typicons/typicons.css");
 @import url("../plugins/iconfonts/weathericons/weathericons.css");
 @import url("../plugins/iconfonts/nucleo/css/nucleo.css");
+
+#blog_add .ck .ck-editor__editable_inline {
+	height: 300px;
+}

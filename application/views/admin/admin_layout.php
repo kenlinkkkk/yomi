@@ -166,7 +166,9 @@
 <script src="<?=base_url('assets/admin/js/dashboard-it.js')?>"></script>
 <!-- Ansta JS -->
 <script src="<?=base_url('assets/admin/js/custom.js')?>"></script>
+<script src="<?=base_url('assets/js/js.js')?>"></script>
 
+<script src="https:	//cdn.ckeditor.com/ckeditor5/15.0.0/classic/ckeditor.js"></script>
 
 </body>
 

@@ -1,4 +1,6 @@
 $(document).ready(function () {
+	ClassicEditor.create(document.querySelector("#blog_content"));
+
 	$("#dangky a").click(function () {
 		var package_code =$(this).attr("rel");
 		var data = {package_code: package_code};
@@ -155,3 +157,5 @@ $("#iconClose1").click(function (event) {
 $(window).on('hashchange', function(e){
 	history.replaceState ("", document.title, e.originalEvent.oldURL);
 });
+
+

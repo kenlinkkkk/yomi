@@ -7,6 +7,8 @@ class Admin extends MX_Controller
 	{
 		parent::__construct();
 		$this->load->model('User_model', 'user');
+		$this->load->model('Blog_model', 'blog');
+		$this->load->helper('_helper');
 	}
 
 	function index() {
@@ -19,7 +21,7 @@ class Admin extends MX_Controller
 		}
 
 		if (!$this->_check_login()) {
-			redirect($this->uri->level(1). '/login');
+			redirect( 'admin/login');
 		}
 
 		if ($segment2 == 'logout') {
@@ -103,6 +105,110 @@ class Admin extends MX_Controller
 
 	public function _blog()
 	{
-		return $this->load->view('admin/admin_blogs', '', TRUE);
+		$segment3 = $this->uri->segment(3);
+
+		switch ($segment3) {
+			case 'add':
+			case 'edit':
+				return $this->_blog_add();
+				break;
+			case 'delete':
+				return $this->_blog_delete();
+				break;
+			default:
+				return $this->_blog_list();
+				break;
+		}
+	}
+
+	public function _blog_list() {
+		$data = array(
+			'blog'  => $this->blog->getAll(),
+		);
+		return $this->load->view('admin/admin_blogs', $data, TRUE);
+	}
+
+	public function _blog_add()
+	{
+		$segment3 = $this->uri->segment(3);
+
+		if ($segment3 == 'edit') {
+			$segment4 = intval($this->uri->segment(4));
+		}
+
+		$blog_title = trim(htmlspecialchars($this->input->post('title')));
+		$blog_content = trim(htmlspecialchars($this->input->post('content')));
+
+		$blog = '';
+		if (empty($blog_thumbnail)) {
+			$upload_path = 'uploads';
+			$img = '';
+			$url = '';
+			
+			if (!empty($_FILES['thumbnail']['name'])) {
+				$config['upload_path'] = $upload_path;
+				$config['allowed_types'] = 'gif|jpg|png';
+				$config['max_size'] = '1000000';
+				$config['file_name'] = $_FILES['thumbnail']['name'];
+
+				$this->load->library('upload', $config);
+
+				if ($this->upload->do_upload('thumbnail')) {
+					$image_data = $this->upload->data();
+					$url = $image_data['file_name'];
+				} else {
+					$error = array('error' => $this->upload->display_errors());
+				}
+
+				if (!empty($url)) {
+					$img = 'uploads/'.$url;
+				}
+
+			}
+		}
+		if ($this->input->post('isPost')) {
+			$blog = array(
+				'id' => $this->uri->segment(4),
+				'title' => $blog_title,
+				'url' => convertText($blog_title),
+				'content' =>  $blog_content,
+				'thumbnail' => $img,
+				'status' => 1,
+			);
+
+			if ($segment3 == 'edit') {
+				$result = $this->blog->editBlog($blog);
+				if (!empty($result)) {
+					redirect('admin/blog');
+				}
+			} else {
+				$result =$this->blog->addBlog($blog);
+				if (!empty($result)) {
+					redirect('admin/blog');
+				}
+			}
+		} elseif ($segment3 =='edit') {
+			$row = $this->blog->getBlogById($segment4);
+
+			$blog = array(
+				'id' => $row->id,
+				'title' => $row->title,
+				'url' => $row->url,
+				'content' =>  $row->content,
+				'thumbnail' => $row->thumbnail,
+				'status' => 1,
+			);
+		}
+
+		return $this->load->view('admin/admin_blog_add', $blog, TRUE);
+	}
+
+	public function _blog_delete()
+	{
+		$id = intval($this->uri->segment(4));
+
+		$result = $this->blog->deleteBlog($id);
+
+		redirect('admin/blog');
 	}
 }
