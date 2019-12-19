@@ -32,6 +32,8 @@
     <!-- Sidemenu Css -->
     <link href="<?=base_url('assets/admin/plugins/toggle-sidebar/css/sidemenu.css')?>" rel="stylesheet">
 
+	<!-- file upload -->
+	<link href="<?= base_url('assets/admin/plugins/fileuploads/css/dropify.css');?>"  rel="stylesheet">
 </head>
 <body class="app sidebar-mini rtl" >
 <div id="global-loader" ></div>
@@ -164,11 +166,20 @@
 <!-- Custom scroll bar Js-->
 <script src="<?=base_url('assets/admin/plugins/customscroll/jquery.mCustomScrollbar.concat.min.js')?>"></script>
 <script src="<?=base_url('assets/admin/js/dashboard-it.js')?>"></script>
+
+<!-- file uploads js -->
+<script src="<?= base_url('assets/admin/plugins/fileuploads/js/dropify.min.js');?>"></script>
 <!-- Ansta JS -->
 <script src="<?=base_url('assets/admin/js/custom.js')?>"></script>
 <script src="<?=base_url('assets/js/js.js')?>"></script>
 
 <script src="https:	//cdn.ckeditor.com/ckeditor5/15.0.0/classic/ckeditor.js"></script>
+
+<script>
+	$(document).ready(function () {
+        ClassicEditor.create(document.querySelector("#blog_content"));
+    });
+</script>
 
 </body>
 

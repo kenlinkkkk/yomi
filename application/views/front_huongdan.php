@@ -99,7 +99,7 @@
                                             <td>DK KP7 hoặc KP7</td>
                                             <td>Y KP7</td>
                                             <td>HUY KP7</td>
-                                            <td>5.000đ/ ngày</td>
+                                            <td>5.000đ/ tuần</td>
                                         </tr>
                                         <tr>
                                             <td>Gói VIP Tuần</td>
@@ -107,7 +107,7 @@
                                             <td>DK PT7 hoặc PT7</td>
                                             <td>Y PT7</td>
                                             <td>HUY PT7</td>
-                                            <td>10.000đ/ ngày</td>
+                                            <td>10.000đ/ tuần</td>
                                         </tr>
 										<tr>
 											<td>3</td>

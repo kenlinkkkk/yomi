@@ -75,7 +75,7 @@ if ($this->session->msisdn != 'empty') {
                                 </div>
                                 <div class="card-body text-center">
                                     <h5 class="yellow-text">KHOA HỌC PHONG THỦY</h5>
-                                    <p class="white-text">Xem hướng nhà, ngày tốt, ngày xấu, tên cho con, tướng mạo, dáng đi,...</p>
+                                    <p class="white-text">Phong thủy dựa trên yếu tố khoa học phân tích sự ảnh hưởng của tự nhiên đến con người như thế nào </p>
                                 </div>
                                 <div class="card-footer text-center">
                                     <hr class="width-hr">
@@ -97,7 +97,7 @@ if ($this->session->msisdn != 'empty') {
                                 </div>
                                 <div class="card-body text-center">
                                     <h5 class="yellow-text">CUNG HOÀNG ĐẠO</h5>
-                                    <p class="white-text">Đoán tính cách, tình yêu, sức khỏe, qua cung hoàng đạo của bạn</p>
+                                    <p class="white-text">Khám phá bí mật cung Hoàng Đạo và mối liên hệ giữa các chòm sao</p>
                                 </div>
                                 <div class="card-footer text-center">
                                     <hr class="width-hr">

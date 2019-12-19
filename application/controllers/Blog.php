@@ -7,6 +7,7 @@ class Blog extends MX_Controller
 	{
 		parent::__construct();
 		$this->load->model('Blog_model', 'blog');
+		$this->load->model('User_model', 'user');
 	}
 
 	public function index() {
@@ -14,6 +15,12 @@ class Blog extends MX_Controller
 
 		if (empty($segment2)) {
 			$main = $this->_blog_list();
+		} elseif ($segment2 == 'add') {
+			if ($this->session->msisdn) {
+				$main = $this->_blog_add();
+			} else {
+				redirect(base_url('sach-kham-pha'));
+			}
 		} else {
 			$main = $this->_blog_detail();
 		}
@@ -26,14 +33,21 @@ class Blog extends MX_Controller
 			'promotion' => $promotion,
 			'footer' => $footer,
 		);
-		var_dump($main);
+
 		return $this->load->view('front_layout', $data, TRUE);
 	}
 
 	public function _blog_list()
 	{
+		$blogs = $this->blog->getAll();
+
+		foreach ($blogs as $blog) {
+			$user = $this->user->getUserById($blog->author);
+			$blog->author_name = $user;
+		}
+
 		$blog = array(
-			'blog' => $this->blog->getAll(),
+			'blogs' => $blogs,
 		);
 
 		return $data = array(
@@ -44,13 +58,22 @@ class Blog extends MX_Controller
 
 	public function _blog_detail() {
 		$segment2 = intval($this->uri->segment(2));
+		$blog = $this->blog->getBlogById($segment2);
 		$blog = array(
-			'blog' => $this->blog->getBlogById($segment2),
+			'blog' => $blog,
+			'user' => $this->user->getUserById($blog->author),
 		);
 
 		return $data = array(
 			'title' => $blog->title,
 			'view' => $this->load->view('blog/blog_detail', $blog, TRUE),
+		);
+	}
+
+	public function _blog_add() {
+		return $data = array(
+			'title' => 'Thêm mới blog',
+			'view' => $this->load->view('blog/add_blog', '', TRUE),
 		);
 	}
 }

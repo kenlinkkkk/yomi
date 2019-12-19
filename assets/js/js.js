@@ -1,5 +1,10 @@
 $(document).ready(function () {
-	ClassicEditor.create(document.querySelector("#blog_content"));
+	ClassicEditor
+		.create( document.querySelector( '#blog_content' ) )
+		.then( editor => {
+		} )
+		.catch( error => {
+		} );
 
 	$("#dangky a").click(function () {
 		var package_code =$(this).attr("rel");
@@ -17,6 +22,7 @@ $(document).ready(function () {
 	$("#tuviphongthuy a, #cunghoangdao a").click(function () {
 		var tag = $(this).attr("rel");
 		var data = {tag: tag};
+		console.log(data);
 		$.ajax("chiem-tinh/check-info",{
 			type: "POST",
 			data: data,
@@ -122,6 +128,16 @@ $(document).ready(function () {
 			});
 		}
 	});
+
+	$(".trigger_popup_fricc").click(function(){
+		$('.hover_bkgr_fricc').show();
+	});
+	$('.hover_bkgr_fricc').click(function(){
+		$('.hover_bkgr_fricc').hide();
+	});
+	$('.popupCloseButton').click(function(){
+		$('.hover_bkgr_fricc').hide();
+	});
 });
 
 $(window).scroll(function() {
@@ -156,6 +172,18 @@ $("#iconClose1").click(function (event) {
 
 $(window).on('hashchange', function(e){
 	history.replaceState ("", document.title, e.originalEvent.oldURL);
+});
+
+$('.dropify').dropify({
+	messages: {
+		'default': 'Drag and drop a file here or click',
+		'replace': 'Drag and drop or click to replace',
+		'remove': 'Remove',
+		'error': 'Ooops, something wrong appended.'
+	},
+	error: {
+		'fileSize': 'The file size is too big (2M max).'
+	}
 });
 
 

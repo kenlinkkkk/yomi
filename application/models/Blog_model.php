@@ -24,6 +24,7 @@ class Blog_model extends CI_Model
 		$this->db->set('title', $param['title']);
 		$this->db->set('content', $param['content']);
 		$this->db->set('status', $param['status']);
+		$this->db->set('author', $param['author']);
 
 		$query = $this->db->insert('blog');
 
@@ -33,8 +34,12 @@ class Blog_model extends CI_Model
 	public function editBlog($param)
 	{
 		$this->db->set('title', $param['title']);
+		if (!empty($param['thumbnail'])) {
+			$this->db->set('thumbnail', $param['thumbnail']);
+		}
 		$this->db->set('url', $param['url']);
 		$this->db->set('content', $param['content']);
+		$this->db->set('author', $param['author']);
 		$this->db->where('id', $param['id']);
 
 		$query = $this->db->update('blog');

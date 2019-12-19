@@ -21,4 +21,39 @@ class User_model extends CI_Model
 			return 'empty';
 		}
 	}
+
+	function getAllUser() {
+		$data = $this->db->get('users')->result();
+
+		if (!empty($data)) {
+			return $data;
+		} else {
+			return 'empty';
+		}
+	}
+
+	public function getUserById($id)
+	{
+		$this->db->where('id', $id);
+
+		$data = $this->db->get('users')->result();
+
+		if (!empty($data)) {
+			return $data[0];
+		} else {
+			return 'empty';
+		}
+	}
+
+	public function getUserByPhone($phone) {
+		$this->db->where('phone', $phone);
+
+		$data = $this->db->get('users')->result();
+
+		if (!empty($data)) {
+			return $data[0];
+		} else {
+			return 'empty';
+		}
+	}
 }

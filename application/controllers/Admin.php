@@ -123,7 +123,7 @@ class Admin extends MX_Controller
 
 	public function _blog_list() {
 		$data = array(
-			'blog'  => $this->blog->getAll(),
+			'blog' => $this->blog->getAll(),
 		);
 		return $this->load->view('admin/admin_blogs', $data, TRUE);
 	}
@@ -138,13 +138,18 @@ class Admin extends MX_Controller
 
 		$blog_title = trim(htmlspecialchars($this->input->post('title')));
 		$blog_content = trim(htmlspecialchars($this->input->post('content')));
-
-		$blog = '';
+		$blog_author = trim(htmlspecialchars($this->input->post('author')));
+		$blog = array(
+			'title' => null,
+			'author' => null,
+			'content' => null,
+			'users' => $this->user->getAllUser(),
+		);
 		if (empty($blog_thumbnail)) {
 			$upload_path = 'uploads';
 			$img = '';
 			$url = '';
-			
+
 			if (!empty($_FILES['thumbnail']['name'])) {
 				$config['upload_path'] = $upload_path;
 				$config['allowed_types'] = 'gif|jpg|png';
@@ -173,7 +178,9 @@ class Admin extends MX_Controller
 				'url' => convertText($blog_title),
 				'content' =>  $blog_content,
 				'thumbnail' => $img,
+				'author' => $blog_author,
 				'status' => 1,
+				'users' => $this->user->getAllUser(),
 			);
 
 			if ($segment3 == 'edit') {
@@ -196,10 +203,11 @@ class Admin extends MX_Controller
 				'url' => $row->url,
 				'content' =>  $row->content,
 				'thumbnail' => $row->thumbnail,
+				'author' => $blog_author,
 				'status' => 1,
+				'users' => $this->user->getAllUser(),
 			);
 		}
-
 		return $this->load->view('admin/admin_blog_add', $blog, TRUE);
 	}
 

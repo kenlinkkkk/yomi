@@ -35,7 +35,13 @@ if ($this->session->msisdn != 'empty') {
                                     <hr class="width-hr">
                                     <h4 class="blue-text">TỔNG QUAN CUNG HOÀNG ĐẠO</h4>
                                     <p class="white-text">Tổng hợp những thông tin cơ bản nhất về cung hoàng đạo.</p>
-									<a href="javascript://" class="btn btn-primary" rel="tong-quan-cung-hoang-dao">XEM THÊM</a>
+									<?php
+										if ($this->session->msisdn) {
+											if (!empty($package['CV']) || !empty($package['QT']) || !empty($package['PT']) || !empty($package['PT'])) {
+												echo '<a href="javascript://" class="btn btn-primary" rel="tong-quan-cung-hoang-dao">XEM THÊM</a>';
+											}
+										}
+									?>
                                 </div>
                             </div>
                         </div>

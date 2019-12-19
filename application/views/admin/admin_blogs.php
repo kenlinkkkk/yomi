@@ -37,6 +37,7 @@
                                             <th>URL</th>
                                             <th>Title</th>
                                             <th>Ngày đăng</th>
+                                            <th>Người đăng</th>
                                             <th>Hành động</th>
                                         </tr>
                                     </thead>
@@ -50,6 +51,7 @@
 											<td><?= $item->url;?></td>
 											<td><?= $item->title;?></td>
 											<td><?= $item->date;?></td>
+											<td><?= $item->author;?></td>
 											<td>
 												<a href="<?= base_url('admin/blog/edit/'.$item->id)?>" class="mb-2 mr-2 btn-icon btn btn-sm btn-success text-white"><i class="pe-7s-pen btn-icon-wrapper"></i> Edit</a>
 												<a href="<?= base_url('admin/blog/delete/'.$item->id)?>" class="mb-2 mr-2 btn-icon btn btn-sm btn-danger text-white"><i class="pe-7s-trash btn-icon-wrapper"></i> Delete</a>

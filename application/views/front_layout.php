@@ -23,6 +23,9 @@
 
 	<!--    font awesome-->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/css/dropify.css"  rel="stylesheet">
+
 </head>
 
 <body>
@@ -93,13 +96,25 @@
 					<li class="nav-item non-padding">
 						<a class="nav-link white-text" href="<?= base_url('blog')?>">BLOG</a>
 					</li>
+					<?php
+						if ($this->session->msisdn != 'empty' && !empty($this->session->phone)):
+					?>
+						<li class="nav-item non-padding">
+							<a class="nav-link white-text" id="create-blog" href="<?= base_url('blog/add')?>">VIẾT BLOG</a>
+						</li>
+					<?php
+						endif;
+					?>
+					<li class="nav-item non-padding">
+						<a class="nav-link white-text" href="<?= base_url('cvpt')?>">CỐ VẤN PHONG THỦY</a>
+					</li>
 <!--                    <li class="nav-item  non-padding">-->
 <!--                        <a class="nav-link white-text" href="--><?//= base_url('minigame')?><!--">MINI GAME</a>-->
 <!--                    </li>-->
                     <li class="dropdown nav-item non-padding">
                         <a class="nav-link white-text dropdown-toggle" href="<?= base_url('chuong-trinh-khuyen-mai')?>" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">KHUYẾN MẠI</a>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink3">
-                            <a class="dropdown-item" href="<?=base_url('chuong-trinh-khuyen-mai')?>">CHƯƠNG TRÌNH TRÚNG THƯỞNG</a>
+                            <a class="dropdown-item" href="<?=base_url('chuong-trinh-khuyen-mai')?>">CHƯƠNG TRÌNH KHUYẾN MẠI</a>
                             <a class="dropdown-item" href="<?= base_url('danh-sach-trung-thuong')?>">DANH SÁCH TRÚNG THƯỞNG</a>
                         </div>
                     </li>
@@ -142,6 +157,8 @@
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/js/dropify.js"></script>
+
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
     <script src="<?= base_url('assets/js/particles.min.js')?>"></script>
@@ -150,6 +167,8 @@
 
 	<script src="<?= base_url('assets/js/js.js')?>"></script>
 
+
+	<script src="https:	//cdn.ckeditor.com/ckeditor5/15.0.0/classic/ckeditor.js"></script>
 
 </body>
 </html>

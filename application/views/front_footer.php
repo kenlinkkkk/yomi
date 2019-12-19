@@ -53,7 +53,7 @@
                         </li>
                         <li>
                             <span><img src="<?= base_url('assets/images/icons/call.png')?>" class="vh-center" style="max-width: 30px; max-height: 30px;"></span>
-                            CSKH: (024) 7016 0808
+                            CSKH: (024) 7106 0808
                         </li>
                         <li>
                             <span><img src="<?= base_url('assets/images/icons/email.png')?>" class="vh-center" style="max-width: 30px; max-height: 30px;"></span>
