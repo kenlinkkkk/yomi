@@ -8,10 +8,10 @@
 ?>
 
 <main>
-    <div class="container vh-center hidden-div">
-        <div class="row" style="display:none;">
+    <div class="container vh-center">
+        <div class="row">
             <div class="col-11 vh-center img-fit">
-                <img src="<?= base_url('assets/images/qc1.png')?>" class="img-fit">
+                <img src="<?= base_url('assets/images/qc2.jpg')?>" class="img-fit">
             </div>
         </div>
         <div class="blank-80px"></div>
