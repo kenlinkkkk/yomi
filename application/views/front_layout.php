@@ -1,5 +1,8 @@
 <?php
-
+	$this->load->helper('_helper');
+	if ($this->session->msisdn != 'empty') {
+		$package = checkPackageStatusAPI(substr($this->session->msisdn, -9));
+	}
 ?>
 
 <!DOCTYPE html>
@@ -83,13 +86,20 @@
 							echo '<li class="nav-item non-padding"><a class="nav-link white-text disable" href="#">Xin chào : '. $this->session->phone .'</a></li>';
 						}
 					?>
-                    <li class="nav-item non-padding">
-                        <a class="nav-link white-text" href="<?= base_url('phong-thuy')?>">KHOA HỌC PHONG THỦY</a>
-
-                    </li>
-                    <li class="nav-item non-padding">
-                        <a class="nav-link white-text" href="<?= base_url('hoang-dao')?>">CUNG HOÀNG ĐẠO</a>
-                    </li>
+					<li class="dropdown nav-item non-padding">
+						<a class="nav-link white-text dropdown-toggle" href="javascript://" id="navbarDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">PHONG THỦY & HOÀNG ĐẠO</a>
+						<div class="dropdown-menu" aria-labelledby="dropdownMenuLink1">
+							<a class="dropdown-item" href="<?= base_url('phong-thuy')?>">KHOA HỌC PHONG THỦY</a>
+							<a class="dropdown-item" href="<?= base_url('hoang-dao')?>">CUNG HOÀNG ĐẠO</a>
+						</div>
+					</li>
+<!--                    <li class="nav-item non-padding">-->
+<!--                        <a class="nav-link white-text" href="--><?//= base_url('phong-thuy')?><!--">KHOA HỌC PHONG THỦY</a>-->
+<!---->
+<!--                    </li>-->
+<!--                    <li class="nav-item non-padding">-->
+<!--                        <a class="nav-link white-text" href="--><?//= base_url('hoang-dao')?><!--">CUNG HOÀNG ĐẠO</a>-->
+<!--                    </li>-->
                     <li class="nav-item non-padding">
                         <a class="nav-link white-text" href="<?= base_url('sach-kham-pha')?>">SÁCH KHÁM PHÁ BẢN THÂN</a>
                     </li>
@@ -105,9 +115,15 @@
 					<?php
 						endif;
 					?>
-					<li class="nav-item non-padding">
-						<a class="nav-link white-text" href="<?= base_url('cvpt')?>">CỐ VẤN PHONG THỦY</a>
-					</li>
+					<?php
+						if ($this->session->msisdn != 'empty' && !empty($package['CV'])):
+					?>
+						<li class="nav-item non-padding">
+							<a class="nav-link white-text" href="<?= base_url('cvpt')?>">CỐ VẤN PHONG THỦY</a>
+						</li>
+					<?php
+						endif;
+					?>
 <!--                    <li class="nav-item  non-padding">-->
 <!--                        <a class="nav-link white-text" href="--><?//= base_url('minigame')?><!--">MINI GAME</a>-->
 <!--                    </li>-->

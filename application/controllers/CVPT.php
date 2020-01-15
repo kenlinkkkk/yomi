@@ -6,6 +6,7 @@ class CVPT extends MX_Controller
 	public function __construct()
 	{
 		parent::__construct();
+		$this->login();
 	}
 
 	public function index() {
@@ -39,43 +40,52 @@ class CVPT extends MX_Controller
 			case 'kieng-ki':
 				$this->kiengki();
 				break;
+			case 'check-profile':
+				$this->checkProfile();
+				break;
+			case 'update-profile':
+				$this->showUpdateForm();
+				break;
+			case 'post-update':
+				$this->updateProfile();
+				break;
 			default :
-				$this->services();
+				$this->list_all();
 				break;
 		}
 	}
 
 	public function login() {
-//		$url = 'http://10.54.10.7:8081/yomi/v1/api/wap/loginFengshui';
-//		$data = 'msisdn=934464916';
-//
-//		$ch = curl_init();
-//
-//		curl_setopt($ch, CURLOPT_URL, $url);
-//		curl_setopt($ch, CURLOPT_POST, 1);
-//		curl_setopt($ch, CURLOPT_POSTFIELDS,$data);
-//		curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/x-www-form-urlencoded'));
-//		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-//		curl_setopt($ch, CURLOPT_TIMEOUT, 10);
-//
-//		$server_output = curl_exec ($ch);
-//
-//		curl_close ($ch);
-//
-//		$result = json_decode($server_output);
-//
-//		if ($result->resultCode == 1) {
+		$url = 'http://10.54.10.7:8081/yomi/v1/api/wap/loginFengshui';
+		$data = 'msisdn='. substr($this->session->msisdn, -9);
+
+		$ch = curl_init();
+
+		curl_setopt($ch, CURLOPT_URL, $url);
+		curl_setopt($ch, CURLOPT_POST, 1);
+		curl_setopt($ch, CURLOPT_POSTFIELDS,$data);
+		curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/x-www-form-urlencoded'));
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+		curl_setopt($ch, CURLOPT_TIMEOUT, 10);
+
+		$server_output = curl_exec ($ch);
+
+		curl_close ($ch);
+
+		$result = json_decode($server_output);
+
+		if ($result->resultCode == 1) {
 //			$login_url = 'https://amduongnguhanh.vn/api/v1/login';
 			$login_url = 'http://103.74.121.176/api/v1/login';
-//			$data = array(
-//				'phone' => '0'.$result->data->msisdn,
-//				'password' =>  $result->data->mpin,
-//			);
-
 			$data = array(
-				'phone' => '0902178830',
-				'password' =>  '835111',
+				'phone' => '0'.$result->data->msisdn,
+				'password' =>  $result->data->mpin,
 			);
+
+//			$data = array(
+//				'phone' => '0902178830',
+//				'password' =>  '835111',
+//			);
 
 			$ch = curl_init();
 
@@ -94,9 +104,7 @@ class CVPT extends MX_Controller
 			);
 
 			$this->session->set_userdata($array);
-
-			var_dump($_SESSION);
-//		}
+		}
 	}
 
 	public function suggest()
@@ -263,7 +271,7 @@ class CVPT extends MX_Controller
 
 		$main = array(
 			'title' => 'Cố vấn phong thủy',
-			'view' => $this->load->view('cvpt/index', $response, TRUE),
+			'view' => $this->load->view('CVPT/index', $response, TRUE),
 		);
 
 		$data1 = array(
@@ -317,8 +325,6 @@ class CVPT extends MX_Controller
 
 		$response = json_decode(curl_exec($ch));
 		curl_close($ch);
-
-		var_dump($response);
 	}
 
 	public function luckyColor()
@@ -363,7 +369,18 @@ class CVPT extends MX_Controller
 		$response = json_decode(curl_exec($ch));
 		curl_close($ch);
 
-		var_dump($response);
+		$main = array(
+			'title' => 'Nhân sinh',
+			'view' => $this->load->view('CVPT/service_luckycolor', $response, TRUE),
+		);
+
+		$data1 = array(
+			'main' => $main,
+			'promotion' => $this->load->view('front_promotion', '', TRUE),
+			'footer' => $this->load->view('front_footer', '', TRUE),
+		);
+
+		return $this->load->view('front_layout', $data1, FALSE);
 	}
 
 	public function nhanSinh()
@@ -408,12 +425,23 @@ class CVPT extends MX_Controller
 		$response = json_decode(curl_exec($ch));
 		curl_close($ch);
 
-		var_dump($response);
+		$main = array(
+			'title' => 'Màu may mắn',
+			'view' => $this->load->view('CVPT/service_nhansinh', $response, TRUE),
+		);
+
+		$data1 = array(
+			'main' => $main,
+			'promotion' => $this->load->view('front_promotion', '', TRUE),
+			'footer' => $this->load->view('front_footer', '', TRUE),
+		);
+
+		return $this->load->view('front_layout', $data1, FALSE);
 	}
 
 	public function tuoiXongDat()
 	{
-		$url = 'http://103.74.121.176/api/v1/vano/xong_dat';
+		$url = 'http://103.74.121.176/api/v1/vano/xong_dat?all=true';
 //		$url = 'https://amduongnguhanh.vn/api/v1/vano/xong_dat';
 
 		$data = array(
@@ -453,7 +481,18 @@ class CVPT extends MX_Controller
 		$response = json_decode(curl_exec($ch));
 		curl_close($ch);
 
-		var_dump($response);
+		$main = array(
+			'title' => 'Tuổi xông đất',
+			'view' => $this->load->view('CVPT/service_xongdat', $response, TRUE),
+		);
+
+		$data1 = array(
+			'main' => $main,
+			'promotion' => $this->load->view('front_promotion', '', TRUE),
+			'footer' => $this->load->view('front_footer', '', TRUE),
+		);
+
+		return $this->load->view('front_layout', $data1, FALSE);
 	}
 
 	public function xuathanh()
@@ -498,7 +537,18 @@ class CVPT extends MX_Controller
 		$response = json_decode(curl_exec($ch));
 		curl_close($ch);
 
-		var_dump($response);
+		$main = array(
+			'title' => 'Xuất hành',
+			'view' => $this->load->view('CVPT/service_xuathanh', $response, TRUE),
+		);
+
+		$data1 = array(
+			'main' => $main,
+			'promotion' => $this->load->view('front_promotion', '', TRUE),
+			'footer' => $this->load->view('front_footer', '', TRUE),
+		);
+
+		return $this->load->view('front_layout', $data1, FALSE);
 	}
 
 	public function kiengki()
@@ -507,7 +557,9 @@ class CVPT extends MX_Controller
 //		$url = 'https://amduongnguhanh.vn/api/v1/vano/kieng_ki';
 
 		$data = array(
-			'mon' => 11
+			'full_name' => 'PT-DV-2',
+			'birth_day' => '10/12/1993',
+			'hob' => '10:06',
 		);
 
 		date_default_timezone_set('UTC');
@@ -543,6 +595,153 @@ class CVPT extends MX_Controller
 		$response = json_decode(curl_exec($ch));
 		curl_close($ch);
 
-		var_dump($response);
+		$main = array(
+			'title' => 'Kiêng kị',
+			'view' => $this->load->view('CVPT/service_kiengki', $response, TRUE),
+		);
+
+		$data1 = array(
+			'main' => $main,
+			'promotion' => $this->load->view('front_promotion', '', TRUE),
+			'footer' => $this->load->view('front_footer', '', TRUE),
+		);
+
+		return $this->load->view('front_layout', $data1, FALSE);
+	}
+
+	public function checkProfile()
+	{
+		$url = 'http://103.74.121.176/api/v1/vano/profile';
+//		$url = 'https://amduongnguhanh.vn/api/v1/vano/profile';
+
+		$data = array(
+			'full_name' => 'PT-DV-2',
+			'birth_day' => '10/12/1993',
+			'hob' => '10:06',
+		);
+
+		date_default_timezone_set('UTC');
+		$date = date('Y-m-d').'T'.date('h:m:s.B').'Z';
+
+		$request_line = 'GET /api/v1/vano/services HTTP/1.1';
+
+		$digest = base64_encode(json_encode($data));
+
+		$sign_text = 'date:'. $date . ' digest:'. $digest .' request-line:'.$request_line;
+
+		$hmac = base64_encode(hash_hmac('sha256', $sign_text, CVPT_CLIENT_SECRET, true));
+
+		$auth_signature = 'Signature keyId="'. CVPT_CLIENT_ID.'",algorithm="hmac-sha256",headers="date digest request-line",signature="'. $hmac .'"';
+
+		$ch = curl_init();
+
+		$headers = array(
+			'Content-Type: application/json',
+			'client-id: '. CVPT_CLIENT_ID,
+			'date: '. $date,
+			'digest: '. $digest,
+			'request-line: '. $request_line,
+			'token: '. $auth_signature,
+			'Authorization: Bearer '. $this->session->token_auth,
+		);
+
+		curl_setopt($ch, CURLOPT_URL, $url);
+		curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+		curl_setopt($ch, CURLOPT_TIMEOUT, 10);
+
+		$response = json_decode(curl_exec($ch));
+		curl_close($ch);
+
+		if(!empty($response->data->full_name)) {
+			redirect('cvpt');
+		} else {
+			redirect('cvpt/update-profile');
+		}
+	}
+
+	public function showUpdateForm()
+	{
+		$main = array(
+			'title' => 'Cố vấn phong thủy',
+			'view' => $this->load->view('CVPT/profile', '', TRUE),
+		);
+
+		$data1 = array(
+			'main' => $main,
+			'promotion' => $this->load->view('front_promotion', '', TRUE),
+			'footer' => $this->load->view('front_footer', '', TRUE),
+		);
+
+		return $this->load->view('front_layout', $data1, FALSE);
+	}
+
+	public function updateProfile()
+	{
+		$url = 'http://103.74.121.176/api/v1/vano/profile';
+//		$url = 'https://amduongnguhanh.vn/api/v1/vano/profile';
+
+		$data1 = array(
+			'full_name' => $this->input->post('full_name'),
+			'birth_day' => date('d/m/Y', strtotime($this->input->post('birth_day'))),
+			'hob' => date('H:i', $this->input->post('hob')),
+		);
+
+
+		date_default_timezone_set('UTC');
+		$date = date('Y-m-d').'T'.date('h:m:s.B').'Z';
+
+		$request_line = 'GET /api/v1/vano/services HTTP/1.1';
+
+		$digest = base64_encode(json_encode($data1));
+
+		$sign_text = 'date:'. $date . ' digest:'. $digest .' request-line:'.$request_line;
+
+		$hmac = base64_encode(hash_hmac('sha256', $sign_text, CVPT_CLIENT_SECRET, true));
+
+		$auth_signature = 'Signature keyId="'. CVPT_CLIENT_ID.'",algorithm="hmac-sha256",headers="date digest request-line",signature="'. $hmac .'"';
+
+		$ch = curl_init();
+
+		$headers = array(
+			'Content-Type: application/json',
+			'client-id: '. CVPT_CLIENT_ID,
+			'date: '. $date,
+			'digest: '. $digest,
+			'request-line: '. $request_line,
+			'token: '. $auth_signature,
+			'Authorization: Bearer '. $this->session->token_auth,
+		);
+
+		curl_setopt($ch, CURLOPT_URL, $url);
+		curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+		curl_setopt($ch, CURLOPT_POST, 1);
+		curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data1));
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+		curl_setopt($ch, CURLOPT_TIMEOUT, 10);
+
+		$update = json_decode(curl_exec($ch));
+
+		if ($update->status == 200) {
+			redirect('cvpt');
+		}
+	}
+
+	public function list_all()
+	{
+//		$this->checkProfile();
+
+		$main = array(
+			'title' => 'Cố vấn phong thủy',
+			'view' => $this->load->view('CVPT/services', '', TRUE),
+		);
+
+		$data1 = array(
+			'main' => $main,
+			'promotion' => $this->load->view('front_promotion', '', TRUE),
+			'footer' => $this->load->view('front_footer', '', TRUE),
+		);
+
+		return $this->load->view('front_layout', $data1, FALSE);
 	}
 }
