@@ -29,11 +29,11 @@
 								<div class="col-1">
 									<h2 class="white-text number-title text-wrap">2</h2>
 								</div>
-								<div class="col-11">
-									<h5 class="white-text">THỜI GIAN ÁP DỤNG</h5>
-									<p class="white-text">Từ 0:00:00 ngày <span class="yellow-text">30/11/2019</span>
-										đến 23:59:59 ngày <span class="yellow-text">27/02/2020 </span>(90 ngày) </p>
-								</div>
+<!--								<div class="col-11">-->
+<!--									<h5 class="white-text">THỜI GIAN ÁP DỤNG</h5>-->
+<!--									<p class="white-text">Từ 0:00:00 ngày <span class="yellow-text">03/03/2020</span>-->
+<!--										đến 23:59:59 ngày <span class="yellow-text">31/05/2020 </span>(90 ngày) </p>-->
+<!--								</div>-->
 							</div>
 							<hr>
 							<div class="row">
@@ -79,7 +79,7 @@
 												<td>10.000 VNĐ</td>
 												<td class="align-right">10.000</td>
 												<td class="align-right" rowspan="2">(*)</td>
-												<td class="align-right" rowspan="2">60.000.000</td>
+												<td class="align-right" rowspan="2">90.000.000</td>
 											</tr>
 											<tr>
 												<td>2</td>
@@ -91,7 +91,7 @@
 											<tr>
 												<td colspan="3" class="align-right">Tổng cộng</td>
 												<td class="align-right">(*)</td>
-												<td class="align-right">60.000.000</td>
+												<td class="align-right">90.000.000</td>
 											</tr>
 											</tfoot>
 										</table>
@@ -100,7 +100,7 @@
 									<p class="yellow-text span-bolder"><span><i class="fas fa-gift"></i></span> GHI CHÚ:
 									</p>
 									<p class="white-text">(*) Tổng số lượng giải thưởng trao cho khách hàng đến khi đạt
-										tổng giái trị giải thưởng đã trao là 60.000.000 VNĐ</p>
+										tổng giái trị giải thưởng đã trao là 90.000.000 VNĐ</p>
 								</div>
 							</div>
 							<hr>

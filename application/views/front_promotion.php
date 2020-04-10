@@ -9,11 +9,11 @@
 
 <main>
     <div class="container vh-center">
-        <div class="row">
-            <div class="col-11 vh-center img-fit">
-                <img src="<?= base_url('assets/images/qc2.jpg')?>" class="img-fit">
-            </div>
-        </div>
+<!--        <div class="row">-->
+<!--            <div class="col-11 vh-center img-fit">-->
+<!--                <img src="--><?//= base_url('assets/images/qc2.jpg')?><!--" class="img-fit">-->
+<!--            </div>-->
+<!--        </div>-->
         <div class="blank-80px"></div>
         <div class="row">
             <div class="col-11 vh-center">

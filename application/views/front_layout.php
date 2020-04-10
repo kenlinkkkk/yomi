@@ -115,15 +115,15 @@
 					<?php
 						endif;
 					?>
-					<?php
-						if ($this->session->msisdn != 'empty' && !empty($package['CV'])):
-					?>
+<!--					--><?php
+//						if ($this->session->msisdn != 'empty' && !empty($package['CV'])):
+//					?>
 						<li class="nav-item non-padding">
 							<a class="nav-link white-text" href="<?= base_url('cvpt')?>">CỐ VẤN PHONG THỦY</a>
 						</li>
-					<?php
-						endif;
-					?>
+<!--					--><?php
+//						endif;
+//					?>
 <!--                    <li class="nav-item  non-padding">-->
 <!--                        <a class="nav-link white-text" href="--><?//= base_url('minigame')?><!--">MINI GAME</a>-->
 <!--                    </li>-->

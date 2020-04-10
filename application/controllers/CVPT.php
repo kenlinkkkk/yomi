@@ -49,6 +49,9 @@ class CVPT extends MX_Controller
 			case 'post-update':
 				$this->updateProfile();
 				break;
+			case 'error':
+				$this->error_report();
+				break;
 			default :
 				$this->list_all();
 				break;
@@ -98,12 +101,15 @@ class CVPT extends MX_Controller
 
 			$login_resp = json_decode(curl_exec($ch));
 			curl_close($ch);
+			if ($login_resp['status'] == 200){
+				$array = array(
+					'token_auth' => $login_resp->data->token
+				);
 
-			$array = array(
-				'token_auth' => $login_resp->data->token
-			);
-
-			$this->session->set_userdata($array);
+				$this->session->set_userdata($array);
+			} else {
+//				redirect('cvpt/error');
+			}
 		}
 	}
 
@@ -369,18 +375,20 @@ class CVPT extends MX_Controller
 		$response = json_decode(curl_exec($ch));
 		curl_close($ch);
 
-		$main = array(
-			'title' => 'Nhân sinh',
-			'view' => $this->load->view('CVPT/service_luckycolor', $response, TRUE),
-		);
+		if ($response->status == 200) {
+			$main = array(
+				'title' => 'Nhân sinh',
+				'view' => $this->load->view('CVPT/service_luckycolor', $response, TRUE),
+			);
 
-		$data1 = array(
-			'main' => $main,
-			'promotion' => $this->load->view('front_promotion', '', TRUE),
-			'footer' => $this->load->view('front_footer', '', TRUE),
-		);
+			$data1 = array(
+				'main' => $main,
+				'promotion' => $this->load->view('front_promotion', '', TRUE),
+				'footer' => $this->load->view('front_footer', '', TRUE),
+			);
 
-		return $this->load->view('front_layout', $data1, FALSE);
+			return $this->load->view('front_layout', $data1, FALSE);
+		}
 	}
 
 	public function nhanSinh()
@@ -734,6 +742,22 @@ class CVPT extends MX_Controller
 		$main = array(
 			'title' => 'Cố vấn phong thủy',
 			'view' => $this->load->view('CVPT/services', '', TRUE),
+		);
+
+		$data1 = array(
+			'main' => $main,
+			'promotion' => $this->load->view('front_promotion', '', TRUE),
+			'footer' => $this->load->view('front_footer', '', TRUE),
+		);
+
+		return $this->load->view('front_layout', $data1, FALSE);
+	}
+
+	public function error_report()
+	{
+		$main = array(
+			'title' => 'Hệ thông bận',
+			'view' => $this->load->view('CVPT/error_report', '', TRUE),
 		);
 
 		$data1 = array(

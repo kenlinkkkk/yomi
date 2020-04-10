@@ -27,11 +27,17 @@ if ($this->session->msisdn != 'empty') {
                         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" style="position: relative; z-index: 2;">
                             <div class="carousel-inner" style="height: 350px;">
                                 <div class="carousel-item active">
-                                    <img class="d-block vh-center" src="<?=base_url('assets/images/slider/3.jpg')?>" alt="First slide">
+                                    <img class="d-block vh-center" src="<?=base_url('assets/images/slider/5.png')?>" alt="First slide">
                                     <div class="carousel-caption text-left bottom-40px">
                                         <a class="btn btn-lg btn-primary" href="<?=base_url('hoang-dao')?>" style="border-radius: 0px !important; display: none"><strong>XEM CHI TIẾT <span><i class="fas fa-chevron-right"></i></span></span></strong></a>
                                     </div>
                                 </div>
+								<div class="carousel-item">
+									<img class="d-block vh-center" src="<?=base_url('assets/images/slider/3.jpg')?>" alt="First slide">
+									<div class="carousel-caption text-left bottom-40px">
+										<a class="btn btn-lg btn-primary" href="<?=base_url('hoang-dao')?>" style="border-radius: 0px !important; display: none"><strong>XEM CHI TIẾT <span><i class="fas fa-chevron-right"></i></span></span></strong></a>
+									</div>
+								</div>
                                 <div class="carousel-item">
                                     <img class="d-block vh-center" src="<?=base_url('assets/images/slider/2.jpg')?>" alt="Second slide">
                                     <div class="carousel-caption text-left bottom-40px">
@@ -44,12 +50,12 @@ if ($this->session->msisdn != 'empty') {
                                         <a class="btn btn-lg btn-primary" href="<?=base_url('hoang-dao')?>" style="border-radius: 0px !important; display: none"><strong>XEM CHI TIẾT <span><i class="fas fa-chevron-right"></i></span></span></strong></a>
                                     </div>
                                 </div>
-								<div class="carousel-item">
-									<img class="d-block vh-center" src="<?=base_url('assets/images/slider/4.jpg')?>" alt="Third slide">
-									<div class="carousel-caption text-left bottom-40px">
-										<a class="btn btn-lg btn-primary" href="<?=base_url('khuyen-mai')?>" style="border-radius: 0px !important; display: none"><strong>XEM CHI TIẾT <span><i class="fas fa-chevron-right"></i></span></span></strong></a>
-									</div>
-								</div>
+<!--								<div class="carousel-item">-->
+<!--									<img class="d-block vh-center" src="--><?//=base_url('assets/images/slider/4.jpg')?><!--" alt="Third slide">-->
+<!--									<div class="carousel-caption text-left bottom-40px">-->
+<!--										<a class="btn btn-lg btn-primary" href="--><?//=base_url('khuyen-mai')?><!--" style="border-radius: 0px !important; display: none"><strong>XEM CHI TIẾT <span><i class="fas fa-chevron-right"></i></span></span></strong></a>-->
+<!--									</div>-->
+<!--								</div>-->
                             </div>
                             <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev" style="left: -100px">
                                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>

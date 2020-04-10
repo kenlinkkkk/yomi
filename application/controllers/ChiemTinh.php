@@ -155,7 +155,7 @@ class ChiemTinh extends MX_Controller
 		try{
 			$phone = $this->session->msisdn;
 			if ($phone != 'empty') {
-				$phone = substr($phone, 2, strlen($phone) - 2);
+				$phone = substr($phone, -9);
 
 				$results = $this->boi_sim($phone);
 
@@ -240,7 +240,7 @@ class ChiemTinh extends MX_Controller
 
 			if ($this->session->msisdn != 'empty') {
 				$data = array(
-					'phone' => '0'. substr($this->session->msisdn, 2, strlen($this->session->msisdn) - 2),
+					'phone' => '0'. substr($this->session->msisdn, -9),
 					'name' => $_POST['name'],
 					'email' => $_POST['email'],
 					'gender' => $_POST['gioitinh'],
@@ -255,7 +255,7 @@ class ChiemTinh extends MX_Controller
 
 			$results = sachkhampha(API_PAY_BOOK, $param);
 
-			echo $results->status;
+			echo $results['status'];
 			die();
 		} else {
 			$param = array(
