@@ -26,7 +26,12 @@ if ($this->session->msisdn != 'empty') {
                     <div class="col-11 vh-center">
                         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" style="position: relative; z-index: 2;">
                             <div class="carousel-inner" style="height: 350px;">
-                                <div class="carousel-item active">
+								<div class="carousel-item active">
+									<a href="https://bluezone.gov.vn/taiapp">
+										<img class="d-block vh-center" src="<?=base_url('assets/images/slider/6.png')?>" alt="First slide">
+									</a>
+								</div>
+                                <div class="carousel-item">
                                     <img class="d-block vh-center" src="<?=base_url('assets/images/slider/5.png')?>" alt="First slide">
                                     <div class="carousel-caption text-left bottom-40px">
                                         <a class="btn btn-lg btn-primary" href="<?=base_url('hoang-dao')?>" style="border-radius: 0px !important; display: none"><strong>XEM CHI TIẾT <span><i class="fas fa-chevron-right"></i></span></span></strong></a>
@@ -88,17 +93,17 @@ if ($this->session->msisdn != 'empty') {
                                 </div>
                                 <div class="card-footer text-center">
                                     <hr class="width-hr">
-                                    <a href="<?=base_url()?>tu-vi" class="btn btn-outline-light" style="border-radius: 0px !important;"><strong>XEM THÊM</strong></a>
+                                    <a href="<?=base_url('phong-thuy')?>" class="btn btn-outline-light" style="border-radius: 0px !important;"><strong>XEM THÊM</strong></a>
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div class="col-sm-12 col-lg-6 hidden-div">
                             <center>
                                 <img src="<?= base_url('assets/images/stickers/avatar_image.png')?>" class="img-fit hidden-div">
                             </center>
                         </div>
-                        
+
                         <div class="col-sm-12 col-md-6 col-lg-3">
                             <div class="card card-borderless" style="background-color:rgba(0, 0, 0, 0);">
                                 <div class="card-header text-center">
@@ -114,7 +119,7 @@ if ($this->session->msisdn != 'empty') {
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div class="col-12">
                             <img src="<?=base_url('assets/images/backgrounds/bgchome.png')?>" class="img-fit">
 

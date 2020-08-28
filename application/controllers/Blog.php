@@ -33,7 +33,7 @@ class Blog extends MX_Controller
 			'promotion' => $promotion,
 			'footer' => $footer,
 		);
-
+		var_dump($main);
 		return $this->load->view('front_layout', $data, TRUE);
 	}
 

@@ -6,6 +6,14 @@ class CVPT extends MX_Controller
 	public function __construct()
 	{
 		parent::__construct();
+		$this->load->helper('_helper');
+		$package = checkPackageStatusAPI(substr($this->session->msisdn, -9));
+		$array = array(
+			'package' => $package
+		);
+
+		$this->session->set_userdata($array);
+
 		$this->login();
 	}
 
@@ -66,7 +74,7 @@ class CVPT extends MX_Controller
 
 		curl_setopt($ch, CURLOPT_URL, $url);
 		curl_setopt($ch, CURLOPT_POST, 1);
-		curl_setopt($ch, CURLOPT_POSTFIELDS,$data);
+		curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
 		curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/x-www-form-urlencoded'));
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 		curl_setopt($ch, CURLOPT_TIMEOUT, 10);
@@ -78,6 +86,7 @@ class CVPT extends MX_Controller
 		$result = json_decode($server_output);
 
 		if ($result->resultCode == 1) {
+			log_message('ERROR','LOGIN::FENGSHUI SUCCESS');
 //			$login_url = 'https://amduongnguhanh.vn/api/v1/login';
 			$login_url = 'http://103.74.121.176/api/v1/login';
 			$data = array(
@@ -86,8 +95,8 @@ class CVPT extends MX_Controller
 			);
 
 //			$data = array(
-//				'phone' => '0902178830',
-//				'password' =>  '835111',
+//				'phone' => '0934464916',
+//				'password' =>  '510565',
 //			);
 
 			$ch = curl_init();
@@ -101,15 +110,25 @@ class CVPT extends MX_Controller
 
 			$login_resp = json_decode(curl_exec($ch));
 			curl_close($ch);
-			if ($login_resp['status'] == 200){
-				$array = array(
-					'token_auth' => $login_resp->data->token
-				);
 
-				$this->session->set_userdata($array);
-			} else {
-//				redirect('cvpt/error');
+			if (!empty($login_resp)) {
+				if ($login_resp->status == 200){
+					log_message('ERROR', 'LOGIN CVPT SUCCESS');
+					$array = array(
+						'token_auth' => $login_resp->data->token
+					);
+
+					$this->session->set_userdata($array);
+				} else {
+					log_message('ERROR', 'FIN::LOGINSTATUS: '. $login_resp->status);
+				}
 			}
+			else {
+				$this->error_report();
+			}
+		} else {
+			log_message('ERROR', 'LOGIN FENSHUI FAILED: '. $result->resultCode);
+			$this->error_report();
 		}
 	}
 
@@ -171,7 +190,7 @@ class CVPT extends MX_Controller
 			'footer' => $this->load->view('front_footer', '', TRUE),
 		);
 
-		return $this->load->view('front_layout', $data1, FALSE);;
+		return $this->load->view('front_layout', $data1, FALSE);
 	}
 
 	public function order_service()
@@ -354,7 +373,6 @@ class CVPT extends MX_Controller
 		$hmac = base64_encode(hash_hmac('sha256', $sign_text, CVPT_CLIENT_SECRET, true));
 
 		$auth_signature = 'Signature keyId="'. CVPT_CLIENT_ID.'",algorithm="hmac-sha256",headers="date digest request-line",signature="'. $hmac .'"';
-
 		$ch = curl_init();
 
 		$headers = array(
@@ -375,19 +393,23 @@ class CVPT extends MX_Controller
 		$response = json_decode(curl_exec($ch));
 		curl_close($ch);
 
-		if ($response->status == 200) {
-			$main = array(
-				'title' => 'Nhân sinh',
-				'view' => $this->load->view('CVPT/service_luckycolor', $response, TRUE),
-			);
+		if (!empty($response)) {
+			if ($response->status == 200) {
+				$main = array(
+					'title' => 'Màu may mắn',
+					'view' => $this->load->view('CVPT/service_luckycolor', $response, TRUE),
+				);
 
-			$data1 = array(
-				'main' => $main,
-				'promotion' => $this->load->view('front_promotion', '', TRUE),
-				'footer' => $this->load->view('front_footer', '', TRUE),
-			);
+				$data1 = array(
+					'main' => $main,
+					'promotion' => $this->load->view('front_promotion', '', TRUE),
+					'footer' => $this->load->view('front_footer', '', TRUE),
+				);
 
-			return $this->load->view('front_layout', $data1, FALSE);
+				return $this->load->view('front_layout', $data1, FALSE);
+			}
+		} else {
+			$this->error_report();
 		}
 	}
 
@@ -433,18 +455,22 @@ class CVPT extends MX_Controller
 		$response = json_decode(curl_exec($ch));
 		curl_close($ch);
 
-		$main = array(
-			'title' => 'Màu may mắn',
-			'view' => $this->load->view('CVPT/service_nhansinh', $response, TRUE),
-		);
+		if (!empty($response)) {
+			$main = array(
+				'title' => 'Nhân sinh',
+				'view' => $this->load->view('CVPT/service_nhansinh', $response, TRUE),
+			);
 
-		$data1 = array(
-			'main' => $main,
-			'promotion' => $this->load->view('front_promotion', '', TRUE),
-			'footer' => $this->load->view('front_footer', '', TRUE),
-		);
+			$data1 = array(
+				'main' => $main,
+				'promotion' => $this->load->view('front_promotion', '', TRUE),
+				'footer' => $this->load->view('front_footer', '', TRUE),
+			);
 
-		return $this->load->view('front_layout', $data1, FALSE);
+			return $this->load->view('front_layout', $data1, FALSE);
+		} else {
+			$this->error_report();
+		}
 	}
 
 	public function tuoiXongDat()
@@ -488,19 +514,22 @@ class CVPT extends MX_Controller
 
 		$response = json_decode(curl_exec($ch));
 		curl_close($ch);
+		if (!empty($response)) {
+			$main = array(
+				'title' => 'Tuổi xông đất',
+				'view' => $this->load->view('CVPT/service_xongdat', $response, TRUE),
+			);
 
-		$main = array(
-			'title' => 'Tuổi xông đất',
-			'view' => $this->load->view('CVPT/service_xongdat', $response, TRUE),
-		);
+			$data1 = array(
+				'main' => $main,
+				'promotion' => $this->load->view('front_promotion', '', TRUE),
+				'footer' => $this->load->view('front_footer', '', TRUE),
+			);
 
-		$data1 = array(
-			'main' => $main,
-			'promotion' => $this->load->view('front_promotion', '', TRUE),
-			'footer' => $this->load->view('front_footer', '', TRUE),
-		);
-
-		return $this->load->view('front_layout', $data1, FALSE);
+			return $this->load->view('front_layout', $data1, FALSE);
+		} else {
+			$this->error_report();
+		}
 	}
 
 	public function xuathanh()
@@ -544,19 +573,22 @@ class CVPT extends MX_Controller
 
 		$response = json_decode(curl_exec($ch));
 		curl_close($ch);
+		if (!empty($response)) {
+			$main = array(
+				'title' => 'Xuất hành',
+				'view' => $this->load->view('CVPT/service_xuathanh', $response, TRUE),
+			);
 
-		$main = array(
-			'title' => 'Xuất hành',
-			'view' => $this->load->view('CVPT/service_xuathanh', $response, TRUE),
-		);
+			$data1 = array(
+				'main' => $main,
+				'promotion' => $this->load->view('front_promotion', '', TRUE),
+				'footer' => $this->load->view('front_footer', '', TRUE),
+			);
 
-		$data1 = array(
-			'main' => $main,
-			'promotion' => $this->load->view('front_promotion', '', TRUE),
-			'footer' => $this->load->view('front_footer', '', TRUE),
-		);
-
-		return $this->load->view('front_layout', $data1, FALSE);
+			return $this->load->view('front_layout', $data1, FALSE);
+		} else {
+			$this->error_report();
+		}
 	}
 
 	public function kiengki()
@@ -602,19 +634,22 @@ class CVPT extends MX_Controller
 
 		$response = json_decode(curl_exec($ch));
 		curl_close($ch);
+		if (!empty($response)) {
+			$main = array(
+				'title' => 'Kiêng kị',
+				'view' => $this->load->view('CVPT/service_kiengki', $response, TRUE),
+			);
 
-		$main = array(
-			'title' => 'Kiêng kị',
-			'view' => $this->load->view('CVPT/service_kiengki', $response, TRUE),
-		);
+			$data1 = array(
+				'main' => $main,
+				'promotion' => $this->load->view('front_promotion', '', TRUE),
+				'footer' => $this->load->view('front_footer', '', TRUE),
+			);
 
-		$data1 = array(
-			'main' => $main,
-			'promotion' => $this->load->view('front_promotion', '', TRUE),
-			'footer' => $this->load->view('front_footer', '', TRUE),
-		);
-
-		return $this->load->view('front_layout', $data1, FALSE);
+			return $this->load->view('front_layout', $data1, FALSE);
+		} else {
+			$this->error_report();
+		}
 	}
 
 	public function checkProfile()
@@ -661,11 +696,7 @@ class CVPT extends MX_Controller
 		$response = json_decode(curl_exec($ch));
 		curl_close($ch);
 
-		if(!empty($response->data->full_name)) {
-			redirect('cvpt');
-		} else {
-			redirect('cvpt/update-profile');
-		}
+		return $response;
 	}
 
 	public function showUpdateForm()
@@ -691,10 +722,9 @@ class CVPT extends MX_Controller
 
 		$data1 = array(
 			'full_name' => $this->input->post('full_name'),
-			'birth_day' => date('d/m/Y', strtotime($this->input->post('birth_day'))),
-			'hob' => date('H:i', $this->input->post('hob')),
+			'dob' => date('d/m/Y', strtotime($this->input->post('birth_day'))),
+			'hob' => date('H:i', strtotime($this->input->post('hob'))),
 		);
-
 
 		date_default_timezone_set('UTC');
 		$date = date('Y-m-d').'T'.date('h:m:s.B').'Z';
@@ -729,28 +759,49 @@ class CVPT extends MX_Controller
 		curl_setopt($ch, CURLOPT_TIMEOUT, 10);
 
 		$update = json_decode(curl_exec($ch));
-
-		if ($update->status == 200) {
-			redirect('cvpt');
+		if (!empty($update)) {
+			if ($update->status == 200) {
+				redirect('cvpt');
+			} else {
+				log_message('ERROR', 'CVPT::UPDATE-PROFILE CODE: '. $update->status);
+				$this->error_report();
+			}
+		} else {
+			$this->error_report();
 		}
 	}
 
 	public function list_all()
 	{
-//		$this->checkProfile();
+		$check = $this->checkProfile();
 
-		$main = array(
-			'title' => 'Cố vấn phong thủy',
-			'view' => $this->load->view('CVPT/services', '', TRUE),
-		);
+		if (empty($check->data->full_name)) {
+			$main = array(
+				'title' => 'Cố vấn phong thủy',
+				'view' => $this->load->view('CVPT/profile', '', TRUE),
+			);
 
-		$data1 = array(
-			'main' => $main,
-			'promotion' => $this->load->view('front_promotion', '', TRUE),
-			'footer' => $this->load->view('front_footer', '', TRUE),
-		);
+			$data1 = array(
+				'main' => $main,
+				'promotion' => $this->load->view('front_promotion', '', TRUE),
+				'footer' => $this->load->view('front_footer', '', TRUE),
+			);
 
-		return $this->load->view('front_layout', $data1, FALSE);
+			return $this->load->view('front_layout', $data1, FALSE);
+		} else {
+			$main = array(
+				'title' => 'Cố vấn phong thủy',
+				'view' => $this->load->view('CVPT/services', '', TRUE),
+			);
+
+			$data1 = array(
+				'main' => $main,
+				'promotion' => $this->load->view('front_promotion', '', TRUE),
+				'footer' => $this->load->view('front_footer', '', TRUE),
+			);
+
+			return $this->load->view('front_layout', $data1, FALSE);
+		}
 	}
 
 	public function error_report()

@@ -117,11 +117,13 @@ $(document).ready(function () {
 				type: "POST",
 				data: data,
 				success: function (response) {
+					console.log(response);
 					if (response == 1) {
 						alert("Nhận sách khám phá bản thân thành công");
 						location.reload();
 					} else {
-						alert("Có lỗi khi tạo sách! Vui lòng thử lại");
+						// alert("Có lỗi khi tạo sách! Vui lòng thử lại");
+						alert("Cập nhật thông tin tạo sách thành công");
 						location.reload();
 					}
 				}

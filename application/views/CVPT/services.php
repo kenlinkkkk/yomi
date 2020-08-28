@@ -17,7 +17,7 @@
 						<hr class="width-hr">
 
 						<?php
-							if ($this->session->msisdn != 'empty' && !empty($package['CV'])):
+							if ($this->session->msisdn != 'empty' && !empty($this->session->package['CV'])):
 						?>
 						<a class="btn btn-primary none-radius" href="<?= base_url('cvpt/mau-may-man')?>">XEM THÊM</a>
 						<?php
@@ -41,7 +41,7 @@
 					<div class="card-footer text-center">
 						<hr class="width-hr">
 						<?php
-						if ($this->session->msisdn != 'empty' && !empty($package['CV'])):
+						if ($this->session->msisdn != 'empty' && !empty($this->session->package['CV'])):
 						?>
 						<a class="btn btn-primary none-radius" href="<?= base_url('cvpt/nhan-sinh')?>">XEM THÊM</a>
 						<?php
@@ -65,7 +65,7 @@
 					<div class="card-footer text-center">
 						<hr class="width-hr">
 						<?php
-						if ($this->session->msisdn != 'empty' && !empty($package['CV'])):
+						if ($this->session->msisdn != 'empty' && !empty($this->session->package['CV'])):
 						?>
 						<a class="btn btn-primary none-radius" href="<?= base_url('cvpt/tuoi-xong-dat')?>">XEM THÊM</a>
 						<?php
@@ -89,7 +89,7 @@
 					<div class="card-footer text-center">
 						<hr class="width-hr">
 						<?php
-						if ($this->session->msisdn != 'empty' && !empty($package['CV'])):
+						if ($this->session->msisdn != 'empty' && !empty($this->session->package['CV'])):
 						?>
 						<a class="btn btn-primary none-radius" href="<?= base_url('cvpt/xuat-hanh')?>">XEM THÊM</a>
 						<?php
@@ -113,7 +113,7 @@
 					<div class="card-footer text-center">
 						<hr class="width-hr">
 						<?php
-						if ($this->session->msisdn != 'empty' && !empty($package['CV'])):
+						if ($this->session->msisdn != 'empty' && !empty($this->session->package['CV'])):
 						?>
 						<a class="btn btn-primary none-radius" href="<?= base_url('cvpt/kieng-ki')?>">XEM THÊM</a>
 						<?php

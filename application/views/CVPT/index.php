@@ -30,7 +30,7 @@
 					</div>
 					<div class="card-body text-center">
 						<hr class="width-hr">
-						<h4 class="yellow-text">TÌM Ê KÍP HỢP TUỔI</h4>
+						<h4 class="yellow-text">TÌM Ê KÍP HỢP 	TUỔI</h4>
 						<p class="white-text">Tên bạn và những người bạn quan tâm ảnh hưởng như thế nào đến vận mệnh.?</p>
 					</div>
 					<div class="card-footer text-center">

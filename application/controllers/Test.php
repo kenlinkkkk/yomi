@@ -20,7 +20,11 @@ class Test extends MX_Controller
 
 	public function index()
 	{
-		echo "aksjdhakjdh";
+		$phone = substr($this->session->msisdn, -9);
+		$pk = checkPackageStatusAPI($phone);
+
+
+		var_dump($pk);
 	}
 
 

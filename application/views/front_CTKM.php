@@ -29,11 +29,11 @@
 								<div class="col-1">
 									<h2 class="white-text number-title text-wrap">2</h2>
 								</div>
-<!--								<div class="col-11">-->
-<!--									<h5 class="white-text">THỜI GIAN ÁP DỤNG</h5>-->
-<!--									<p class="white-text">Từ 0:00:00 ngày <span class="yellow-text">03/03/2020</span>-->
-<!--										đến 23:59:59 ngày <span class="yellow-text">31/05/2020 </span>(90 ngày) </p>-->
-<!--								</div>-->
+								<div class="col-11">
+									<h5 class="white-text">THỜI GIAN ÁP DỤNG</h5>
+									<p class="white-text">Từ 0:00:00 ngày <span class="yellow-text">16/06/2020</span>
+										đến 23:59:59 ngày <span class="yellow-text">13/09/2020 </span>(90 ngày) </p>
+								</div>
 							</div>
 							<hr>
 							<div class="row">

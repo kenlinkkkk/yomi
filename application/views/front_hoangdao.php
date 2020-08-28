@@ -98,27 +98,27 @@ if ($this->session->msisdn != 'empty') {
                         <div class="col-sm-12 col-md-2">
                             <div class="blank-80px"></div>
                         </div>
-                        <div class="col-sm-12 col-md-5">
-                            <div class="card" style="background-color: rgba(0,0,0,0)">
-                                <div class="card-header text-center">
-                                    <hr>
-                                    <img src="<?= base_url('assets/images/stickers/horo4.png')?>" class="vh-center img-fit">
-                                    <hr>
-                                </div>
-                                <div class="card-body text-center">
-                                    <hr class="width-hr">
-                                    <h4 class="blue-text">KẾT HỢP CUNG HOÀNG ĐẠO</h4>
-                                    <p class="white-text">Sư tử và Xử nữ, Bảo bình và Ma kết,..? Các cung khi kết hợp với nhau sẽ như thế nào?</p>
-									<?php
-										if ($this->session->msisdn != 'empty') {
-											if (!empty($package['CV']) || !empty($package['QT']) || !empty($package['PT']) || !empty($package['PT'])) {
-												echo '<a href="javascript://" class="btn btn-warning disabled" rel="ket-hop-cung-hoang-dao">ĐANG CẬP NHẬT</a>';
-											}
-										}
-									?>
-								</div>
-                            </div>
-                        </div>
+<!--                        <div class="col-sm-12 col-md-5">-->
+<!--                            <div class="card" style="background-color: rgba(0,0,0,0)">-->
+<!--                                <div class="card-header text-center">-->
+<!--                                    <hr>-->
+<!--                                    <img src="--><?//= base_url('assets/images/stickers/horo4.png')?><!--" class="vh-center img-fit">-->
+<!--                                    <hr>-->
+<!--                                </div>-->
+<!--                                <div class="card-body text-center">-->
+<!--                                    <hr class="width-hr">-->
+<!--                                    <h4 class="blue-text">KẾT HỢP CUNG HOÀNG ĐẠO</h4>-->
+<!--                                    <p class="white-text">Sư tử và Xử nữ, Bảo bình và Ma kết,..? Các cung khi kết hợp với nhau sẽ như thế nào?</p>-->
+<!--									--><?php
+//										if ($this->session->msisdn != 'empty') {
+//											if (!empty($package['CV']) || !empty($package['QT']) || !empty($package['PT']) || !empty($package['PT'])) {
+//												echo '<a href="javascript://" class="btn btn-warning disabled" rel="ket-hop-cung-hoang-dao">ĐANG CẬP NHẬT</a>';
+//											}
+//										}
+//									?>
+<!--								</div>-->
+<!--                            </div>-->
+<!--                        </div>-->
                     </div>
 
                 </div>

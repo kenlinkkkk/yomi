@@ -32,7 +32,7 @@ class ChiemTinh extends MX_Controller
 
 		if ($segment1 == 'chiem-tinh') {
 			switch ($segment2) {
-				case 'xem-sim':
+				case 'boi-sim':
 					$main = $this->view_boisim();
 					break;
 				case 'tong-quan-cung-hoang-dao';
@@ -147,7 +147,7 @@ class ChiemTinh extends MX_Controller
 			'kq' => $kq,
 			'dien_giai' => $dien_giai[0]['dien_giai'],
 		);
-
+		
 		return $results;
 	}
 
@@ -435,21 +435,16 @@ class ChiemTinh extends MX_Controller
 			$endDate = new DateTime($value['todate'] .'/'. $user_info['birth_year']);
 
 			if ($birth >= $startDate && $birth <= $endDate) {
-				$data_horo = array(
-					'key' => $key,
-					'value' => $value,
-				);
-			} elseif ($birth >= $startDate || $birth <= $endDate) {
-				$data_horo = array(
-					'key' => 10,
-					'value' => $cung_hoang_dao[10],
-				);
-			} else {
-				$data_horo = array(
-					'key' => 5,
-					'value' => $cung_hoang_dao[5],
-				);
-			}
+                $data_horo = array(
+                    'key' => $key,
+                    'value' => $value,
+                );
+            } elseif ($birth >= new DateTime('12/22/'.$user_info['birth_year'])|| $birth <= new DateTime('1/19/'.$user_info['birth_year'])) {
+                $data_horo = array(
+                    'key' => 10,
+                    'value' => $cung_hoang_dao[10],
+                );
+            }
 		}
 
 		$dien_giai = $this->query->getHoroDetail($data_horo['key']);
@@ -514,23 +509,18 @@ class ChiemTinh extends MX_Controller
 
 			$endDate = new DateTime($value['todate'] .'/'. $user_info['birth_year']);
 
+
 			if ($birth >= $startDate && $birth <= $endDate) {
 				$data_horo = array(
 					'info' => $info,
 					'key' => $key,
 					'value' => $value,
 				);
-			} elseif ($birth >= $startDate || $birth <= $endDate) {
+			} elseif ($birth >= new DateTime('12/22/'.$user_info['birth_year'])|| $birth <= new DateTime('1/19/'.$user_info['birth_year'])) {
 				$data_horo = array(
 					'info' => $info,
 					'key' => 10,
 					'value' => $cung_hoang_dao[10],
-				);
-			} else {
-				$data_horo = array(
-					'info' => $info,
-					'key' => 5,
-					'value' => $cung_hoang_dao[5],
 				);
 			}
 		}
