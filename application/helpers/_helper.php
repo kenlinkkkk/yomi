@@ -91,23 +91,27 @@ function checkPackageStatusAPI($msisdn) {
 	curl_close ($ch);
 
 	$data = json_decode($server_output);
+
 	$array = array();
-	if ($data->resultCode == 1) {
+
+	if (intval($data->resultCode) == 1) {
 		$data1 = $data->data;
 		$array['status'] = 1;
 		foreach ($data1 as $item => $value) {
+//			echo intval($value->packageId) .' - '. intval($value->status) .'<br>';
+
 			if (intval($value->packageId) == 1 && intval($value->status) == 1) {
-				$array["KP"] = 'ACTIVE';
+				$array['KP'] = 'ACTIVE';
 			} elseif (intval($value->packageId) == 2 && intval($value->status) == 1){
-				$array["KP7"] = 'ACTIVE';
+				$array['KP7'] = 'ACTIVE';
 			} elseif (intval($value->packageId) == 5 && intval($value->status) == 1) {
-				$array["PT"] = 'ACTIVE';
+				$array['PT'] = 'ACTIVE';
 			} elseif (intval($value->packageId) == 7 && intval($value->status) == 1) {
-				$array["PT7"] = 'ACTIVE';
+				$array['PT7'] = 'ACTIVE';
 			} elseif (intval($value->packageId) == 11 && intval($value->status) == 1) {
-				$array["QT"] = 'ACTIVE';
+				$array['QT'] = 'ACTIVE';
 			} elseif (intval($value->packageId) == 12 && intval($value->status) == 1) {
-				$array["CV"] = 'ACTIVE';
+				$array['CV'] = 'ACTIVE';
 			}
 		}
 	} else {

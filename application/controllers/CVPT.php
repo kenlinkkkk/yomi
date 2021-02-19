@@ -84,6 +84,8 @@ class CVPT extends MX_Controller
 		curl_close ($ch);
 
 		$result = json_decode($server_output);
+//		var_dump($result);
+//		die();
 
 		if ($result->resultCode == 1) {
 			log_message('ERROR','LOGIN::FENGSHUI SUCCESS');
@@ -110,7 +112,8 @@ class CVPT extends MX_Controller
 
 			$login_resp = json_decode(curl_exec($ch));
 			curl_close($ch);
-
+//			var_dump($login_resp);
+//			die();
 			if (!empty($login_resp)) {
 				if ($login_resp->status == 200){
 					log_message('ERROR', 'LOGIN CVPT SUCCESS');
@@ -726,6 +729,7 @@ class CVPT extends MX_Controller
 			'hob' => date('H:i', strtotime($this->input->post('hob'))),
 		);
 
+
 		date_default_timezone_set('UTC');
 		$date = date('Y-m-d').'T'.date('h:m:s.B').'Z';
 
@@ -775,20 +779,20 @@ class CVPT extends MX_Controller
 	{
 		$check = $this->checkProfile();
 
-		if (empty($check->data->full_name)) {
-			$main = array(
-				'title' => 'Cố vấn phong thủy',
-				'view' => $this->load->view('CVPT/profile', '', TRUE),
-			);
-
-			$data1 = array(
-				'main' => $main,
-				'promotion' => $this->load->view('front_promotion', '', TRUE),
-				'footer' => $this->load->view('front_footer', '', TRUE),
-			);
-
-			return $this->load->view('front_layout', $data1, FALSE);
-		} else {
+//		if (empty($check->data->full_name)) {
+//			$main = array(
+//				'title' => 'Cố vấn phong thủy',
+//				'view' => $this->load->view('CVPT/profile', '', TRUE),
+//			);
+//
+//			$data1 = array(
+//				'main' => $main,
+//				'promotion' => $this->load->view('front_promotion', '', TRUE),
+//				'footer' => $this->load->view('front_footer', '', TRUE),
+//			);
+//
+//			return $this->load->view('front_layout', $data1, FALSE);
+//		} else {
 			$main = array(
 				'title' => 'Cố vấn phong thủy',
 				'view' => $this->load->view('CVPT/services', '', TRUE),
@@ -801,7 +805,7 @@ class CVPT extends MX_Controller
 			);
 
 			return $this->load->view('front_layout', $data1, FALSE);
-		}
+//		}
 	}
 
 	public function error_report()

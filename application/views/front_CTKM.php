@@ -21,7 +21,7 @@
 								</div>
 								<div class="col-11">
 									<h5 class="white-text">TÊN CHƯƠNG TRÌNH KHUYẾN MẠI</h5>
-									<p class="yellow-text">&#34 Phong Thủy Đổi Vận &#34</p>
+									<p class="yellow-text">&#34 Phong Thủy Tài Lộc &#34</p>
 								</div>
 							</div>
 							<hr>
@@ -31,8 +31,8 @@
 								</div>
 								<div class="col-11">
 									<h5 class="white-text">THỜI GIAN ÁP DỤNG</h5>
-									<p class="white-text">Từ 0:00:00 ngày <span class="yellow-text">16/06/2020</span>
-										đến 23:59:59 ngày <span class="yellow-text">13/09/2020 </span>(90 ngày) </p>
+									<p class="white-text">Từ 0:00:00 ngày <span class="yellow-text">17/12/2020</span>
+										đến 23:59:59 ngày <span class="yellow-text">16/03/2021 </span>(90 ngày) </p>
 								</div>
 							</div>
 							<hr>
