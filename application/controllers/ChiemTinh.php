@@ -226,47 +226,46 @@ class ChiemTinh extends MX_Controller
 	#region FUNCTION SACH KHAM PHA
 	public function sachkhampha()
 	{
-		if (!empty($_POST['name'])) {
-			$param = array(
-				'email' => $_POST['email'],
-				'birth_hour' => $_POST['giosinh'],
-				'birth_date' => $_POST['ngaysinh'],
-				'birth_month' => $_POST['thangsinh'],
-				'birth_year' => $_POST['namsinh'],
-				'gender' => $_POST['gioitinh'],
-				'fullname' => $_POST['name'],
-				'username' => substr($this->session->msisdn, 1, strlen($this->session->msisdn) - 1),
-			);
-
-			if ($this->session->msisdn != 'empty') {
-				$data = array(
-					'phone' => '0'. substr($this->session->msisdn, -9),
-					'name' => $_POST['name'],
-					'email' => $_POST['email'],
-					'gender' => $_POST['gioitinh'],
-					'birth_hour' => $_POST['giosinh'],
-					'birth_day' => $_POST['ngaysinh'],
-					'birth_month' => $_POST['thangsinh'],
-					'birth_year' => $_POST['namsinh'],
-				);
-
-				$add_status = $this->query->addUser($data);
-			}
-
-			$results = sachkhampha(API_PAY_BOOK, $param);
-
-			echo $results['status'];
-			die();
-		} else {
+//		if (!empty($_POST['name'])) {
+//			$param = array(
+//				'email' => $_POST['email'],
+//				'birth_hour' => $_POST['giosinh'],
+//				'birth_date' => $_POST['ngaysinh'],
+//				'birth_month' => $_POST['thangsinh'],
+//				'birth_year' => $_POST['namsinh'],
+//				'gender' => $_POST['gioitinh'],
+//				'fullname' => $_POST['name'],
+//				'username' => substr($this->session->msisdn, 1, strlen($this->session->msisdn) - 1),
+//			);
+//
+//			if ($this->session->msisdn != 'empty') {
+//				$data = array(
+//					'phone' => '0'. substr($this->session->msisdn, -9),
+//					'name' => $_POST['name'],
+//					'email' => $_POST['email'],
+//					'gender' => $_POST['gioitinh'],
+//					'birth_hour' => $_POST['giosinh'],
+//					'birth_day' => $_POST['ngaysinh'],
+//					'birth_month' => $_POST['thangsinh'],
+//					'birth_year' => $_POST['namsinh'],
+//				);
+//
+//				$add_status = $this->query->addUser($data);
+//			}
+//
+//			$results = sachkhampha(API_PAY_BOOK, $param);
+//
+//			echo $results['status'];
+//			die();
+//		} else {
 			$param = array(
 				'email' => $_POST['email'],
 			);
 
 			$results = sachkhampha(API_TRAIL_BOOK, $param);
-
 			echo $results->status;
 			die();
-		}
+//		}
 	}
 	#endregion
 

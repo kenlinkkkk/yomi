@@ -125,15 +125,23 @@ function sachkhampha($url, $param) {
 	$ch = curl_init();
 	$post = http_build_query($param);
 
-	curl_setopt($ch, CURLOPT_URL, $url);
-	curl_setopt($ch, CURLOPT_POST, 1);
-	curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
-	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-	curl_setopt($ch, CURLOPT_TIMEOUT, 300);
-
+	curl_setopt_array($ch, array(
+		CURLOPT_URL => $url.'?email=tungnt15ptit@gmail.com',
+		CURLOPT_RETURNTRANSFER => true,
+		CURLOPT_ENCODING => '',
+		CURLOPT_MAXREDIRS => 10,
+		CURLOPT_TIMEOUT => 30,
+		CURLOPT_FOLLOWLOCATION => true,
+		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+		CURLOPT_CUSTOMREQUEST => 'POST',
+		CURLOPT_POST => 1,
+		CURLOPT_POSTFIELDS => $post,
+		CURLOPT_HTTPHEADER => array(
+			'Content-Type: application/x-www-form-urlencoded'
+		),
+	));
 
 	$server_output = curl_exec($ch);
-
 	curl_close($ch);
 
 	return json_decode($server_output);

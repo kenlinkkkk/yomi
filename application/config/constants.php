@@ -93,7 +93,7 @@ define('YOMI_KEY_MOBI', 'km12tXwuXaJ8Hagh');
 define('MOBIFONE_CONFIRM', 'http://free.mobifone.vn/confirm');
 define('MOBIFONE_ISDN','http://free.mobifone.vn/isdn');
 define('API_TRAIL_BOOK', 'http://127.0.0.1:8081/yoctbs/email/trial_email');
-define('API_PAY_BOOK', 'http://127.0.0.1:8081/yoctbs/email/trial_email');
+define('API_PAY_BOOK', 'http://localhost:8081/yoctbs/email/trial_email');
 //define('API_PAY_BOOK', 'http://127.0.0.1:8081/email/ctbs_email');
 
 define('CVPT_CLIENT_ID', 'mobifone2019');
